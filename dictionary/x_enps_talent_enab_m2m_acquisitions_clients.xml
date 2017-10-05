@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Acquisitions Clients" max_length="40" name="x_enps_talent_enab_m2m_acquisitions_clients" type="collection">
+        <element label="Acquisition" max_length="32" name="acquisition" reference="x_enps_talent_enab_acquisition" type="reference"/>
+        <element label="Client" max_length="32" name="client" reference="x_enps_talent_enab_client" type="reference"/>
+        <index name="index">
+            <element name="client"/>
+        </index>
+        <index name="index2">
+            <element name="acquisition"/>
+        </index>
+    </element>
+</database>

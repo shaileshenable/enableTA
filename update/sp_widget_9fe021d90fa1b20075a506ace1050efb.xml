@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function($scope) {
+  /* widget controller */
+  var c = this;
+	
+	var slider1 = new Slider('#ex1', {
+		formatter: function(value) {
+			return value;
+		},
+		tooltip: 'always',
+		value: c.data.userPrefSearchValue.skillWeight
+	});		
+		
+	var slider2 = new Slider('#ex2', {
+	formatter: function(value) {
+		return value;
+	},
+		tooltip: 'always',
+		value: c.data.userPrefSearchValue.certWeight
+	});
+							
+	var slider3 = new Slider('#ex3', {
+	formatter: function(value) {
+		return value;
+	},
+		tooltip: 'always',
+		value: c.data.userPrefSearchValue.expWeight
+	});
+	
+	var slider4 = new Slider('#ex4', {
+	formatter: function(value) {
+		return value;
+	},
+		tooltip: 'always',
+		value: c.data.userPrefSearchValue.resWeight
+	});
+	
+	var slider5 = new Slider('#ex5', {
+	formatter: function(value) {
+		return value;
+	},
+		tooltip: 'always',
+		value: c.data.userPrefSearchValue.refWeight
+	});
+
+	$scope.savePreferences = function() {
+		c.data.userPrefSearchValue.skillWeight = slider1.getValue();
+		c.data.userPrefSearchValue.certWeight = slider2.getValue();
+		c.data.userPrefSearchValue.expWeight = slider3.getValue();
+		c.data.userPrefSearchValue.resWeight = slider4.getValue();
+		c.data.userPrefSearchValue.refWeight = slider5.getValue();		
+		
+		$scope.server.update().then(function(ret) {
+			// The record watcher will handle this data change
+			console.log('Save Sccessfully');
+		}, function(err) {
+			console.log('Save Error: ' + err);
+		});
+		
+		return;
+	};
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>/*&#13;
+#ex1Slider .slider-selection {&#13;
+	background: #BABABA;&#13;
+}&#13;
+*/&#13;
+&#13;
+.row {&#13;
+  padding-top: 20px;&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description>Allow user to weight the search criteria across the defined aspects</description>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>search-weight-selection</id>
+        <internal>false</internal>
+        <link/>
+        <name>Search Weight Preferences TA</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */
+	data.userPrefSearchName = 'TA Search Weightings';
+	
+	var upGr = new GlideRecord('x_enps_talent_enab_recruiter_preference');		
+	
+	if(input) {
+		// Update preferences
+		gs.info('RST >> User Prefs Input: ' + JSON.stringify(input));
+		
+		upGr = new GlideRecord('x_enps_talent_enab_recruiter_preference');
+		upGr.addQuery('name', data.userPrefSearchName);
+		upGr.addQuery('user', gs.getUserID());
+		upGr.query();
+		if(upGr.hasNext()) {
+			upGr.next();
+			upGr.value = JSON.stringify(input.userPrefSearchValue);
+			upGr.update();
+		} else {
+			// Otherwise insert new user prefs
+			upGr = new GlideRecord('x_enps_talent_enab_recruiter_preference');
+			upGr.initialize();
+			upGr.user = gs.getUserID();
+			upGr.name = data.userPrefSearchName;
+			upGr.value = JSON.stringify(input.userPrefSearchValue);
+			upGr.insert();
+		}		
+	} else {		
+		//data.userPrefSearchValue = '{}';
+
+		// Get user prefs
+			upGr = new GlideRecord('x_enps_talent_enab_recruiter_preference');
+			upGr.addQuery('name', data.userPrefSearchName);
+			upGr.addQuery('user', gs.getUserID());
+			upGr.query();
+			if(upGr.hasNext()) {
+				upGr.next();				
+				data.userPrefSearchValue = JSON.parse(upGr.value.toString());				
+			} else {
+				// Otherwise get sys prefs
+				data.userPrefSearchValue = {};
+				data.userPrefSearchValue.jobRole = false;
+				data.userPrefSearchValue.industry = 'false';
+				data.userPrefSearchValue.rightToWork = 'false';
+				data.userPrefSearchValue.appStage = 'false';
+				data.userPrefSearchValue.salary = 'false';
+				
+				data.userPrefSearchValue.skillWeight = parseInt(gs.getProperty('x_enps_talent_enab.TAI Weight - Skills'));				
+				data.userPrefSearchValue.certWeight = parseInt(gs.getProperty('x_enps_talent_enab.TAI Weight - Certification'));
+				data.userPrefSearchValue.expWeight = parseInt(gs.getProperty('x_enps_talent_enab.TAI Weight - Experiences'));
+				data.userPrefSearchValue.resWeight = parseInt(gs.getProperty('x_enps_talent_enab.TAI Weight - References'));
+				data.userPrefSearchValue.refWeight = parseInt(gs.getProperty('x_enps_talent_enab.TAI Weight - Resume'));
+			}
+		}
+		
+	})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-03-15 23:53:39</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>9fe021d90fa1b20075a506ace1050efb</sys_id>
+        <sys_mod_count>121</sys_mod_count>
+        <sys_name>Search Weight Preferences TA</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sp_widget_9fe021d90fa1b20075a506ace1050efb</sys_update_name>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-05 06:26:39</sys_updated_on>
+        <template><![CDATA[<div>
+  <!-- your widget template -->
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">Search Weightings - User Preferences</h3>
+    </div>
+    <div class="panel-body">      
+      <div class="row">
+        <div class="col-xs-3 col-md-offset-2">
+          <h3 class="text-primary">Absolute</h3>
+        </div>
+
+        <div class="col-xs-2 text-right">
+          
+        </div>
+        <div class="col-xs-3 form-inline">
+        	<h3 class="text-primary">Sort and Rank</h3>
+        </div>
+      </div>
+      
+      
+      <div class="row">
+        <div class="col-xs-3 col-md-offset-2">
+          <div class="checkbox">
+            <label>
+              <!--  -->
+            <input type="checkbox" ng-model="c.data.userPrefSearchValue.jobRole"> Job Role
+          </label>
+          </div>
+        </div>
+
+        <div class="col-xs-2 text-right">
+          <label for="ex1">Skill Weight</label>
+        </div>
+        <div class="col-xs-3 form-inline">
+          <div class="form-group">
+            <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" />          
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3 col-md-offset-2">
+          <div class="checkbox">
+            <label>
+            <input type="checkbox" ng-model="c.data.userPrefSearchValue.industry"> Industry
+          </label>
+          </div>
+        </div>
+        <div class="col-xs-2 text-right">
+          <label for="ex1">Certification Weight</label>
+        </div>
+        <div class="col-xs-3">
+          <input id="ex2" data-slider-id='ex2Slider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="14"
+          />
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3 col-md-offset-2">
+          <div class="checkbox">
+            <label>
+            <input type="checkbox" ng-model="c.data.userPrefSearchValue.rightToWork"> Right to work
+          </label>
+          </div>
+        </div>
+        <div class="col-xs-2 text-right">
+          <label for="ex1">Experience Weight</label>
+        </div>
+        <div class="col-xs-3">
+          <input id="ex3" data-slider-id='ex3Slider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="14"
+          />
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3 col-md-offset-2">
+          <div class="checkbox">
+            <label>
+            <input type="checkbox" ng-disabled="true" ng-model="c.data.userPrefSearchValue.appStage"> App Stage
+          </label>
+          </div>
+        </div>
+        <div class="col-xs-2 text-right">
+          <label for="ex1">Resume Weight</label>
+        </div>
+        <div class="col-xs-3">
+          <input id="ex4" data-slider-id='ex4Slider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="14"
+          />
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3 col-md-offset-2">
+          <div class="checkbox">
+            <label>
+            <input type="checkbox" ng-model="c.data.userPrefSearchValue.salary"> Salary
+          </label>
+          </div>
+        </div>
+        <div class="col-xs-2 text-right">
+          <label for="ex1">Reference Weight</label>
+        </div>
+        <div class="col-xs-3">
+          <input id="ex5" data-slider-id='ex5Slider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="14"
+          />
+        </div>
+
+      </div>
+
+    </div>
+    <div class="pull-right" style="padding: 5px;"><div class="btn btn-default" ng-click="savePreferences()">Save Preferences</div></div>
+    <div class="panel-footer">These settings will be saved to your user preferences and will be used for all subsequent searches</div>
+  </div>
+]]></template>
+    </sp_widget>
+</record_update>

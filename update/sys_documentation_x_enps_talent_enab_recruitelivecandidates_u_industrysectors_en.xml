@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_documentation element="u_industrysectors" label="IndustrySectors" language="en" table="x_enps_talent_enab_recruitelivecandidates">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>u_industrysectors</element>
+            <help/>
+            <hint/>
+            <label>IndustrySectors</label>
+            <language>en</language>
+            <name>x_enps_talent_enab_recruitelivecandidates</name>
+            <plural>IndustrySectors</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>rob.tanner</sys_created_by>
+            <sys_created_on>2017-05-03 01:52:58</sys_created_on>
+            <sys_customer_update>true</sys_customer_update>
+            <sys_id>48c849740f2e3a00429009bce1050ee5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>IndustrySectors</sys_name>
+            <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+            <sys_update_name>sys_documentation_x_enps_talent_enab_recruitelivecandidates_u_industrysectors_en</sys_update_name>
+            <sys_updated_by>rob.tanner</sys_updated_by>
+            <sys_updated_on>2017-05-03 01:52:58</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

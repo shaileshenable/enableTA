@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_metadata_link">
+    <sys_metadata_link action="INSERT_OR_UPDATE">
+        <directory>unload.demo</directory>
+        <documentkey>46aa95274f7d7a0079047ab28110c705</documentkey>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_enps_talent_enab_job_specification">
+    <x_enps_talent_enab_job_specification action="INSERT_OR_UPDATE">
+        <industry display_value="Health">008cc9790fbdb20075a506ace1050eb3</industry>
+        <job_roles display_value="ServiceNow Developer">c5ddfb010f3d720075a506ace1050e68</job_roles>
+        <knowledge_article display_value="KB0010019">4d7a9de34f7d7a0079047ab28110c7d4</knowledge_article>
+        <location display_value="Melbourne">25c27d8b0a0a0bb3008f14118c4309a4</location>
+        <name>Senior Servicenow Consultant</name>
+        <salary>800000</salary>
+        <sys_created_by>rob.tanner</sys_created_by>
+        <sys_created_on>2017-04-04 09:27:23</sys_created_on>
+        <sys_id>46aa95274f7d7a0079047ab28110c705</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-04 09:28:15</sys_updated_on>
+    </x_enps_talent_enab_job_specification>
+</record_update>
+]]></payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>rob.tanner</sys_created_by>
+        <sys_created_on>2017-04-04 11:35:48</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>8708fda74fbd7a0079047ab28110c776</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Senior Servicenow Consultant</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sys_metadata_link_8708fda74fbd7a0079047ab28110c776</sys_update_name>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-05 06:26:37</sys_updated_on>
+        <tablename>x_enps_talent_enab_job_specification</tablename>
+    </sys_metadata_link>
+</record_update>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description>Show candidates profile image in serach results</description>
+        <ignore_cache>false</ignore_cache>
+        <is_private>false</is_private>
+        <name>x_enps_talent_enab.search.display.image</name>
+        <read_roles/>
+        <suffix>search.display.image</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-03-16 22:12:52</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>a8635e6d0fe9b20075a506ace1050efd</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>x_enps_talent_enab.search.display.image</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sys_properties_a8635e6d0fe9b20075a506ace1050efd</sys_update_name>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-05 06:26:40</sys_updated_on>
+        <type>boolean</type>
+        <value>false</value>
+        <write_roles/>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=a8635e6d0fe9b20075a506ace1050efd"/>
+</record_update>

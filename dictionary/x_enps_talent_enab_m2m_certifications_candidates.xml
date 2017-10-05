@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Certifications Candidates" max_length="40" name="x_enps_talent_enab_m2m_certifications_candidates" type="collection">
+        <element label="Candidate" max_length="32" name="candidate" reference="x_enps_talent_enab_candidate" type="reference"/>
+        <element label="Certification" max_length="32" name="certification" reference="x_enps_talent_enab_certification" type="reference"/>
+        <index name="index">
+            <element name="candidate"/>
+        </index>
+        <index name="index2">
+            <element name="certification"/>
+        </index>
+    </element>
+</database>

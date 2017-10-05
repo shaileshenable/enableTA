@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function(spUtil, $scope, $location, $rootScope) {
+	/* widget controller */
+	var c =this;
+	
+	c.data.acq = $location.search().a;
+	
+	spUtil.recordWatch($scope, "x_enps_talent_enab_m2m_acquisitions_candidates", "active=true", function(name, data) {
+		if(data.sys_id != '') {
+			var idx = _.findLastIndex(c.data.items, { sys_id: data.sys_id });
+				
+				if(data.operation == 'delete') {
+					if(idx != -1) {
+						c.data.items.splice(idx,1);
+					}
+				} else {
+					var data1 ={};
+					if(idx != -1) {
+						data1 = {
+							sys_id:         data.sys_id,
+							name:           c.data.items[idx].name.toString(),
+							lastUpdated :   data.record.sys_updated_on.display_value.toString(),
+							active:         c.data.items[idx].active.toString(),
+							state:          data.record.state.display_value.toString()
+						};
+						
+						c.data.items[idx] = data1;
+					} else {
+						data1 = {
+							sys_id:         data.sys_id,
+							name:           data.record.candidate.display_value.toString(),
+							lastUpdated :   data.record.sys_updated_on.display_value.toString(),
+							active:         data.record.active.display_value.toString(),
+							state:          data.record.state.display_value.toString()
+						};
+						
+						c.data.items.push(data1);
+					}
+					
+					c.data.items = _.sortBy(c.data.items, 'lastUpdated').reverse();
+				}
+				
+			}
+		});		
+	
+	
+						  
+		document.addEventListener('touchstart', function(ev) {			
+			//ev.preventDefault();
+			ev.stopPropagation();			
+			
+			//event.dataTransfer.setData("Text", ev.changedTouches[0].target.id);
+		});
+		
+		document.addEventListener('touchend', function(ev) {
+			ev.preventDefault();
+			ev.stopPropagation();
+			
+			var data = ev.changedTouches[0].target.id;
+			
+			if(data.indexOf('table=x_enps_talent_enab_candidate') != -1) {
+				$scope.data.candidateDropppedData = data;
+				$scope.data.searchAcquisition = c.data.acq;
+				$scope.data.currentAction = 'Add';	
+				$scope.server.update().then(function(ret) {					
+					alert(data.responseMsg);
+					//var idx = _.findLastIndex(c.data.items, { sys_id: $scope.data.candidateDropppedData.split('&')[1].split('=')[1] });
+					//c.data.items.splice(idx, 1);
+					
+				}, function(err) {
+					
+				});
+			}
+		});
+		
+		document.ondragstart = function(ev) {
+			//ev.preventDefault();
+			//ev.stopPropagation();
+			
+			ev.dataTransfer.setData("text/plain", ev.target.id);
+		};
+	
+		document.ondrop = function(ev) {
+			ev.preventDefault();
+			//ev.stopPropagation();
+			
+			var data = ev.dataTransfer.getData("text"); // text is id of drop target			
+			if(data.indexOf('table=x_enps_talent_enab_candidate') != -1) {
+				$scope.data.candidateDropppedData = data;
+				$scope.data.searchAcquisition = c.data.acq;
+				$scope.data.currentAction = 'Add';				
+				$scope.server.update().then(function(data) {					
+					alert(data.responseMsg);
+					
+			// reference parent list
+			//var idx = $rootScope.searchResultItems.indexOf({ sys_id: $scope.data.candidateDropppedData.split('&')[1].split('=')[1] });
+			//$rootScope.searchResultItems.splice(idx, 1);
+				});
+			}
+		};
+		
+	}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.dandd { &#13;
+  background-color: #E9E9E9; &#13;
+  height: 100px; &#13;
+  font-size: 24px;&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>acquisition-candidate-watcher</id>
+        <internal>false</internal>
+        <link/>
+        <name>Acquisition Candidate Watcher TA</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */
+	
+	if(input) {
+		try {
+			// Fired by the on drop client function
+			data.responseMsg = '';
+			var grA = new GlideRecord('x_enps_talent_enab_acquisition');
+			grA.addQuery('number', input.searchAcquisition);
+			grA.query();
+			if(grA.hasNext())
+				{
+				var candidateId = input.candidateDropppedData.split('&')[1].split('=')[1];
+				grA.next();
+				if(input.currentAction == 'Add')
+					{
+					var grAC = new GlideRecord('x_enps_talent_enab_m2m_acquisitions_candidates');
+					grAC.addQuery('candidate', candidateId);
+					grAC.addQuery('acquisition', grA.sys_id);
+					grAC.query();
+					
+					if(!grAC.hasNext()){
+						grAC.initialize();
+						grAC.candidate = candidateId;
+						grAC.acquisition = grA.sys_id;
+						grAC.active = true;
+						grAC.insert();
+						data.responseMsg = 'Add Candidate Successfully';
+					} else {
+						data.responseMsg = 'Candidate already exists for this acquisition';
+					}
+				}
+				
+				if(input.currentAction == 'Reject')
+					{
+					var grAC = new GlideRecord('x_enps_talent_enab_m2m_acquisitions_rejections');
+					grAC.addQuery('candidate', candidateId);
+					grAC.addQuery('acquisition', grA.sys_id);
+					grAC.query();
+					
+					if(!grAC.hasNext()){
+						grAC.initialize();
+						grAC.candidate = grAC.addQuery('candidate', candidateId);
+						grAC.acquisition = grA.sys_id;
+						grAC.active = true;
+						grAC.insert();
+						data.responseMsg = 'Add Candidate Successfully';
+					} else {
+						data.responseMsg = 'Candidate already been rejected for this acquisition';
+					}
+				}
+				
+				if(input.currentAction == 'Pool')
+					{
+					var grAC = new GlideRecord('x_enps_talent_enab_m2m_candidates_talent_pools');
+					grAC.addQuery('candidate', candidateId);
+					grAC.addQuery('acquisition', grA.sys_id);
+					grAC.query();
+					
+					if(!grAC.hasNext()){
+						grAC.initialize();
+						grAC.candidate = candidateId;
+						grAC.talent_pool = gs.getProperty("x_enps_talent_enab.General Talent Pool");
+						grAC.insert();
+						data.responseMsg = 'Add Candidate Successfully';
+					} else {
+						data.responseMsg = 'Candidate already exists in the general talent pool';
+					}
+				}
+			} else {
+				
+			}
+		} catch (a) {
+			var msg = 'Acquisition Candidate Watcher TA Input Error: ' + a.toString();
+			gs.info(msg);
+			gs.addInfoMessage(msg);
+		}
+	} else {
+		try {
+			data.a = $sp.getParameter('a');
+			
+			data.itemCount = 0;
+			data.items = [];
+			var gr = new GlideRecord('x_enps_talent_enab_m2m_acquisitions_candidates');
+			gr.orderByDesc('sys_updated_on');
+			gr.addQuery('acquisition.number', data.a);
+			gr.query();
+			while(gr.next()){
+				data.items.push({sys_id: gr.sys_id.toString(),
+					name:          gr.candidate.name.toString(),
+					lastUpdated:   gr.sys_updated_on.toString(),
+					active:        gr.active.toString(),
+					state:         gr.state.toString()
+				});
+				data.itemCount++;
+			}
+		} catch (a) {
+			var msg = 'Acquisition Candidate Watcher TA Server Error: ' + a.toString();
+			gs.info(msg);
+			gs.addInfoMessage(msg);
+		}
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-03-21 04:07:48</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>184b08cb0f61720075a506ace1050ec6</sys_id>
+        <sys_mod_count>194</sys_mod_count>
+        <sys_name>Acquisition Candidate Watcher TA</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sp_widget_184b08cb0f61720075a506ace1050ec6</sys_update_name>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-05 06:26:22</sys_updated_on>
+        <template><![CDATA[<div class="dropable">
+<div class="panel panel-primary b">
+  <div class="panel-heading">
+    <h4 class="panel-title text-center" style="padding: 10px;">      
+      <span ng-if="c.options.glyph">
+        <fa name="{{::c.options.glyph}}" />
+      </span>
+      {{::c.data.acq}} Short List
+      <!-- {{::c.options.title}} - {{c.data.itemCount}} -->  
+	</h4>
+    
+      <!-- <i class="fa fa-filter" ng-click="c.toggleFilter()" ng-class="{'disabled-filter': !c.showFilter}"></i> -->
+      <div>
+        <input id="text" class="form-control input-sm filter-box text-center dandd" placeholder="Drop Name Here">
+      </div>
+	
+  </div>
+  <div class="list-group hide-x-overflow" style="overflow-y: auto;">
+    <div ng-if="c.data.itemCount > 0" ng-repeat="item in c.data.items track by item.sys_id | orderBy:'lastUpdated':true" class="list-group-item">
+      <div>{{item.name}} - {{item.state}}</div>
+    </div>
+     <div ng-if="!c.data.itemCount" class="list-group-item">
+     ${No records found}
+     </div>
+  </div>
+  <div class="panel-footer" ng-if="!c.options.hide_footer && c.options.maximum_entries && c.data.count > c.options.maximum_entries">
+
+  </div>
+]]></template>
+    </sp_widget>
+</record_update>

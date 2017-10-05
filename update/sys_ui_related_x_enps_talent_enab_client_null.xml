@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_related sys_domain="global" table="x_enps_talent_enab_client" version="2" view="">
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Client - Default view" name="x_enps_talent_enab_client" related_list="NULL" sys_domain="global" view="Default view">d577378d0f11720075a506ace1050ecc</list_id>
+            <order_by/>
+            <position>0</position>
+            <related_list>cmdb_model.manufacturer</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2017-03-03 05:56:15</sys_created_on>
+            <sys_id>5d77378d0f11720075a506ace1050ecc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2017-03-03 05:56:15</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Client - Default view" name="x_enps_talent_enab_client" related_list="NULL" sys_domain="global" view="Default view">d577378d0f11720075a506ace1050ecc</list_id>
+            <order_by/>
+            <position>1</position>
+            <related_list>pc_vendor_cat_item.vendor</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2017-03-03 05:56:15</sys_created_on>
+            <sys_id>1977378d0f11720075a506ace1050ed9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2017-03-03 05:56:15</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Client - Default view" name="x_enps_talent_enab_client" related_list="NULL" sys_domain="global" view="Default view">d577378d0f11720075a506ace1050ecc</list_id>
+            <order_by/>
+            <position>2</position>
+            <related_list>x_enps_talent_enab_m2m_acquisitions_clients.client</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2017-03-03 05:56:15</sys_created_on>
+            <sys_id>1d77378d0f11720075a506ace1050ed9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2017-03-03 05:56:15</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list action="INSERT_OR_UPDATE">
+            <calculated_name>Client - Default view</calculated_name>
+            <filter/>
+            <name>x_enps_talent_enab_client</name>
+            <order_by/>
+            <position/>
+            <related_list/>
+            <sys_class_name>sys_ui_related_list</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2017-03-03 05:56:15</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>d577378d0f11720075a506ace1050ecc</sys_id>
+            <sys_mod_count>9</sys_mod_count>
+            <sys_name>Client - Default view</sys_name>
+            <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+            <sys_update_name>sys_ui_related_x_enps_talent_enab_client_null</sys_update_name>
+            <sys_updated_by>astha.c@enableps.com.au</sys_updated_by>
+            <sys_updated_on>2017-07-31 06:31:10</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_related_list>
+    </sys_ui_related>
+</record_update>

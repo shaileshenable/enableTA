@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element audit="true" extends="task" label="Interview" max_length="40" name="x_enps_talent_enab_interview" sizeclass="9" type="collection">
+        <element label="Interview Date" mandatory="true" max_length="40" name="u_glide_date_time_1" type="glide_date_time"/>
+    </element>
+</database>

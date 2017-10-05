@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_metadata_link">
+    <sys_metadata_link action="INSERT_OR_UPDATE">
+        <directory>unload</directory>
+        <documentkey>f1dacec60f91320075a506ace1050e4b</documentkey>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;record_update table="sp_search_source"&gt;
+    &lt;sp_search_source action="INSERT_OR_UPDATE"&gt;
+        &lt;advanced_typeahead_config&gt;false&lt;/advanced_typeahead_config&gt;
+        &lt;condition/&gt;
+        &lt;data_fetch_script&gt;&lt;![CDATA[(function(query) {
+	/*
+		Call CandidateSearch script
+		Input  - userId + searchString
+		Output - List of candidates
+		Push the output array of candidates
+ 	*/
+	
+	// snow issue: multi params not working
+	// workaround: using pipe separation
+
+	var result = [];
+	
+	try {
+	var acquisition = '';
+	
+	if(query.indexOf('|') != -1) {
+		// can only relate one serach with one acquisition
+		acquisition = query.split('|')[1];
+		query = query.split('|')[0];			 
+	}
+
+	var candidateSource = new taCandidateSearch();
+		candidateSource.initialize();
+		candidateSource.setPrefs(gs.getUserID());
+			
+	result =  candidateSource.getCandidatesByAll(query, acquisition);
+	} catch (a) {
+		var msg = 'SP Search Source data fetch script enabler Error: ' + a.toString();	
+		gs.info(msg);
+		gs.addInfoMessage(msg);	
+	}
+	
+	return result;
+	
+})(query);]]&gt;&lt;/data_fetch_script&gt;
+        &lt;display_fields&gt;sys_created_on,sys_updated_on,sys_tags&lt;/display_fields&gt;
+        &lt;enable_typeahead&gt;false&lt;/enable_typeahead&gt;
+        &lt;id&gt;enabler&lt;/id&gt;
+        &lt;is_scripted_source&gt;true&lt;/is_scripted_source&gt;
+        &lt;name&gt;Enabler&lt;/name&gt;
+        &lt;page display_value="form"&gt;ed5f8ec347730200ba13a5554ee49046&lt;/page&gt;
+        &lt;primary_display_field&gt;name&lt;/primary_display_field&gt;
+        &lt;search_page_template&gt;&lt;![CDATA[&lt;style&gt;
+  .top-indi {
+   vertical-align: super; 
+  }
+  .bg-primary-ss {
+   background-color: SteelBlue; 
+  }
+  .bg-info-ss {
+   background-color: SkyBlue; 
+  }
+  .bg-warning-ss {
+   background-color: Orange; 
+  }
+  .bg-danger-ss {
+   background-color: Tomato; 
+  }
+&lt;/style&gt;
+&lt;div class="row rstSearchItem"&gt;
+  &lt;div class="col-xs-1"&gt;
+    &lt;!-- External Links--&gt;
+    &lt;div class="row" ng-repeat="l in item.publicProfiles | limitTo: 5"&gt;
+      &lt;a draggable="true" ng-href="{{l.url}}" class="fa {{l.icon}}" title="{{l.label}}" style="font-size: 18px; padding: 5px 10px"&gt;&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="col-xs-11"&gt;
+    &lt;div class="row"&gt;
+      &lt;!-- Heading Name --&gt;
+      &lt;div class="col-xs-9"&gt;
+        
+            &lt;a ng-href="{{item.url}}" class="h2 text-primary m-b-sm block" style="margin-top: 0px;"&gt;	
+              &lt;span id="{{item.url}}" ng-bind-html="highlight(item.primary, data.q)"&gt;&lt;/span&gt;  
+              
+              &lt;span class="h5"&gt;&lt;span class="label label-primary top-indi"&gt;{{item.highestEducation}}&lt;/span&gt; &lt;/span&gt; 
+              &lt;span class="h5"&gt;&lt;span class="label label-primary top-indi"&gt;{{item.nativeLanguages}}&lt;/span&gt; &lt;/span&gt;
+              &lt;span class="h5"&gt;&lt;span class="label label-primary top-indi"&gt;{{item.location}}&lt;/span&gt; &lt;/span&gt;          	
+              &lt;span class="h5"&gt;&lt;span class="label label-primary top-indi"&gt;Available: {{item.availability | date: 'dd MMM yyyy'}}&lt;/span&gt; &lt;/span&gt;
+            &lt;/a&gt;                        
+          
+      &lt;/div&gt;
+      &lt;div class="col-xs-3"&gt;
+        &lt;div class="pull-right"&gt;
+          &lt;div class="btn btn-info btn-xs" style="margin: 0 5px;" ng-click="candidatePool(item, $event)"&gt;Pool&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="pull-right"&gt;
+          &lt;div class="btn btn-success btn-xs" style="margin: 0 5px;" ng-click="candidateSelected(item, $event)"&gt;Select&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="pull-right"&gt;
+          &lt;div class="btn btn-danger btn-xs" style="margin: 0 5px;"  ng-click="candidateRejected(item, $event)"&gt;Reject&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="row"&gt;
+      &lt;div class="col-xs-12 col-md-7" style="border-right: 1px solid black;"&gt;
+        &lt;!-- Primary Determinates --&gt;
+        &lt;div class="row"&gt;
+          &lt;div class="col-xs-4"&gt;
+            &lt;div class="row pull-right" style="padding-right: 15px;"&gt;
+              &lt;b&gt;Current Role:&lt;/b&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="col-xs-8"&gt;
+            &lt;div class="row"&gt;
+            	{{item.currentRole}}
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="row"&gt;
+          &lt;div class="col-xs-4"&gt;
+            &lt;div class="row pull-right" style="padding-right: 15px;"&gt;
+              &lt;b&gt;Industries:&lt;/b&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="col-xs-8"&gt;
+            &lt;div class="row"&gt;
+              {{item.industries}}
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="row"&gt;
+          &lt;div class="col-xs-4"&gt;
+            &lt;div class="row pull-right" style="padding-right: 15px;"&gt;
+              &lt;b&gt;Right to work:&lt;/b&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="col-xs-8"&gt;
+            &lt;div class="row" style="padding-right: 10px;"&gt;
+              {{item.rtwLocations}}
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="row"&gt;
+          &lt;div class="col-xs-4"&gt;
+            &lt;div class="row pull-right" style="padding-right: 15px;"&gt;
+              &lt;b&gt;App Stage:&lt;/b&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="col-xs-8"&gt;
+            &lt;div class="row" style="padding-right: 10px;"&gt;
+              {{item.highestAcqStage}}
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="row"&gt;
+          &lt;div class="col-xs-4"&gt;
+            &lt;div class="row pull-right" style="padding-right: 15px;"&gt;
+              &lt;b&gt;Salary Exp:&lt;/b&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="col-xs-8"&gt;
+            &lt;div class="row" style="padding-right: 10px;"&gt;
+              {{item.salaryExpPa | currency:"USD$":0}} / {{item.salaryExpDaily | currency:"USD$":0}}
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+      &lt;/div&gt;
+      &lt;div class="col-xs-12 col-md-5"&gt;
+        &lt;!-- Talent Acquisition Determinates --&gt;
+        &lt;div class="row"&gt;
+
+
+          &lt;!-- Display Skills Summary --&gt;
+          &lt;div class="row"&gt;
+            &lt;div class="col-xs-6 col-sm-4"&gt;
+              &lt;div class="row pull-right" style="padding-right: 15px;"&gt;Skills:&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="col-xs-6 col-sm-8"&gt;
+              &lt;div class="row" style="margin-right: 15px;"&gt;
+                &lt;a ng-show="item.skills.score &gt; 20" ng-href="{{item.skills.url}}" target="_blank" title="Skills" data-placement="left" data-toggle="popover" data-trigger="hover"
+                   data-content=""&gt;
+                  &lt;div style="color: white; text-align: center; 
+                              font-size: 11px; vertical-align: middle;"                       
+                       ng-class="{'bg-primary-ss': item.skills.score &gt;= 80,
+                                 'bg-info-ss': item.skills.score &gt;= 60 &amp;&amp; item.skills.score &lt; 80,
+                                 'bg-warning-ss': item.skills.score &gt;= 33 &amp;&amp; item.skills.score &lt; 60,
+                                 'bg-danger-ss': item.skills.score &lt; 33}"
+                       ng-style="{'width': item.skills.score + '%'}"&gt;                        
+                  {{item.skills.relevance}} ~ {{item.skills.score}}%
+                  &lt;/div&gt;              
+                &lt;/a&gt;
+                &lt;a ng-show="item.skills.score &lt; 20" ng-href="{{item.skills.url}}" target="_blank" title="Skills" data-placement="left" data-toggle="popover" data-trigger="hover"
+                  data-content='&lt;div&gt;&lt;p&gt;Low Score&lt;/p&gt;&lt;/div&gt;'&gt;
+                   N/A            
+                &lt;/a&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+
+          &lt;/div&gt;
+
+          &lt;!-- Display Heading --&gt;
+          &lt;div class="row"&gt;
+            &lt;div class="col-xs-6 col-sm-4"&gt;
+              &lt;div class="row pull-right" style="padding-right: 15px;"&gt;Experience:&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="col-xs-6 col-sm-8"&gt;
+              &lt;div class="row" style="margin-right: 15px;"&gt;
+                &lt;a ng-show="item.experience.score &gt; 20" ng-href="{{item.experience.url}}" target="_blank" title="Experience" data-placement="left" data-toggle="popover" data-trigger="hover"
+                  data-content='&lt;div&gt;&lt;p&gt;ServiceNow&lt;/p&gt;&lt;/div&gt;' class="active"&gt;
+                  &lt;div style="color: white; text-align: center; 
+                              font-size: 11px; vertical-align: middle"
+                       ng-class="{'bg-primary-ss': item.experience.score &gt;= 80,
+                                 'bg-info-ss': item.experience.score &gt;= 60 &amp;&amp; item.experience.score &lt; 80,
+                                 'bg-warning-ss': item.experience.score &gt;= 33 &amp;&amp; item.experience.score &lt; 60,
+                                 'bg-danger-ss': item.experience.score &lt; 33}"
+                       ng-style="{'width': item.experience.score + '%'}"&gt;
+                  {{item.experience.relevance}} ~ {{item.experience.score}}%
+                  &lt;/div&gt;
+              &lt;/a&gt;
+                &lt;a ng-show="item.experience.score &lt; 20" ng-href="{{item.experience.url}}" target="_blank" title="Experience" data-placement="left" data-toggle="popover" data-trigger="hover"
+                  data-content='&lt;div&gt;&lt;p&gt;Low Score&lt;/p&gt;&lt;/div&gt;'&gt;
+                   N/A            
+                &lt;/a&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+
+          &lt;/div&gt;
+
+          &lt;!-- Display Heading --&gt;
+          &lt;div class="row"&gt;
+            &lt;div class="col-xs-6 col-sm-4"&gt;
+              &lt;div class="row pull-right" style="padding-right: 15px;"&gt;Certification:&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="col-xs-6 col-sm-8"&gt;
+              &lt;div class="row" style="margin-right: 15px;"&gt;
+                &lt;a ng-show="item.certification.score &gt; 20" ng-href="{{item.certification.url}}" target="_blank" title="Certification" data-placement="left" data-toggle="popover"
+                  data-trigger="hover" data-content='&lt;div&gt;&lt;p&gt;ServiceNow Administrator&lt;/p&gt;&lt;/div&gt;'&gt;
+                  &lt;div style="color: white; text-align: center; 
+                              font-size: 11px; vertical-align: middle}"
+                       ng-class="{'bg-primary-ss': item.certification.score &gt;= 80,
+                                 'bg-info-ss': item.certification.score &gt;= 60 &amp;&amp; item.certification.score &lt; 80,
+                                 'bg-warning-ss': item.certification.score &gt;= 33 &amp;&amp; item.certification.score &lt; 60,
+                                 'bg-danger-ss': item.certification.score &lt; 33}"
+                        ng-style="{'width': item.certification.score + '%'}"&gt;
+                  {{item.certification.relevance}} ~ {{item.certification.score}}%
+                  &lt;/div&gt;
+              &lt;/a&gt;
+                &lt;a ng-show="item.certification.score &lt; 20" ng-href="{{item.certification.url}}" target="_blank" title="Certification" data-placement="left" data-toggle="popover" data-trigger="hover"
+                  data-content='&lt;div&gt;&lt;p&gt;Low Score&lt;/p&gt;&lt;/div&gt;'&gt;
+                   N/A            
+                &lt;/a&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+
+          &lt;/div&gt;
+
+          &lt;!-- Display Heading --&gt;
+          &lt;div class="row"&gt;
+            &lt;div class="col-xs-6 col-sm-4"&gt;
+              &lt;div class="row pull-right" style="padding-right: 15px;"&gt;Resume:&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="col-xs-6 col-sm-8"&gt;
+              &lt;div class="row" style="margin-right: 15px;"&gt;
+                &lt;a ng-show="item.resume.score &gt; 20" ng-href="{{item.resume.url}}" target="_blank" title="Resume" data-placement="left" data-toggle="popover" data-trigger="hover"
+                  data-content='&lt;div&gt;&lt;p&gt;ServiceNow&lt;/p&gt;&lt;p&gt;Business Analyst&lt;/p&gt;&lt;/div&gt;'&gt;
+                  &lt;div style="color: white; text-align: center; 
+                              font-size: 11px; vertical-align: middle}"
+                       ng-class="{'bg-primary-ss': item.resume.score &gt;= 80,
+                                 'bg-info-ss': item.resume.score &gt;= 60 &amp;&amp; item.resume.score &lt; 80,
+                                 'bg-warning-ss': item.resume.score &gt;= 33 &amp;&amp; item.resume.score &lt; 60,
+                                 'bg-danger-ss': item.resume.score &lt; 33}"
+                       ng-style="{'width': item.resume.score + '%'}"&gt;
+                  {{item.resume.relevance}} ~ {{item.resume.score}}%
+                  &lt;/div&gt;
+              &lt;/a&gt;
+                &lt;a ng-show="item.resume.score &lt; 20" ng-href="{{item.resume.url}}" target="_blank" title="Resume" data-placement="left" data-toggle="popover" data-trigger="hover"
+                  data-content='&lt;div&gt;&lt;p&gt;Low Score&lt;/p&gt;&lt;/div&gt;'&gt;
+                   N/A            
+                &lt;/a&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+
+
+          &lt;div class="row"&gt;
+            &lt;div class="col-xs-6 col-sm-4"&gt;
+              &lt;div class="row pull-right" style="padding-right: 15px;"&gt;References:&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="col-xs-6 col-sm-8"&gt;
+              &lt;div class="row" style="margin-right: 15px;"&gt;
+                &lt;a ng-show="item.reference.score &gt; 20" ng-href="{{item.reference.url}}" target="_blank" title="Resume" data-placement="left" data-toggle="popover" data-trigger="hover"
+                  data-content='&lt;div&gt;&lt;p&gt;ServiceNow&lt;/p&gt;&lt;p&gt;Business Analyst&lt;/p&gt;&lt;/div&gt;'&gt;
+                  &lt;div style="color: white; text-align: center; 
+                              font-size: 11px; vertical-align: middle}"
+                       ng-class="{'bg-primary-ss': item.reference.score &gt;= 80,
+                                 'bg-info-ss': item.reference.score &gt;= 60 &amp;&amp; item.reference.score &lt; 80,
+                                 'bg-warning-ss': item.reference.score &gt;= 33 &amp;&amp; item.reference.score &lt; 60,
+                                 'bg-danger-ss': item.reference.score &lt; 33}"
+                       ng-style="{'width': item.reference.score + '%'}"&gt;
+                  {{item.reference.relevance}} ~ {{item.reference.score}}%
+                  &lt;/div&gt;
+              &lt;/a&gt;
+                &lt;a ng-show="item.reference.score &lt; 20" ng-href="{{item.reference.url}}" target="_blank" title="Reference" data-placement="left" data-toggle="popover" data-trigger="hover"
+                  data-content='&lt;div&gt;&lt;p&gt;Low Score&lt;/p&gt;&lt;/div&gt;'&gt;
+                   N/A            
+                &lt;/a&gt;
+              &lt;/div&gt;
+
+            &lt;/div&gt;
+
+          &lt;/div&gt;
+
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;]]&gt;&lt;/search_page_template&gt;
+        &lt;source_table&gt;x_enps_talent_enab_candidate&lt;/source_table&gt;
+        &lt;sys_class_name&gt;sp_search_source&lt;/sys_class_name&gt;
+        &lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2017-03-06 00:36:52&lt;/sys_created_on&gt;
+        &lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;
+        &lt;sys_id&gt;f1dacec60f91320075a506ace1050e4b&lt;/sys_id&gt;
+        &lt;sys_mod_count&gt;523&lt;/sys_mod_count&gt;
+        &lt;sys_name&gt;Enabler&lt;/sys_name&gt;
+        &lt;sys_package display_value="Talent Enabler" source="x_enps_talent_enab"&gt;aa97f9bb4f39ba0079047ab28110c7f3&lt;/sys_package&gt;
+        &lt;sys_policy/&gt;
+        &lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;
+        &lt;sys_scope display_value="Talent Enabler"&gt;aa97f9bb4f39ba0079047ab28110c7f3&lt;/sys_scope&gt;
+        &lt;sys_update_name&gt;sp_search_source_f1dacec60f91320075a506ace1050e4b&lt;/sys_update_name&gt;
+        &lt;sys_updated_by&gt;rob.tanner&lt;/sys_updated_by&gt;
+        &lt;sys_updated_on&gt;2017-04-04 23:35:18&lt;/sys_updated_on&gt;
+        &lt;typeahead_glyph&gt;thumbs-o-up&lt;/typeahead_glyph&gt;
+        &lt;typeahead_template/&gt;
+    &lt;/sp_search_source&gt;
+&lt;/record_update&gt;
+</payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>rob.tanner</sys_created_by>
+        <sys_created_on>2017-04-05 04:31:41</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>109025bf4fb5ba0079047ab28110c7ec</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Enabler</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sys_metadata_link_109025bf4fb5ba0079047ab28110c7ec</sys_update_name>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-05 06:26:21</sys_updated_on>
+        <tablename>sp_search_source</tablename>
+    </sys_metadata_link>
+</record_update>

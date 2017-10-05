@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function ($scope, $sce, $location, spUtil, $rootScope, $timeout) {
+	spUtil.setSearchPage($scope.data.t);
+	$scope.showScore = $scope.options.show_score == 'true' || $scope.options.show_score == true;
+
+	$scope.getBGImage = function(item) {
+		return {"background-image": "url('" + item.picture + "')"};
+	};
+
+	$scope.highlight = function(haystack, needle) {
+		if (!haystack)
+			return "";
+
+		if (!needle)
+			return $sce.trustAsHtml(haystack);
+
+		return $sce.trustAsHtml(haystack.replace(new RegExp(needle, "gi"), function(match) {
+			return '<mark class="highlight">' + match + '</mark>';
+		}));
+	};
+	
+	$scope.candidateSelected = function(item) {
+		//Update x_enps_talent_enab_m2m_acquisitions_candidates
+		$scope.data.currentAction = 'Add';
+		$scope.data.currentItem = item;		
+		$scope.server.update().then(function(data) {
+			alert(data.responseMsg);
+			
+			var index = $scope.data.results.indexOf(item);
+			$scope.data.results.splice(index, 1); 			
+		});
+	};
+	
+	$scope.candidateRejected = function(item) {
+		//Update x_enps_talent_enab_m2m_acquisitions_candidates
+		$scope.data.currentAction = 'Reject';
+		$scope.data.currentItem = item;		
+		$scope.server.update().then(function(data) {
+			alert(data.responseMsg);
+			
+			var index = $scope.data.results.indexOf(item);
+			$scope.data.results.splice(index, 1);
+		});
+	};
+	
+	$scope.candidatePool = function(item) {
+		//Update x_enps_talent_enab_m2m_acquisitions_candidates
+		$scope.data.currentAction = 'Pool';
+		$scope.data.currentItem = item;		
+		$scope.server.update().then(function(data) {
+			alert(data.responseMsg);
+			
+			var index = $scope.data.results.indexOf(item);
+			$scope.data.results.splice(index, 1);
+		});
+	};
+	
+	$timeout(function() {		
+		var options = {
+				delay: {
+					"show": 300,
+					"hide": 100
+				},
+				template: '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>',
+				html: true
+			};
+
+			// $('[data-toggle="popover"]').popover(options);
+			// disabled until data is dynamic
+	});
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>a.question-tag {
+    color: #39739d;
+    background-color: #e1ecf4;
+    border: 1px solid #e1ecf4;
+    display: inline-block;
+    margin: 4px 4px 4px 0;
+    border-radius: 0;
+    text-align: center;
+    line-height: 1;
+    padding: .4em .5em;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>search-page-ta</id>
+        <internal>false</internal>
+        <link><![CDATA[function(scope) {
+	var lazyLoader = $injector.get("lazyLoader");
+	lazyLoader.putTemplates(scope.data.resultTemplates);
+}]]></link>
+        <name>Search Page TA</name>
+        <option_schema>[{"hint":"Show search result relative ranking","name":"show_score","label":"Show score","type":"boolean"},{"hint":"Maximum number of search results when not specifying a search group (default 30)","name":"max_all","label":"Max results for All search","type":"integer"},{"hint":"Maximum number of search results when specifying a search group (default 15)","name":"max_group","label":"Max results for single search group","type":"integer"}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[// populate the 'data' variable
+if(input) {
+	try {
+	// Fired by the candidateSelected client function
+	//gs.info('RST >>> Running info');
+	//gs.info('RST >>> Looking for acquisition: ' + input.a);
+	data.responseMsg = '';
+	var grA = new GlideRecord('x_enps_talent_enab_acquisition');
+	grA.addQuery('number', input.a);
+	grA.query();
+		
+	//gs.info('RST >>> Looking for acquisition: ' + input.a);
+	if(grA.hasNext())
+		{
+			//gs.info('RST >>> Found acquisition');
+			grA.next();				
+		if(input.currentAction == 'Add')
+		{		
+			gs.info('RST >>> Adding Candidate' + input.currentItem.candidateId);
+			var grAC = new GlideRecord('x_enps_talent_enab_m2m_acquisitions_candidates');
+				grAC.addQuery('candidate', input.currentItem.candidateId);
+				grAC.addQuery('acquisition', grA.sys_id);
+				grAC.query();
+			
+			if(!grAC.hasNext()){
+				grAC.initialize();
+				grAC.candidate = input.currentItem.candidateId;
+				grAC.acquisition = grA.sys_id;
+				grAC.active = true;
+				grAC.insert();
+				data.responseMsg = 'Add Candidate Successfully';
+			} else {
+				data.responseMsg = 'Candidate already exists for this acquisition';
+			}
+		}
+			
+		if(input.currentAction == 'Reject')
+		{
+			var grAC = new GlideRecord('x_enps_talent_enab_m2m_acquisitions_rejections');
+				grAC.addQuery('candidate', input.currentItem.candidateId);
+				grAC.addQuery('acquisition', grA.sys_id);
+				grAC.query();
+			
+			if(!grAC.hasNext()){
+				grAC.initialize();
+				grAC.candidate = input.currentItem.candidateId;
+				grAC.acquisition = grA.sys_id;
+				grAC.active = true;
+				grAC.insert();
+				data.responseMsg = 'Add Candidate Successfully';
+			} else {
+				data.responseMsg = 'Candidate already been rejected for this acquisition';
+			}
+		}
+			
+		if(input.currentAction == 'Pool')
+		{
+			var grAC = new GlideRecord('x_enps_talent_enab_m2m_candidates_talent_pools');
+				grAC.addQuery('candidate', input.currentItem.candidateId);
+				grAC.addQuery('acquisition', grA.sys_id);
+				grAC.query();
+			
+			if(!grAC.hasNext()){
+				grAC.initialize();
+				grAC.candidate = input.currentItem.candidateId;
+				grAC.talent_pool = gs.getProperty("x_enps_talent_enab.General Talent Pool"); 
+				grAC.insert();
+				data.responseMsg = 'Add Candidate Successfully';
+			} else {
+				data.responseMsg = 'Candidate already exists in the general talent pool';
+			}
+		}
+	} else {
+		
+	}
+	
+	} catch (a) {
+		// Error processsing input
+		var msg = 'Search Page TA Input Error: ' + a.toString();			
+			gs.info(msg);
+			gs.addInfoMessage(msg);
+	}
+} else {
+	try {
+	data.showPrices = $sp.showCatalogPrices();
+	data.q = $sp.getParameter('q');
+	data.a = $sp.getParameter('a');
+	data.t = $sp.getParameter('t');
+	data.results = [];
+	
+	data.resultTemplates = {};
+		
+		if (data.t)
+			data.limit = options.max_group || 15;
+		else
+			data.limit = options.max_all || 150;
+		
+		//Gotta decide if we want to use the portal's sources, or use the defaults declared by
+		//the sys property
+		var useDefaultPortals;
+		if (!$sp.getPortalRecord()) {
+			useDefaultPortals = true;
+		} else {
+			var searchSourcesForPortalGR = new GlideRecord("m2m_sp_portal_search_source");
+			searchSourcesForPortalGR.addQuery("sp_portal", $sp.getPortalRecord().getUniqueValue());
+			searchSourcesForPortalGR.query();
+			useDefaultPortals = searchSourcesForPortalGR.getRowCount() == 0;
+		}
+		
+		if (useDefaultPortals) {
+			var defaultSearchSourceGR = new GlideRecord("sp_search_source");
+			var defaultSearchSourceIDList = gs.getProperty("glide.service_portal.default_search_sources", "");
+			defaultSearchSourceGR.addQuery("sys_id", "IN", defaultSearchSourceIDList);
+			if (data.t)
+				defaultSearchSourceGR.addQuery("id", data.t);
+			defaultSearchSourceGR.query();
+			while(defaultSearchSourceGR.next()) {
+				
+				// Work around - $sp.translatetemplate is not available in a scoped application therefore we need to retrieve the template this way.
+				var searchSourceGR_value = defaultSearchSourceGR.search_page_template.toString();
+				data.resultTemplates["sp-search-source-" + defaultSearchSourceGR.getValue("id") + ".html"] = searchSourceGR_value;
+								
+				getResults(defaultSearchSourceGR);
+			}
+		} else {
+			var m2mSearchSourceGR = new GlideRecord("m2m_sp_portal_search_source");
+			if (data.t)
+				m2mSearchSourceGR.addQuery("sp_search_source.id", data.t);
+			m2mSearchSourceGR.addQuery("sp_portal", $sp.getPortalRecord().getUniqueValue());
+			m2mSearchSourceGR.query();
+			while(m2mSearchSourceGR.next()) {
+				var searchSourceGR = m2mSearchSourceGR.getElement("sp_search_source").getRefRecord();
+				
+				// Work around - $sp.translatetemplate is not available in a scoped application therefore we need to retrieve the template this way.
+				var searchSourceGR_value = m2mSearchSourceGR.sp_search_source.search_page_template;
+				data.resultTemplates["sp-search-source-" + searchSourceGR.getValue("id") + ".html"] = searchSourceGR_value.toString();
+				
+				getResults(searchSourceGR);
+			}
+		}
+	
+	} catch (a) {
+		// Error processsing server side
+		var msg = 'Search Page TA Server Error: ' + a.toString();			
+			gs.info(msg);
+			gs.addInfoMessage(msg);
+	}
+	}
+	function getResults(gr) {
+		if (gr.is_scripted_source) {
+			var input = {};
+				input.query = data.q;
+				//input.acquisition = data.a;
+				var evaluator = new GlideScopedEvaluator();
+				var results = evaluator.evaluateScript(gr, "data_fetch_script", input);
+				
+				results.forEach(function(item) {
+					item.templateID = "sp-search-source-" + gr.getValue("id") + ".html";
+					data.results.push(item);
+				});
+			} else {
+				var primaryField = gr.getValue("primary_display_field");
+				var displayFields = gr.getValue("display_fields");
+				
+				var resultGR = new GlideRecordSecure(gr.getValue("source_table"));
+				var condition = gr.getValue("condition");
+				if (condition)
+					resultGR.addEncodedQuery(condition);
+				if (data.q)
+					resultGR.addQuery('123TEXTQUERY321', data.q);
+				resultGR.query();
+				
+				var searchTableCount = 0;
+				while (resultGR.next() && searchTableCount < data.limit) {
+					if (!resultGR.canRead())
+						continue;
+					
+					var secondaryValues = {};
+						
+						if (displayFields)
+							displayFields.split(",").forEach(function(field) {
+							var obj = getField(resultGR, field);
+							secondaryValues[field] = obj;
+						});
+						
+						data.results.push({
+							primary: (primaryField) ? resultGR.getValue(primaryField) : resultGR.getDisplayValue(),
+							sys_id: resultGR.getUniqueValue(),
+							table: resultGR.getTableName(),
+							templateID: "sp-search-source-" + gr.getValue("id") + ".html",
+							fields: secondaryValues
+						});
+						searchTableCount++;
+					}
+				}				
+			}
+			
+	function getField(gr, name) {
+				var f = {};
+					f.display_value = gr.getDisplayValue(name);
+					f.value = gr.getValue(name);
+					var ge = gr.getElement(name);
+					if (ge == null)
+						return f;
+					
+					f.type = ge.getED().getInternalType()
+					f.label = ge.getLabel();
+					return f;
+				}
+				]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-03-21 09:19:08</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>68829d430f25720075a506ace1050e01</sys_id>
+        <sys_mod_count>72</sys_mod_count>
+        <sys_name>Search Page TA</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sp_widget_68829d430f25720075a506ace1050e01</sys_update_name>
+        <sys_updated_by>astha.c@enableps.com.au</sys_updated_by>
+        <sys_updated_on>2017-06-09 06:55:39</sys_updated_on>
+        <template><![CDATA[<div>
+  <div class="panel panel-default">
+    <div ng-if="data.results.length==0">
+      <div class="panel-heading"><h4 class="panel-title">${No results}</h4></div>
+      <div class="panel-body wrapper break-word">
+        <p>${Your search - <b>{{data.q}}</b> - did not match any documents}</p>
+        <p>${Suggestions}:</p>
+        <ul>
+          <li>${Make sure all words are spelled correctly}</li>
+          <li>${Try different, more general, or fewer keywords}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div ng-if="data.results.length>0" class="panel-heading break-word">
+      <h4 class="panel-title">${Search results for '{{data.q}}'}</h4>
+    </div>
+
+    <div ng-repeat="item in data.results | orderBy:'score':true | limitTo:data.limit" class="panel-body b-b ">
+      <div ng-include="item.templateID"></div>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

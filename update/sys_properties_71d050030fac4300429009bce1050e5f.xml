@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description>Candidate activity formatter fields</description>
+        <ignore_cache>false</ignore_cache>
+        <is_private>false</is_private>
+        <name>glide.ui.x_enps_talent_enab_candidate_activity.fields</name>
+        <read_roles/>
+        <suffix/>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>rob.tanner</sys_created_by>
+        <sys_created_on>2017-08-17 07:40:35</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>71d050030fac4300429009bce1050e5f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>glide.ui.x_enps_talent_enab_candidate_activity.fields</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sys_properties_71d050030fac4300429009bce1050e5f</sys_update_name>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-08-17 07:40:35</sys_updated_on>
+        <type>string</type>
+        <value>sys_created_on,name,active,current_role,native_languages,industries,right_to_work_locations,citizen,visa,phone_number,email,annual_salary_expectation,availability,daily_salary_expectation,highest_acquisition_stage,highest_education,*Email*</value>
+        <write_roles/>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=71d050030fac4300429009bce1050e5f"/>
+</record_update>

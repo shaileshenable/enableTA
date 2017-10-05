@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="pa_m2m_dashboard_tabs">
+    <pa_m2m_dashboard_tabs action="INSERT_OR_UPDATE">
+        <dashboard display_value="Talent Enabler - Report Dashboard">149ffb410f3d720075a506ace1050e96</dashboard>
+        <home>false</home>
+        <homepage/>
+        <order>1</order>
+        <sys_class_name>pa_m2m_dashboard_tabs</sys_class_name>
+        <sys_created_by>enable.jesi</sys_created_by>
+        <sys_created_on>2017-03-28 03:06:17</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>8f4040910f3d720075a506ace1050e2d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>149ffb410f3d720075a506ace1050e96</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>pa_m2m_dashboard_tabs_8f4040910f3d720075a506ace1050e2d</sys_update_name>
+        <sys_updated_by>enable.jesi</sys_updated_by>
+        <sys_updated_on>2017-03-28 03:06:17</sys_updated_on>
+        <tab display_value="New Tab">cf4040910f3d720075a506ace1050e2b</tab>
+    </pa_m2m_dashboard_tabs>
+</record_update>

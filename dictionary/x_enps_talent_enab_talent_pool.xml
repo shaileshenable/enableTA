@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Talent Pool" max_length="40" name="x_enps_talent_enab_talent_pool" type="collection">
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element calculation="(function calculatedFieldValue(current) {&#10;&#10;&#9;// Add your code here&#10;&#9;var count = new GlideAggregate('x_enps_talent_enab_m2m_candidates_talent_pools');&#10;&#9;&#9;count.addAggregate('COUNT');&#10;&#9;&#9;count.addQuery('talent_pool.sys_id',current.sys_id);&#10;&#9;&#9;count.query();&#10;&#9;var candidates = 0;&#10;&#9;if (count.next()) &#10;&#9;&#9;candidates = count.getAggregate('COUNT');&#10;&#9;&#10;&#9;return candidates;  // return the calculated value&#10;&#10;})(current);" label="Candidate Count" max_length="40" name="candidate_count" type="integer" virtual="true"/>
+        <element label="Name" max_length="150" name="name" type="string"/>
+    </element>
+</database>

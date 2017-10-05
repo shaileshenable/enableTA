@@ -1,0 +1,705 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update node_type="sys_portal_page" unload_date="2017-10-05 09:53:26">
+    <sys_portal_page action="INSERT_OR_UPDATE">
+        <layout display_value="layout_2_across_knowledge">46978421370031002d2440ed9dbe5db7</layout>
+        <order>3000</order>
+        <read_roles>x_enps_talent_enab.Talent Enabler</read_roles>
+        <roles>x_enps_talent_enab.Talent Enabler</roles>
+        <selectable>false</selectable>
+        <sys_class_name>sys_portal_page</sys_class_name>
+        <sys_created_by>rob.tanner</sys_created_by>
+        <sys_created_on>2017-04-04 12:03:58</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>194ef5eb4fbd7a0079047ab28110c792</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>My Homepage</sys_name>
+        <sys_overrides/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sys_portal_page_194ef5eb4fbd7a0079047ab28110c792</sys_update_name>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-20 07:31:56</sys_updated_on>
+        <title>My Homepage</title>
+        <user/>
+        <view/>
+        <related_items_node>
+            <sys_portal action="INSERT_OR_UPDATE">
+                <dropzone>dropzone1</dropzone>
+                <offset>1</offset>
+                <page display_value="My Homepage">194ef5eb4fbd7a0079047ab28110c792</page>
+                <summary/>
+                <sys_created_by>rob.tanner</sys_created_by>
+                <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                <sys_id>32ae7deb4fbd7a0079047ab28110c78c</sys_id>
+                <sys_mod_count>0</sys_mod_count>
+                <sys_updated_by>rob.tanner</sys_updated_by>
+                <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                <related_items_node>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>help_text_window</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">32ae7deb4fbd7a0079047ab28110c78c</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>32ae7deb4fbd7a0079047ab28110c78d</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>report_widget_description</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>can_subscribe</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">32ae7deb4fbd7a0079047ab28110c78c</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>3eae7deb4fbd7a0079047ab28110c78d</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>true</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>sys_id</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">32ae7deb4fbd7a0079047ab28110c78c</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>b2ae7deb4fbd7a0079047ab28110c78c</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>be838b070fe5720075a506ace1050e03</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">32ae7deb4fbd7a0079047ab28110c78c</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>b2ae7deb4fbd7a0079047ab28110c78e</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>Number of candidates per talent pool</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>report_type</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">32ae7deb4fbd7a0079047ab28110c78c</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>b6ae7deb4fbd7a0079047ab28110c78d</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>pivot_v2</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>renderer</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">32ae7deb4fbd7a0079047ab28110c78c</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>baae7deb4fbd7a0079047ab28110c78c</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>com.glide.ui.portal.RenderReport</value>
+                    </sys_portal_preferences>
+                </related_items_node>
+            </sys_portal>
+            <sys_portal action="INSERT_OR_UPDATE">
+                <dropzone>dropzone1</dropzone>
+                <offset>3</offset>
+                <page display_value="My Homepage">194ef5eb4fbd7a0079047ab28110c792</page>
+                <summary/>
+                <sys_created_by>rob.tanner</sys_created_by>
+                <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                <sys_id>36ae7deb4fbd7a0079047ab28110c792</sys_id>
+                <sys_mod_count>0</sys_mod_count>
+                <sys_updated_by>rob.tanner</sys_updated_by>
+                <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                <related_items_node>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>report_type</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">36ae7deb4fbd7a0079047ab28110c792</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>32ae7deb4fbd7a0079047ab28110c794</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>pareto</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>help_text_window</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">36ae7deb4fbd7a0079047ab28110c792</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>36ae7deb4fbd7a0079047ab28110c793</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>report_widget_description</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>sys_id</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">36ae7deb4fbd7a0079047ab28110c792</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>b6ae7deb4fbd7a0079047ab28110c792</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>f3f882c10f39720075a506ace1050e29</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">36ae7deb4fbd7a0079047ab28110c792</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>b6ae7deb4fbd7a0079047ab28110c794</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>Oldest Talent Pools</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>can_subscribe</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">36ae7deb4fbd7a0079047ab28110c792</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>baae7deb4fbd7a0079047ab28110c793</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>true</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>renderer</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">36ae7deb4fbd7a0079047ab28110c792</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>beae7deb4fbd7a0079047ab28110c792</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>com.glide.ui.portal.RenderReport</value>
+                    </sys_portal_preferences>
+                </related_items_node>
+            </sys_portal>
+            <sys_portal action="INSERT_OR_UPDATE">
+                <dropzone>dropzone2</dropzone>
+                <offset>1</offset>
+                <page display_value="My Homepage">194ef5eb4fbd7a0079047ab28110c792</page>
+                <summary/>
+                <sys_created_by>rob.tanner</sys_created_by>
+                <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                <sys_id>3aae7deb4fbd7a0079047ab28110c798</sys_id>
+                <sys_mod_count>0</sys_mod_count>
+                <sys_updated_by>rob.tanner</sys_updated_by>
+                <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                <related_items_node>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>report_type</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">3aae7deb4fbd7a0079047ab28110c798</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>36ae7deb4fbd7a0079047ab28110c79a</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>pareto</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>help_text_window</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">3aae7deb4fbd7a0079047ab28110c798</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>3aae7deb4fbd7a0079047ab28110c799</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>report_widget_description</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>renderer</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">3aae7deb4fbd7a0079047ab28110c798</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>b2ae7deb4fbd7a0079047ab28110c799</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>com.glide.ui.portal.RenderReport</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>sys_id</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">3aae7deb4fbd7a0079047ab28110c798</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>baae7deb4fbd7a0079047ab28110c798</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>ed0872830fe5720075a506ace1050e30</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">3aae7deb4fbd7a0079047ab28110c798</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>baae7deb4fbd7a0079047ab28110c79a</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>Oldest updated candidates</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>can_subscribe</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">3aae7deb4fbd7a0079047ab28110c798</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>beae7deb4fbd7a0079047ab28110c799</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>true</value>
+                    </sys_portal_preferences>
+                </related_items_node>
+            </sys_portal>
+            <sys_portal action="INSERT_OR_UPDATE">
+                <dropzone>dropzone2</dropzone>
+                <offset>3</offset>
+                <page display_value="My Homepage">194ef5eb4fbd7a0079047ab28110c792</page>
+                <summary/>
+                <sys_created_by>rob.tanner</sys_created_by>
+                <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                <sys_id>b6ae7deb4fbd7a0079047ab28110c79e</sys_id>
+                <sys_mod_count>0</sys_mod_count>
+                <sys_updated_by>rob.tanner</sys_updated_by>
+                <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                <related_items_node>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>renderer</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">b6ae7deb4fbd7a0079047ab28110c79e</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>32ae7deb4fbd7a0079047ab28110c79f</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>com.glide.ui.portal.RenderReport</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>sys_id</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">b6ae7deb4fbd7a0079047ab28110c79e</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>3aae7deb4fbd7a0079047ab28110c79e</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>64b6ba030fe5720075a506ace1050ea6</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>can_subscribe</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">b6ae7deb4fbd7a0079047ab28110c79e</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>3aae7deb4fbd7a0079047ab28110c7a0</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>true</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>can_publish</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">b6ae7deb4fbd7a0079047ab28110c79e</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>3eae7deb4fbd7a0079047ab28110c79f</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>true</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>report_type</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">b6ae7deb4fbd7a0079047ab28110c79e</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>b2ae7deb4fbd7a0079047ab28110c7a0</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>pie</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>help_text_window</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">b6ae7deb4fbd7a0079047ab28110c79e</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>b6ae7deb4fbd7a0079047ab28110c79f</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>report_widget_description</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">b6ae7deb4fbd7a0079047ab28110c79e</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>beae7deb4fbd7a0079047ab28110c7a0</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>Candidates per Acquisition</value>
+                    </sys_portal_preferences>
+                </related_items_node>
+            </sys_portal>
+            <sys_portal action="INSERT_OR_UPDATE">
+                <dropzone>dropzone1</dropzone>
+                <offset>0</offset>
+                <page display_value="My Homepage">194ef5eb4fbd7a0079047ab28110c792</page>
+                <summary/>
+                <sys_created_by>rob.tanner</sys_created_by>
+                <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                <sys_id>baae7deb4fbd7a0079047ab28110c77c</sys_id>
+                <sys_mod_count>0</sys_mod_count>
+                <sys_updated_by>rob.tanner</sys_updated_by>
+                <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                <related_items_node>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>help_text_window</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">baae7deb4fbd7a0079047ab28110c77c</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>36ae7deb4fbd7a0079047ab28110c77d</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>report_widget_description</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>sys_id</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">baae7deb4fbd7a0079047ab28110c77c</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>3eae7deb4fbd7a0079047ab28110c77c</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>e0754a8b0f65720075a506ace1050e0e</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>renderer</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">baae7deb4fbd7a0079047ab28110c77c</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>72ae7deb4fbd7a0079047ab28110c78a</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>com.glide.ui.portal.RenderReport</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>report_type</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">baae7deb4fbd7a0079047ab28110c77c</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>7eae7deb4fbd7a0079047ab28110c78a</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>bar</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">baae7deb4fbd7a0079047ab28110c77c</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>f2ae7deb4fbd7a0079047ab28110c78b</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>Time to Acquisition Complete</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>can_subscribe</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">baae7deb4fbd7a0079047ab28110c77c</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>f6ae7deb4fbd7a0079047ab28110c78a</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>true</value>
+                    </sys_portal_preferences>
+                </related_items_node>
+            </sys_portal>
+            <sys_portal action="INSERT_OR_UPDATE">
+                <dropzone>dropzone2</dropzone>
+                <offset>0</offset>
+                <page display_value="My Homepage">194ef5eb4fbd7a0079047ab28110c792</page>
+                <summary/>
+                <sys_created_by>rob.tanner</sys_created_by>
+                <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                <sys_id>f2ae7deb4fbd7a0079047ab28110c795</sys_id>
+                <sys_mod_count>0</sys_mod_count>
+                <sys_updated_by>rob.tanner</sys_updated_by>
+                <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                <related_items_node>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>sys_id</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">f2ae7deb4fbd7a0079047ab28110c795</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>76ae7deb4fbd7a0079047ab28110c795</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>3457c6810f39720075a506ace1050edc</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>can_subscribe</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">f2ae7deb4fbd7a0079047ab28110c795</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>76ae7deb4fbd7a0079047ab28110c797</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>true</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>can_publish</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">f2ae7deb4fbd7a0079047ab28110c795</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>7aae7deb4fbd7a0079047ab28110c796</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>true</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>help_text_window</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">f2ae7deb4fbd7a0079047ab28110c795</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>7eae7deb4fbd7a0079047ab28110c795</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>report_widget_description</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>renderer</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">f2ae7deb4fbd7a0079047ab28110c795</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>f2ae7deb4fbd7a0079047ab28110c796</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>com.glide.ui.portal.RenderReport</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">f2ae7deb4fbd7a0079047ab28110c795</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>faae7deb4fbd7a0079047ab28110c797</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>Interviews per Acquisition</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>report_type</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">f2ae7deb4fbd7a0079047ab28110c795</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>feae7deb4fbd7a0079047ab28110c796</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>pie</value>
+                    </sys_portal_preferences>
+                </related_items_node>
+            </sys_portal>
+            <sys_portal action="INSERT_OR_UPDATE">
+                <dropzone>dropzone2</dropzone>
+                <offset>2</offset>
+                <page display_value="My Homepage">194ef5eb4fbd7a0079047ab28110c792</page>
+                <summary/>
+                <sys_created_by>rob.tanner</sys_created_by>
+                <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                <sys_id>f6ae7deb4fbd7a0079047ab28110c79b</sys_id>
+                <sys_mod_count>0</sys_mod_count>
+                <sys_updated_by>rob.tanner</sys_updated_by>
+                <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                <related_items_node>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>renderer</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">f6ae7deb4fbd7a0079047ab28110c79b</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>72ae7deb4fbd7a0079047ab28110c79c</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>com.glide.ui.portal.RenderReport</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>sys_id</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">f6ae7deb4fbd7a0079047ab28110c79b</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>7aae7deb4fbd7a0079047ab28110c79b</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>d997b4070fe1720075a506ace1050ea6</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">f6ae7deb4fbd7a0079047ab28110c79b</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>7aae7deb4fbd7a0079047ab28110c79d</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>Active Acquisition Count</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>report_type</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">f6ae7deb4fbd7a0079047ab28110c79b</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>7eae7deb4fbd7a0079047ab28110c79c</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>bar</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>can_subscribe</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">f6ae7deb4fbd7a0079047ab28110c79b</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>f2ae7deb4fbd7a0079047ab28110c79d</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>true</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>help_text_window</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">f6ae7deb4fbd7a0079047ab28110c79b</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>f6ae7deb4fbd7a0079047ab28110c79c</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>report_widget_description</value>
+                    </sys_portal_preferences>
+                </related_items_node>
+            </sys_portal>
+            <sys_portal action="INSERT_OR_UPDATE">
+                <dropzone>dropzone1</dropzone>
+                <offset>2</offset>
+                <page display_value="My Homepage">194ef5eb4fbd7a0079047ab28110c792</page>
+                <summary/>
+                <sys_created_by>rob.tanner</sys_created_by>
+                <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                <sys_id>feae7deb4fbd7a0079047ab28110c78e</sys_id>
+                <sys_mod_count>0</sys_mod_count>
+                <sys_updated_by>rob.tanner</sys_updated_by>
+                <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                <related_items_node>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>sys_id</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">feae7deb4fbd7a0079047ab28110c78e</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>72ae7deb4fbd7a0079047ab28110c78f</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>e0c0c3470fe5720075a506ace1050eea</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>can_subscribe</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">feae7deb4fbd7a0079047ab28110c78e</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>72ae7deb4fbd7a0079047ab28110c791</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>true</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>can_publish</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">feae7deb4fbd7a0079047ab28110c78e</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>76ae7deb4fbd7a0079047ab28110c790</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>true</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>renderer</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">feae7deb4fbd7a0079047ab28110c78e</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>7aae7deb4fbd7a0079047ab28110c78f</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>com.glide.ui.portal.RenderReport</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">feae7deb4fbd7a0079047ab28110c78e</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>f6ae7deb4fbd7a0079047ab28110c791</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>Number of Talent Pools</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>report_type</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">feae7deb4fbd7a0079047ab28110c78e</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>faae7deb4fbd7a0079047ab28110c790</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>pie</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>help_text_window</name>
+                        <portal_section display_value="Created 2017-04-04 05:04:44">feae7deb4fbd7a0079047ab28110c78e</portal_section>
+                        <sys_created_by>rob.tanner</sys_created_by>
+                        <sys_created_on>2017-04-04 12:04:44</sys_created_on>
+                        <sys_id>feae7deb4fbd7a0079047ab28110c78f</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>rob.tanner</sys_updated_by>
+                        <sys_updated_on>2017-04-04 12:04:44</sys_updated_on>
+                        <value>report_widget_description</value>
+                    </sys_portal_preferences>
+                </related_items_node>
+            </sys_portal>
+        </related_items_node>
+    </sys_portal_page>
+</record_update>

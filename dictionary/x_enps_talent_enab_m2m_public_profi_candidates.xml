@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Candidate Public Profiles" max_length="40" name="x_enps_talent_enab_m2m_public_profi_candidates" type="collection">
+        <element label="Candidate" max_length="32" name="candidate" reference="x_enps_talent_enab_candidate" type="reference"/>
+        <element label="Order" max_length="40" name="order" type="integer"/>
+        <element label="Profile URL" max_length="1024" name="profile_url" type="url"/>
+        <element label="Public Profile" max_length="32" name="public_profile" reference="x_enps_talent_enab_public_profile" type="reference"/>
+        <index name="index">
+            <element name="candidate"/>
+        </index>
+        <index name="index2">
+            <element name="public_profile"/>
+        </index>
+    </element>
+</database>

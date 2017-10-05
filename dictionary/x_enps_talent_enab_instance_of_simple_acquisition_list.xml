@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element attributes="update_synch=true" extends="sp_instance_table" label="Instance of Simple Acquisition List" max_length="40" name="x_enps_talent_enab_instance_of_simple_acquisition_list" type="collection"/>
+</database>

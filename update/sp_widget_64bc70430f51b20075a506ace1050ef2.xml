@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function(spUtil, $scope) {
+	/* widget controller */
+	var c =this;
+	
+	spUtil.recordWatch($scope, "x_enps_talent_enab_acquisition", "state=2", function(name, data) {
+		//console.log(name); //Returns information about the event that has occurred
+		//console.log(data); //Returns the data inserted or updated on the table		
+		if(data.sys_id != '') {
+		var idx = _.findLastIndex(c.data.items, { sys_id: data.sys_id });
+			//console.log('Index is: ' + idx);
+			var data1 = {
+				sys_id: data.sys_id, 
+				number: data.display_value, 
+				state: data.record.state.display_value,
+				url: '?id=lf&table=x_enps_talent_enab_acquisition&sys_id=' + data.sys_id.toString(),
+				candidateListUrl: '?id=list&table=x_enps_talent_enab_m2m_acquisitions_candidates&filter=acquisition='+data.sys_id.toString()+'&view=default'
+			};
+			if(idx != -1) {
+				//console.log('Index found: ' + idx);
+				c.data.items[idx] = data1;
+			} else {
+				//console.log('Index not found: pushing');
+				c.data.items.push(data1);
+			}
+		}
+		});
+	}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.list-button {&#13;
+  font-size: 12px;&#13;
+  margin-left: 5px;&#13;
+}&#13;
+&#13;
+.state-open {&#13;
+ background-color: #0096FF; &#13;
+ color: white;&#13;
+  padding: 0 5px;&#13;
+}&#13;
+&#13;
+.state-warning {&#13;
+ background-color: #F79522; &#13;
+ color: white;&#13;
+  padding: 0 5px;&#13;
+}&#13;
+&#13;
+.state-success {&#13;
+ background-color: #5cb85c;&#13;
+  color: white;&#13;
+  padding: 0 5px;&#13;
+}&#13;
+&#13;
+.state-danger {&#13;
+  background-color: #666666; &#13;
+ color: white;&#13;
+  padding: 0 5px;&#13;
+}&#13;
+&#13;
+.state-incomp {&#13;
+  background-color:tomato; &#13;
+ color: white;&#13;
+  padding: 0 5px;&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link/>
+        <name>Acquisition Watcher TA</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */
+	try {
+		data.itemCount = 0;
+		data.items = [];
+		data.listQty = 7;
+		
+		var gr = new GlideRecord('x_enps_talent_enab_acquisition');
+		gr.query();
+		while(gr.next()){
+			data.items.push({
+				sys_id: gr.sys_id.toString(),
+				number: gr.number.toString(),
+				state: gr.state.getDisplayValue().toString(),
+				name: gr.job_specification.name.toString(),
+				url: '?id=lf&table=x_enps_talent_enab_acquisition&sys_id=' + gr.sys_id.toString(),
+				candidateListUrl: '?id=list&table=x_enps_talent_enab_m2m_acquisitions_candidates&filter=acquisition='+gr.sys_id.toString()+'&view=default'
+			});
+			
+			data.itemCount++;
+		}
+	} catch (a) {
+		var msg = 'Acquisition Watcher TA Server Error: ' + a.toString();
+		gs.info(msg);
+		gs.addInfoMessage(msg);
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-03-08 21:30:06</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>64bc70430f51b20075a506ace1050ef2</sys_id>
+        <sys_mod_count>107</sys_mod_count>
+        <sys_name>Acquisition Watcher TA</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sp_widget_64bc70430f51b20075a506ace1050ef2</sys_update_name>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-21 02:35:44</sys_updated_on>
+        <template><![CDATA[<div>
+<div class="panel panel-success b">
+  <div class="panel-heading">
+    <h4 class="panel-title">      
+      <span ng-if="c.options.glyph">
+        <fa name="{{::c.options.glyph}}" />
+      </span>{{::c.options.title}} - {{c.data.itemCount}}
+    </h4>
+  </div>
+  <div class="list-group hide-x-overflow" style="overflow-y: auto;">
+    <div ng-if="c.data.itemCount > 0" ng-repeat="item in c.data.items track by item.sys_id" class="list-group-item">
+      <div class="row"><div class="col-xs-12"><h4><span class="text-primary"><a ng-href="{{item.url}}" target="_blank">{{item.name}}</a><span></h4></div></div>
+        <div class="row"><div class="col-xs-6"><b>Number:</b> {{item.number}} 
+          <a ng-href="{{item.candidateListUrl}}" target="_blank" class="list-button" title="Candidate List">
+            <span class="glyphicon glyphicon-list"></span>
+          </a>
+          </div><div class="col-xs-6"> <b>State:</b> <span ng-class="{'state-open': item.state == 'Open', 'state-success': item.state == 'Work in Progress', 'state-danger': item.state == 'Closed Complete', 'state-incomp': item.state == 'Closed Incomplete'}">{{item.state}}</span></div></div>
+    </div>
+     <div ng-if="!c.data.itemCount" class="list-group-item">
+     ${No records found}
+     </div>
+  </div>
+  <div class="panel-footer" ng-if="!c.options.hide_footer && c.options.maximum_entries && c.data.count > c.options.maximum_entries">
+
+  </div>]]></template>
+    </sp_widget>
+</record_update>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element audit="true" label="Candidate" max_length="40" name="x_enps_talent_enab_candidate" type="collection">
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element label="Annual Salary Expectation" max_length="20" name="annual_salary_expectation" type="currency"/>
+        <element label="Availability" max_length="150" name="availability" type="glide_date"/>
+        <element label="Citizen" max_length="40" name="citizen" type="boolean"/>
+        <element label="Current Role" max_length="150" name="current_role" reference="x_enps_talent_enab_job_roles" type="reference"/>
+        <element label="Daily Salary Expectation" max_length="20" name="daily_salary_expectation" type="currency"/>
+        <element label="Email" max_length="100" name="email" type="string"/>
+        <element label="Highest Acquisition Stage" max_length="150" name="highest_acquisition_stage" type="string"/>
+        <element label="Highest Education" max_length="150" name="highest_education" type="string"/>
+        <element label="Industries" max_length="500" name="industries" type="string"/>
+        <element label="Location" max_length="32" name="location" reference="cmn_location" type="reference"/>
+        <element display="true" label="Name" max_length="250" name="name" type="string"/>
+        <element label="Native Languages" max_length="500" name="native_languages" type="string"/>
+        <element label="Phone Number" max_length="20" name="phone_number" type="string"/>
+        <element label="Profile" max_length="32" name="profile" reference="x_enps_talent_enab_profile" type="reference"/>
+        <element label="Right to Work Locations" max_length="1000" name="right_to_work_locations" type="string"/>
+        <element choice="3" default="not_reviewed" label="System Status" max_length="40" name="system_status" type="choice">
+            <choice>
+                <element label="Not Reviewed" sequence="1" value="not_reviewed"/>
+                <element label="Reviewed" sequence="2" value="reviewed"/>
+                <element label="Incomplete" sequence="3" value="incomplete"/>
+            </choice>
+        </element>
+        <element label="Visa" max_length="40" name="visa" type="boolean"/>
+        <element label="Work Notes" max_length="4000" name="work_notes" type="journal_input"/>
+        <index name="index">
+            <element name="current_role"/>
+        </index>
+        <index name="index2">
+            <element name="profile"/>
+        </index>
+        <index name="index3">
+            <element name="location"/>
+        </index>
+    </element>
+</database>

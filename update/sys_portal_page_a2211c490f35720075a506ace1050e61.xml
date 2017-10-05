@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update node_type="sys_portal_page" unload_date="2017-10-05 09:53:33">
+    <sys_portal_page action="INSERT_OR_UPDATE">
+        <layout/>
+        <order>3000</order>
+        <read_roles>x_enps_talent_enab.Talent Enabler</read_roles>
+        <roles>x_enps_talent_enab.Talent Enabler</roles>
+        <selectable>false</selectable>
+        <sys_class_name>sys_portal_page</sys_class_name>
+        <sys_created_by>enable.jesi</sys_created_by>
+        <sys_created_on>2017-03-27 09:41:30</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>a2211c490f35720075a506ace1050e61</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>PA New Tab</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sys_portal_page_a2211c490f35720075a506ace1050e61</sys_update_name>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-20 07:32:23</sys_updated_on>
+        <title>PA New Tab</title>
+        <user/>
+        <view>pa_new_tab</view>
+    </sys_portal_page>
+</record_update>

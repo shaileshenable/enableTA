@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_page">
+    <sp_page action="INSERT_OR_UPDATE">
+        <css>section.page {&#13;
+	background-color: $sp-homepage-bg;&#13;
+}&#13;
+section.page, section.body {&#13;
+    padding-top: 0px !important;&#13;
+}&#13;
+.push-down-15{&#13;
+  margin-top: 15px;&#13;
+}&#13;
+</css>
+        <draft>false</draft>
+        <id>index_ta</id>
+        <internal>false</internal>
+        <public>false</public>
+        <roles/>
+        <short_description/>
+        <sys_class_name>sp_page</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-03-06 20:20:35</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>270ad25a0fd9320075a506ace1050e89</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>index_ta</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sp_page_270ad25a0fd9320075a506ace1050e89</sys_update_name>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-05 06:26:23</sys_updated_on>
+        <title>Talent Acquisition</title>
+    </sp_page>
+</record_update>

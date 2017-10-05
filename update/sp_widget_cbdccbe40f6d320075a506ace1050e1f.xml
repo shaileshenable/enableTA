@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function(spUtil, $scope) {
+	/* widget controller */
+	var c =this;
+	spUtil.recordWatch($scope, "x_enps_talent_enab_candidate", "system_status=not_reviewed", function(name, data) {
+		//console.log(name); //Returns information about the event that has occurred
+		console.log(data); //Returns the data inserted or updated on the table		
+		if(data.sys_id != '') {
+			var idx = _.findLastIndex(c.data.items, { sys_id: data.sys_id });
+				//console.log('Index is: ' + idx);
+			var data1 = {
+				sys_id: data.sys_id, 
+				name: data.display_value, 
+				lastUpdated : data.record.sys_updated_on.display_value.toString(), 
+				state: data.record.system_status.display_value.toString(),
+				url: '?id=lf&table=x_enps_talent_enab_candidate&sys_id=' + data.sys_id.toString()
+			};
+
+			if(idx != -1) {
+				//console.log('Index found: ' + idx);
+				c.data.items[idx] = data1;
+			} else {
+				//console.log('Index not found: pushing');
+				c.data.items.push(data1);
+			}
+
+			c.data.items = _.sortBy(c.data.items, 'lastUpdated').reverse();
+		}
+	});
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.bg-warning-ta {&#13;
+ background-color: #F79522; &#13;
+}&#13;
+.state-warning {&#13;
+ background-color: #FFC800; &#13;
+ color: white;&#13;
+  padding: 0 5px;&#13;
+}&#13;
+&#13;
+.state-success {&#13;
+ background-color: #5cb85c;&#13;
+  color: white;&#13;
+  padding: 0 5px;&#13;
+}&#13;
+&#13;
+.state-danger {&#13;
+  background-color: #666666; &#13;
+ color: white;&#13;
+  padding: 0 5px;&#13;
+}&#13;
+&#13;
+.state-incomp {&#13;
+  background-color:tomato; &#13;
+ color: white;&#13;
+  padding: 0 5px;&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link/>
+        <name>Candidate Watcher TA</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */
+	try {
+		data.itemCount = 0;
+		data.items = [];
+		var gr = new GlideRecord('x_enps_talent_enab_candidate');
+		gr.addQuery('system_status','not_reviewed');
+		gr.orderByDesc('sys_updated_on');
+		gr.query();
+		while(gr.next()){
+			data.items.push({
+				sys_id: gr.sys_id.toString(),
+				name: gr.name.toString(),
+				lastUpdated: gr.sys_updated_on.toString(),
+				state: gr.system_status.getDisplayValue(),
+				url: '?id=lf&table=x_enps_talent_enab_candidate&sys_id=' + gr.sys_id.toString()
+			});
+			data.itemCount++;
+		}
+	} catch (a) {
+		var msg = 'Candidate Watcher TA Input Error: ' + a.toString();
+		gs.info(msg);
+		gs.addInfoMessage(msg);
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-03-13 23:48:53</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>cbdccbe40f6d320075a506ace1050e1f</sys_id>
+        <sys_mod_count>28</sys_mod_count>
+        <sys_name>Candidate Watcher TA</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sp_widget_cbdccbe40f6d320075a506ace1050e1f</sys_update_name>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-20 03:41:28</sys_updated_on>
+        <template><![CDATA[<div>
+<div class="panel panel-warning b">
+  <div class="panel-heading">
+    <h4 class="panel-title">      
+      <span ng-if="c.options.glyph">
+        <fa name="{{::c.options.glyph}}" />
+      </span>{{::c.options.title}} - {{c.data.itemCount}}</h4>
+    <!-- <i class="fa fa-filter" ng-click="c.toggleFilter()" ng-class="{'disabled-filter': !c.showFilter}"></i>
+    <div>
+      <input ng-model="c.data.filterText" ng-model-options="{debounce: 300}" sn-focus="c.showFilter" placeholder="{{::data.filterMsg}}" ng-change="c.update()" class="form-control input-sm filter-box">
+    </div>
+    -->
+  </div>
+  <div class="list-group hide-x-overflow" style="overflow-y: auto;">
+    <div ng-if="c.data.itemCount > 0" ng-repeat="item in c.data.items track by item.sys_id" class="list-group-item">
+            <div class="row"><div class="col-xs-12"><h4><span class="text-primary"><a ng-href="{{item.url}}" target="_blank">{{item.name}}</a><span></h4></div></div>
+      		<div class="row"><div class="col-xs-7"><b>Updated:</b> {{item.lastUpdated | date:'dd-MM-yyyy'}} </div><div class="col-xs-5"> <b>State:</b> <span ng-class="{'state-warning': item.state == 'Not Reviewed', 'state-success': item.state == 'Reviewed', 'state-danger': item.state == 'Invalid', 'state-incomp': item.state == 'Incomplete'}">{{item.state}}</span></div></div>
+    </div>
+     <div ng-if="!c.data.itemCount" class="list-group-item">
+     ${No records found}
+     </div>
+  </div>
+  <div class="panel-footer" ng-if="!c.options.hide_footer && c.options.maximum_entries && c.data.count > c.options.maximum_entries">
+
+  </div>
+]]></template>
+    </sp_widget>
+</record_update>

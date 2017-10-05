@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_transform_entry">
+    <sys_transform_entry action="INSERT_OR_UPDATE">
+        <choice_action>create</choice_action>
+        <coalesce>false</coalesce>
+        <coalesce_case_sensitive>false</coalesce_case_sensitive>
+        <coalesce_empty_fields>false</coalesce_empty_fields>
+        <date_format>yyyy-MM-dd hh:mm:ss</date_format>
+        <map display_value="recruiteLiveCandidates">97c80d740f2e3a00429009bce1050e15</map>
+        <reference_value_field/>
+        <source_field>u_fullname</source_field>
+        <source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+        <source_table>x_enps_talent_enab_recruitelivecandidates</source_table>
+        <sys_class_name>sys_transform_entry</sys_class_name>
+        <sys_created_by>rob.tanner</sys_created_by>
+        <sys_created_on>2017-05-03 01:56:05</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>bd79c5740f2e3a00429009bce1050e8f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>u_fullname</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sys_transform_entry_bd79c5740f2e3a00429009bce1050e8f</sys_update_name>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-05-03 01:56:05</sys_updated_on>
+        <target_field>name</target_field>
+        <target_table>x_enps_talent_enab_candidate</target_table>
+        <use_source_script>false</use_source_script>
+    </sys_transform_entry>
+</record_update>

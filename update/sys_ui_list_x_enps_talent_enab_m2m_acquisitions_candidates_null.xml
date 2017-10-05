@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="x_enps_talent_enab_m2m_acquisitions_candidates" version="2" view="">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>candidate</element>
+            <list_id display_value="x_enps_talent_enab_m2m_acquisitions_candidates" element="NULL" name="x_enps_talent_enab_m2m_acquisitions_candidates" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">a0249bf80fd27200429009bce1050ea9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>rob.tanner</sys_created_by>
+            <sys_created_on>2017-04-21 01:46:15</sys_created_on>
+            <sys_id>e4249bf80fd27200429009bce1050ea9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>rob.tanner</sys_updated_by>
+            <sys_updated_on>2017-04-21 01:46:15</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>state</element>
+            <list_id display_value="x_enps_talent_enab_m2m_acquisitions_candidates" element="NULL" name="x_enps_talent_enab_m2m_acquisitions_candidates" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">a0249bf80fd27200429009bce1050ea9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>rob.tanner</sys_created_by>
+            <sys_created_on>2017-04-21 01:46:15</sys_created_on>
+            <sys_id>68249bf80fd27200429009bce1050ea9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>rob.tanner</sys_updated_by>
+            <sys_updated_on>2017-04-21 01:46:15</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>candidate.current_role</element>
+            <list_id display_value="x_enps_talent_enab_m2m_acquisitions_candidates" element="NULL" name="x_enps_talent_enab_m2m_acquisitions_candidates" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">a0249bf80fd27200429009bce1050ea9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>rob.tanner</sys_created_by>
+            <sys_created_on>2017-04-21 01:46:15</sys_created_on>
+            <sys_id>e8249bf80fd27200429009bce1050ea9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>rob.tanner</sys_updated_by>
+            <sys_updated_on>2017-04-21 01:46:15</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>candidate.availability</element>
+            <list_id display_value="x_enps_talent_enab_m2m_acquisitions_candidates" element="NULL" name="x_enps_talent_enab_m2m_acquisitions_candidates" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">a0249bf80fd27200429009bce1050ea9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>3</position>
+            <sum>false</sum>
+            <sys_created_by>rob.tanner</sys_created_by>
+            <sys_created_on>2017-04-21 01:46:15</sys_created_on>
+            <sys_id>6c249bf80fd27200429009bce1050ea9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>rob.tanner</sys_updated_by>
+            <sys_updated_on>2017-04-21 01:46:15</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>candidate.citizen</element>
+            <list_id display_value="x_enps_talent_enab_m2m_acquisitions_candidates" element="NULL" name="x_enps_talent_enab_m2m_acquisitions_candidates" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">a0249bf80fd27200429009bce1050ea9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>4</position>
+            <sum>false</sum>
+            <sys_created_by>rob.tanner</sys_created_by>
+            <sys_created_on>2017-04-21 01:46:15</sys_created_on>
+            <sys_id>ec249bf80fd27200429009bce1050ea9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>rob.tanner</sys_updated_by>
+            <sys_updated_on>2017-04-21 01:46:15</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>candidate.right_to_work_locations</element>
+            <list_id display_value="x_enps_talent_enab_m2m_acquisitions_candidates" element="NULL" name="x_enps_talent_enab_m2m_acquisitions_candidates" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">a0249bf80fd27200429009bce1050ea9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>5</position>
+            <sum>false</sum>
+            <sys_created_by>rob.tanner</sys_created_by>
+            <sys_created_on>2017-04-21 01:46:15</sys_created_on>
+            <sys_id>60249bf80fd27200429009bce1050eaa</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>rob.tanner</sys_updated_by>
+            <sys_updated_on>2017-04-21 01:46:15</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>candidate.native_languages</element>
+            <list_id display_value="x_enps_talent_enab_m2m_acquisitions_candidates" element="NULL" name="x_enps_talent_enab_m2m_acquisitions_candidates" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">a0249bf80fd27200429009bce1050ea9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>6</position>
+            <sum>false</sum>
+            <sys_created_by>rob.tanner</sys_created_by>
+            <sys_created_on>2017-04-21 01:46:15</sys_created_on>
+            <sys_id>e0249bf80fd27200429009bce1050eaa</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>rob.tanner</sys_updated_by>
+            <sys_updated_on>2017-04-21 01:46:15</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>candidate.industries</element>
+            <list_id display_value="x_enps_talent_enab_m2m_acquisitions_candidates" element="NULL" name="x_enps_talent_enab_m2m_acquisitions_candidates" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">a0249bf80fd27200429009bce1050ea9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>7</position>
+            <sum>false</sum>
+            <sys_created_by>rob.tanner</sys_created_by>
+            <sys_created_on>2017-04-21 01:46:15</sys_created_on>
+            <sys_id>64249bf80fd27200429009bce1050eaa</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>rob.tanner</sys_updated_by>
+            <sys_updated_on>2017-04-21 01:46:15</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>candidate.highest_education</element>
+            <list_id display_value="x_enps_talent_enab_m2m_acquisitions_candidates" element="NULL" name="x_enps_talent_enab_m2m_acquisitions_candidates" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">a0249bf80fd27200429009bce1050ea9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>8</position>
+            <sum>false</sum>
+            <sys_created_by>rob.tanner</sys_created_by>
+            <sys_created_on>2017-04-21 01:46:15</sys_created_on>
+            <sys_id>e4249bf80fd27200429009bce1050eaa</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>rob.tanner</sys_updated_by>
+            <sys_updated_on>2017-04-21 01:46:15</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>candidate.highest_acquisition_stage</element>
+            <list_id display_value="x_enps_talent_enab_m2m_acquisitions_candidates" element="NULL" name="x_enps_talent_enab_m2m_acquisitions_candidates" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">a0249bf80fd27200429009bce1050ea9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>9</position>
+            <sum>false</sum>
+            <sys_created_by>rob.tanner</sys_created_by>
+            <sys_created_on>2017-04-21 01:46:15</sys_created_on>
+            <sys_id>68249bf80fd27200429009bce1050eaa</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>rob.tanner</sys_updated_by>
+            <sys_updated_on>2017-04-21 01:46:15</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>candidate.annual_salary_expectation</element>
+            <list_id display_value="x_enps_talent_enab_m2m_acquisitions_candidates" element="NULL" name="x_enps_talent_enab_m2m_acquisitions_candidates" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">a0249bf80fd27200429009bce1050ea9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>10</position>
+            <sum>false</sum>
+            <sys_created_by>rob.tanner</sys_created_by>
+            <sys_created_on>2017-04-21 01:46:15</sys_created_on>
+            <sys_id>e8249bf80fd27200429009bce1050eaa</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>rob.tanner</sys_updated_by>
+            <sys_updated_on>2017-04-21 01:46:15</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>candidate.daily_salary_expectation</element>
+            <list_id display_value="x_enps_talent_enab_m2m_acquisitions_candidates" element="NULL" name="x_enps_talent_enab_m2m_acquisitions_candidates" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">a0249bf80fd27200429009bce1050ea9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>11</position>
+            <sum>false</sum>
+            <sys_created_by>rob.tanner</sys_created_by>
+            <sys_created_on>2017-04-21 01:46:15</sys_created_on>
+            <sys_id>6c249bf80fd27200429009bce1050eaa</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>rob.tanner</sys_updated_by>
+            <sys_updated_on>2017-04-21 01:46:15</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>candidate.system_status</element>
+            <list_id display_value="x_enps_talent_enab_m2m_acquisitions_candidates" element="NULL" name="x_enps_talent_enab_m2m_acquisitions_candidates" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">a0249bf80fd27200429009bce1050ea9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>12</position>
+            <sum>false</sum>
+            <sys_created_by>rob.tanner</sys_created_by>
+            <sys_created_on>2017-04-21 01:46:15</sys_created_on>
+            <sys_id>ec249bf80fd27200429009bce1050eaa</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>rob.tanner</sys_updated_by>
+            <sys_updated_on>2017-04-21 01:46:15</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>x_enps_talent_enab_m2m_acquisitions_candidates</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>rob.tanner</sys_created_by>
+            <sys_created_on>2017-04-21 01:46:15</sys_created_on>
+            <sys_customer_update>true</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>a0249bf80fd27200429009bce1050ea9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_enps_talent_enab_m2m_acquisitions_candidates</sys_name>
+            <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+            <sys_update_name>sys_ui_list_x_enps_talent_enab_m2m_acquisitions_candidates_null</sys_update_name>
+            <sys_updated_by>rob.tanner</sys_updated_by>
+            <sys_updated_on>2017-04-21 01:46:15</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element audit="true" label="Acquisitions Candidates" max_length="40" name="x_enps_talent_enab_m2m_acquisitions_candidates" type="collection">
+        <element label="Acquisition" max_length="32" name="acquisition" reference="x_enps_talent_enab_acquisition" type="reference"/>
+        <element label="Active" max_length="40" name="active" type="boolean"/>
+        <element label="Candidate" max_length="32" name="candidate" reference="x_enps_talent_enab_candidate" type="reference"/>
+        <element choice="3" default="inProgress" label="State" max_length="40" name="state" type="choice">
+            <choice>
+                <element label="In Progress" sequence="0" value="inProgress"/>
+                <element label="Interviewing" sequence="1" value="Interviewing"/>
+                <element label="Hired" sequence="2" value="hired"/>
+                <element label="Rejected" sequence="3" value="rejected"/>
+            </choice>
+        </element>
+        <element label="Work Notes" max_length="4000" name="work_notes" type="journal_input"/>
+        <index name="index">
+            <element name="candidate"/>
+        </index>
+        <index name="index2">
+            <element name="acquisition"/>
+        </index>
+    </element>
+</database>

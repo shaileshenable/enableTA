@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Job Specification" max_length="40" name="x_enps_talent_enab_job_specification" type="collection">
+        <element label="Industry" max_length="32" name="industry" reference="x_enps_talent_enab_industry" type="reference"/>
+        <element label="Job Role" max_length="32" name="job_roles" reference="x_enps_talent_enab_job_roles" type="reference"/>
+        <element label="Knowledge Article" max_length="32" name="knowledge_article" reference="kb_knowledge" reference_qual="retiredISEMPTY^EQ" reference_qual_condition="retiredISEMPTY^EQ" type="reference"/>
+        <element label="Location" max_length="32" name="location" reference="cmn_location" type="reference"/>
+        <element display="true" label="Name" max_length="250" name="name" type="string"/>
+        <element label="Salary" max_length="20" name="salary" type="currency"/>
+        <index name="index">
+            <element name="knowledge_article"/>
+        </index>
+        <index name="index2">
+            <element name="job_roles"/>
+        </index>
+        <index name="index3">
+            <element name="industry"/>
+        </index>
+        <index name="index4">
+            <element name="location"/>
+        </index>
+    </element>
+</database>

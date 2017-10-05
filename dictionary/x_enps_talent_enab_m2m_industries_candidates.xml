@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Industries Candidates" max_length="40" name="x_enps_talent_enab_m2m_industries_candidates" type="collection">
+        <element label="Candidate" max_length="32" name="candidate" reference="x_enps_talent_enab_candidate" type="reference"/>
+        <element label="Industry" max_length="32" name="industry" reference="x_enps_talent_enab_industry" type="reference"/>
+        <index name="index">
+            <element name="candidate"/>
+        </index>
+        <index name="index2">
+            <element name="industry"/>
+        </index>
+    </element>
+</database>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Skill" max_length="40" name="x_enps_talent_enab_skill" type="collection">
+        <element label="Alias" max_length="150" name="alias" type="string"/>
+        <element attributes="ts_weight=50" display="true" label="Name" max_length="250" name="name" type="string"/>
+        <element default="50" label="Score" max_length="40" name="score" type="integer"/>
+    </element>
+</database>

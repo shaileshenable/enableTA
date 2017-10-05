@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_metadata_link">
+    <sys_metadata_link action="INSERT_OR_UPDATE">
+        <directory>unload.demo</directory>
+        <documentkey>ae8e09d90fbd720075a506ace1050ece</documentkey>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_enps_talent_enab_candidate">
+    <x_enps_talent_enab_candidate action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <annual_salary_expectation>0</annual_salary_expectation>
+        <availability/>
+        <citizen>false</citizen>
+        <current_role/>
+        <daily_salary_expectation>0</daily_salary_expectation>
+        <highest_acquisition_stage/>
+        <highest_education/>
+        <industries/>
+        <location display_value="Carretera Cancun-Chetumal KM 22, Cancun">25b4c23b0a0a0bb30054836629537509</location>
+        <name>Angelo Ferentz</name>
+        <native_languages/>
+        <profile/>
+        <right_to_work_locations/>
+        <sys_created_by>enable.jesi</sys_created_by>
+        <sys_created_on>2017-03-28 08:48:27</sys_created_on>
+        <sys_id>ae8e09d90fbd720075a506ace1050ece</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-03-29 23:28:46</sys_updated_on>
+        <system_status>not_reviewed</system_status>
+        <visa>false</visa>
+        <work_notes/>
+    </x_enps_talent_enab_candidate>
+</record_update>
+]]></payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>rob.tanner</sys_created_by>
+        <sys_created_on>2017-04-04 11:35:06</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>30e7bda74fbd7a0079047ab28110c7f6</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Angelo Ferentz</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sys_metadata_link_30e7bda74fbd7a0079047ab28110c7f6</sys_update_name>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-05 06:26:25</sys_updated_on>
+        <tablename>x_enps_talent_enab_candidate</tablename>
+    </sys_metadata_link>
+</record_update>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_ng_template">
+    <sp_ng_template action="INSERT_OR_UPDATE">
+        <id>menuTemplate-ta</id>
+        <sp_widget display_value="Header TA">e61262ce0fd1320075a506ace1050e24</sp_widget>
+        <sys_class_name>sp_ng_template</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-03-27 22:53:09</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>005607010fb9720075a506ace1050e1f</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>menuTemplate-ta</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sp_ng_template_005607010fb9720075a506ace1050e1f</sys_update_name>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-05 06:26:18</sys_updated_on>
+        <template><![CDATA[<a ng-if="item.items.length == 0 && !item.scriptedItems" ng-href="{{item.href}}" target="{{item.url_target}}">{{ item.label }}</a>
+<a ng-if="item.items.length > 0" href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ item.label }} <span class="caret"></span></a>
+<ul ng-if="item.items.length > 0" class="dropdown-menu" role="menu">
+    <li ng-repeat="item in item.items" ng-include="'menuTemplate'" />
+</ul>
+<a ng-if="item.scriptedItems.count > 0" href="javascript:void(0)" data-toggle="dropdown" title="{{item.hint}}">
+    <span ng-bind-html="item.label"></span>
+    <span ng-if="!item.scriptedItems.omitBadge" class="label label-as-badge label-primary sp-navbar-badge-count">{{item.scriptedItems.count}}</span>
+</a>
+<sp-dropdown-tree ng-if="item.scriptedItems.count > 0" items="item.scriptedItems.items" />]]></template>
+    </sp_ng_template>
+</record_update>

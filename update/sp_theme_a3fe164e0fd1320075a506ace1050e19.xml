@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_theme">
+    <sp_theme action="INSERT_OR_UPDATE">
+        <css_variables> $sp-logo-margin-x: 15px !default;&#13;
+ $sp-tagline-color:	#1E184E !default;&#13;
+ $navbar-inverse-bg: #ffffff !default;&#13;
+ $navbar-inverse-link-color: #1767B0 !default;&#13;
+ $navbar-inverse-link-hover-color: #F79522 !default;&#13;
+ $body-bg: #f0f3f4 !default;&#13;
+ $dropdown-link-disabled-color: #ccc;&#13;
+ $sp-navbar-divider-color: #1E184E</css_variables>
+        <footer/>
+        <footer_fixed>true</footer_fixed>
+        <header display_value="Stock Header TA">764e7e020f55320075a506ace1050e77</header>
+        <name>TA</name>
+        <navbar_fixed>true</navbar_fixed>
+        <sys_class_name>sp_theme</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-03-06 02:04:07</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>a3fe164e0fd1320075a506ace1050e19</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>TA</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sp_theme_a3fe164e0fd1320075a506ace1050e19</sys_update_name>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-05 06:26:39</sys_updated_on>
+    </sp_theme>
+</record_update>

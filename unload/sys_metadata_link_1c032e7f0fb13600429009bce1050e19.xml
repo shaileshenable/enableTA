@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_metadata_link">
+    <sys_metadata_link action="INSERT_OR_UPDATE">
+        <directory>unload</directory>
+        <documentkey>7b737e750fb1f20075a506ace1050eaa</documentkey>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_enps_talent_enab_m2m_candidates_talent_pools">
+    <x_enps_talent_enab_m2m_candidates_talent_pools action="INSERT_OR_UPDATE">
+        <candidate display_value="Rachel Green">31009acf0f65720075a506ace1050ead</candidate>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-03-30 05:26:10</sys_created_on>
+        <sys_id>7b737e750fb1f20075a506ace1050eaa</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-03-30 05:26:10</sys_updated_on>
+        <talent_pool display_value="Telecommunications Specialist">6ac5131d0fb1b20075a506ace1050e46</talent_pool>
+    </x_enps_talent_enab_m2m_candidates_talent_pools>
+</record_update>
+]]></payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>rob.tanner</sys_created_by>
+        <sys_created_on>2017-04-05 09:21:58</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>1c032e7f0fb13600429009bce1050e19</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sys_metadata_link_1c032e7f0fb13600429009bce1050e19</sys_update_name>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-05 09:21:58</sys_updated_on>
+        <tablename>x_enps_talent_enab_m2m_candidates_talent</tablename>
+    </sys_metadata_link>
+</record_update>

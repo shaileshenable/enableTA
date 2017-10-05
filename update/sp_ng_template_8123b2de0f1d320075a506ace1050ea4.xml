@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_ng_template">
+    <sp_ng_template action="INSERT_OR_UPDATE">
+        <id>sp-typeahead-ta.html</id>
+        <sp_widget display_value="Typeahead Search TA">4345444d0fe5720075a506ace1050eb6</sp_widget>
+        <sys_class_name>sp_ng_template</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-03-06 22:13:57</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>8123b2de0f1d320075a506ace1050ea4</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>sp-typeahead-ta.html</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sp_ng_template_8123b2de0f1d320075a506ace1050ea4</sys_update_name>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-05 06:26:36</sys_updated_on>
+        <template><![CDATA[<a class="ta-item" ng-href="{{match.model.target != '_blank' ? match.model.url : ''}}" target="{{match.model.target}}">
+  <div ng-if="!match.model.templateID">
+    <i ng-class="'ta-icon fa fa-{{match.model.glyph}}'" ng-if="match.model.glyph"></i>
+    <span ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>
+  </div>
+  <div ng-if="match.model.templateID" ng-include="match.model.templateID"></div>
+</a>]]></template>
+    </sp_ng_template>
+</record_update>

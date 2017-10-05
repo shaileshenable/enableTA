@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_related sys_domain="global" table="sp_column" version="2" view="ta_instances">
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Column - TA Instances" name="sp_column" related_list="NULL" sys_domain="global" view="eb697b340fe5720075a506ace1050e62">ba793f340fe5720075a506ace1050eaf</list_id>
+            <order_by/>
+            <position>0</position>
+            <related_list>sp_row.sp_column</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2017-03-14 21:42:19</sys_created_on>
+            <sys_id>32793f340fe5720075a506ace1050eb0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2017-03-14 21:42:19</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Column - TA Instances" name="sp_column" related_list="NULL" sys_domain="global" view="eb697b340fe5720075a506ace1050e62">ba793f340fe5720075a506ace1050eaf</list_id>
+            <order_by/>
+            <position>1</position>
+            <related_list>sp_instance.sp_column</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2017-03-14 21:42:19</sys_created_on>
+            <sys_id>36793f340fe5720075a506ace1050eb0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2017-03-14 21:42:19</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Column - TA Instances" name="sp_column" related_list="NULL" sys_domain="global" view="eb697b340fe5720075a506ace1050e62">ba793f340fe5720075a506ace1050eaf</list_id>
+            <order_by/>
+            <position>2</position>
+            <related_list>sp_instance_carousel.sp_column</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2017-03-14 21:42:19</sys_created_on>
+            <sys_id>3a793f340fe5720075a506ace1050eb0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2017-03-14 21:42:19</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Column - TA Instances" name="sp_column" related_list="NULL" sys_domain="global" view="eb697b340fe5720075a506ace1050e62">ba793f340fe5720075a506ace1050eaf</list_id>
+            <order_by/>
+            <position>3</position>
+            <related_list>x_enps_talent_enab_instance_of_simple_acquisition_list.sp_column</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2017-03-14 21:42:19</sys_created_on>
+            <sys_id>3e793f340fe5720075a506ace1050eb0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2017-03-14 21:42:19</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Column - TA Instances" name="sp_column" related_list="NULL" sys_domain="global" view="eb697b340fe5720075a506ace1050e62">ba793f340fe5720075a506ace1050eaf</list_id>
+            <order_by/>
+            <position>4</position>
+            <related_list>sp_instance_vlist.sp_column</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2017-03-14 21:42:19</sys_created_on>
+            <sys_id>32793f340fe5720075a506ace1050eb1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2017-03-14 21:42:19</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Column - TA Instances" name="sp_column" related_list="NULL" sys_domain="global" view="eb697b340fe5720075a506ace1050e62">ba793f340fe5720075a506ace1050eaf</list_id>
+            <order_by/>
+            <position>5</position>
+            <related_list>sp_instance_link.sp_column</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2017-03-14 21:42:19</sys_created_on>
+            <sys_id>36793f340fe5720075a506ace1050eb1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2017-03-14 21:42:19</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Column - TA Instances" name="sp_column" related_list="NULL" sys_domain="global" view="eb697b340fe5720075a506ace1050e62">ba793f340fe5720075a506ace1050eaf</list_id>
+            <order_by/>
+            <position>6</position>
+            <related_list>sp_instance_menu.sp_column</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2017-03-14 21:42:19</sys_created_on>
+            <sys_id>3a793f340fe5720075a506ace1050eb1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2017-03-14 21:42:19</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Column - TA Instances" name="sp_column" related_list="NULL" sys_domain="global" view="eb697b340fe5720075a506ace1050e62">ba793f340fe5720075a506ace1050eaf</list_id>
+            <order_by/>
+            <position>7</position>
+            <related_list>sp_instance_table.sp_column</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2017-03-14 21:42:19</sys_created_on>
+            <sys_id>3e793f340fe5720075a506ace1050eb1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2017-03-14 21:42:19</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list action="INSERT_OR_UPDATE">
+            <calculated_name>Column - TA Instances</calculated_name>
+            <filter/>
+            <name>sp_column</name>
+            <order_by/>
+            <position/>
+            <related_list/>
+            <sys_class_name>sys_ui_related_list</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2017-03-14 21:42:19</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>ba793f340fe5720075a506ace1050eaf</sys_id>
+            <sys_mod_count>9</sys_mod_count>
+            <sys_name>Column - TA Instances</sys_name>
+            <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+            <sys_update_name>sys_ui_related_sp_column_ta_instances</sys_update_name>
+            <sys_updated_by>astha.c@enableps.com.au</sys_updated_by>
+            <sys_updated_on>2017-07-31 06:31:08</sys_updated_on>
+            <sys_user/>
+            <view display_value="TA Instances" name="ta_instances">eb697b340fe5720075a506ace1050e62</view>
+            <view_name/>
+        </sys_ui_related_list>
+    </sys_ui_related>
+</record_update>

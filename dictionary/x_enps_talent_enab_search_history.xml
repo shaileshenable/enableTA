@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Search History" max_length="40" name="x_enps_talent_enab_search_history" type="collection"/>
+</database>

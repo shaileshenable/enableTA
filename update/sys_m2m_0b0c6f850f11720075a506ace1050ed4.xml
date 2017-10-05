@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_m2m">
+    <sys_m2m action="INSERT_OR_UPDATE">
+        <from_table>x_enps_talent_enab_candidate</from_table>
+        <m2m_from_field>candidate</m2m_from_field>
+        <m2m_from_label>Experiences</m2m_from_label>
+        <m2m_table>x_enps_talent_enab_m2m_experiences_candidates</m2m_table>
+        <m2m_to_field>experience</m2m_to_field>
+        <m2m_to_label>Candidates</m2m_to_label>
+        <sys_class_name>sys_m2m</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-03-03 05:06:44</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>0b0c6f850f11720075a506ace1050ed4</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>x_enps_talent_enab_m2m_experiences_candidates</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sys_m2m_0b0c6f850f11720075a506ace1050ed4</sys_update_name>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-05 06:26:20</sys_updated_on>
+        <to_table>x_enps_talent_enab_experience</to_table>
+    </sys_m2m>
+</record_update>

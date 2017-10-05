@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_metadata_link">
+    <sys_metadata_link action="INSERT_OR_UPDATE">
+        <directory>unload</directory>
+        <documentkey>c96eb1686721220023c82e08f585efff</documentkey>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;record_update table="sp_search_source"&gt;
+    &lt;sp_search_source action="INSERT_OR_UPDATE"&gt;
+        &lt;advanced_typeahead_config&gt;true&lt;/advanced_typeahead_config&gt;
+        &lt;condition/&gt;
+        &lt;data_fetch_script&gt;&lt;![CDATA[(function(query) {
+	var results = [];
+	//Here goes the logic. Compute results however you want!
+	if (!gs.isLoggedIn())
+		return results;
+
+	var sc = new GlideRecord('sc_cat_item');
+	sc.addQuery('123TEXTQUERY321', query);
+	sc.addQuery('active',true);
+	sc.addQuery('no_search', '!=', true);
+	sc.addQuery('visible_standalone', true);
+	sc.addQuery('sys_class_name', 'NOT IN', 'sc_cat_item_wizard');
+	var portalValue = $sp.getValue('sc_catalog');
+	if (portalValue)
+		sc.addQuery('sc_catalogs', portalValue);
+	sc.query();
+	var catCount = 0;
+	while (sc.next() &amp;&amp; catCount &lt; data.limit) {
+		if (!$sp.canReadRecord(sc))
+			continue;
+
+		var item = {};
+		item.type = "sc";
+		item.page = "sc_cat_item";
+
+		if (sc.getRecordClassName() == "sc_cat_item_guide")
+			item.page = "sc_cat_item_guide";
+		else if (sc.getRecordClassName() == "sc_cat_item_content") {
+			var gr = new GlideRecord('sc_cat_item_content');
+			gr.get(sc.getUniqueValue());
+			$sp.getRecordValues(item, gr, 'url,content_type,kb_article');
+			item.type = "sc_content";
+		}
+		else
+			item.type = "sc";
+
+		$sp.getRecordDisplayValues(item, sc, 'name,short_description,picture,price,sys_id,sys_class_name');
+		item.score = parseInt(sc.ir_query_score.getDisplayValue());
+		item.label = item.name;
+		item.primary = item.name;
+
+		//calculating URL
+		if (item.type == "sc")
+			item.url = '?id=' + item.page + '&amp;sys_id=' + item.sys_id;
+		if (item.type == "sc_content") {
+			if (item.content_type == "kb")
+				item.url = '?id=kb_article&amp;sys_id=' + item.kb_article;
+			else if (item.content_type == "external")
+				item.target = '_blank';
+			else
+				item.url = '?id=sc_cat_item&amp;sys_id=' + item.sys_id;
+		}
+		if (item.type == "sc_guide")
+			item.url = '?id=sc_cat_item_guide&amp;sys_id=' + item.sys_id;
+
+		results.push(item);
+		catCount++;
+	}
+
+	return results;
+})(query);
+]]&gt;&lt;/data_fetch_script&gt;
+        &lt;display_fields/&gt;
+        &lt;enable_typeahead&gt;true&lt;/enable_typeahead&gt;
+        &lt;id&gt;sc&lt;/id&gt;
+        &lt;is_scripted_source&gt;true&lt;/is_scripted_source&gt;
+        &lt;name&gt;Service Catalog&lt;/name&gt;
+        &lt;page/&gt;
+        &lt;primary_display_field/&gt;
+        &lt;search_page_template&gt;&lt;![CDATA[&lt;div ng-if="item.type == 'sc'"&gt;
+  &lt;a href="?id={{item.page}}&amp;amp;sys_id={{item.sys_id}}" class="h4 text-primary m-b-sm block"&gt;
+    &lt;i class="fa m-r-sm fa-shopping-cart"&gt;&lt;/i&gt;
+    &lt;span ng-bind-html="highlight(item.name, data.q)"&gt;&lt;/span&gt;&lt;/a&gt;
+  &lt;div ng-style="getBGImage(item)" ng-if="item.picture" class="img-responsive m-r item-image pull-left"&gt;&lt;/div&gt;
+  &lt;p ng-bind-html="highlight(item.short_description, data.q)"&gt;&lt;/p&gt;
+  &lt;span class="text-muted m-r-sm" ng-if="data.showPrices &amp;&amp; item.price != '$0.00'"&gt;{{item.price}}&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div ng-if="item.type == 'sc_content'"&gt;
+  &lt;a ng-if="item.content_type == 'external'" ng-href="{{::item.url}}" target="_blank" class="h4 text-primary m-b-sm block"&gt;&lt;span ng-bind-html="highlight(item.name, data.q)"&gt;&lt;/span&gt; ➚&lt;/a&gt;
+  &lt;a ng-if="item.content_type == 'kb'" ng-href="?id=kb_article&amp;sys_id={{::item.kb_article}}" class="h4 text-primary m-b-sm block"&gt;
+    &lt;i class="fa m-r-sm fa-file-text-o"&gt;&lt;/i&gt;
+    &lt;span ng-bind-html="highlight(item.name, data.q)"&gt;&lt;/span&gt;
+  &lt;/a&gt;
+  &lt;a ng-if="item.content_type == 'literal'" ng-href="?id={{item.page}}&amp;sys_id={{item.sys_id}}" class="h4 text-primary m-b-sm block"&gt;
+    &lt;i class="fa m-r-sm fa-file-text-o"&gt;&lt;/i&gt;
+    &lt;span ng-bind-html="highlight(item.name, data.q)"&gt;&lt;/span&gt;&lt;/a&gt;
+  &lt;div ng-style="getBGImage(item)" ng-if="item.picture" class="img-responsive m-r item-image pull-left"&gt;&lt;/div&gt;
+  &lt;p ng-bind-html="highlight(item.short_description, data.q)"&gt;&lt;/p&gt;
+&lt;/div&gt;]]&gt;&lt;/search_page_template&gt;
+        &lt;source_table/&gt;
+        &lt;sys_class_name&gt;sp_search_source&lt;/sys_class_name&gt;
+        &lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2016-08-26 21:56:02&lt;/sys_created_on&gt;
+        &lt;sys_customer_update&gt;false&lt;/sys_customer_update&gt;
+        &lt;sys_id&gt;c96eb1686721220023c82e08f585efff&lt;/sys_id&gt;
+        &lt;sys_mod_count&gt;25&lt;/sys_mod_count&gt;
+        &lt;sys_name&gt;Service Catalog&lt;/sys_name&gt;
+        &lt;sys_package display_value="Service Portal - Core" source="com.glide.service-portal"&gt;51f1977d4f92628079047ab28110c72d&lt;/sys_package&gt;
+        &lt;sys_policy/&gt;
+        &lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;
+        &lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;
+        &lt;sys_update_name&gt;sp_search_source_c96eb1686721220023c82e08f585efff&lt;/sys_update_name&gt;
+        &lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;
+        &lt;sys_updated_on&gt;2016-09-02 01:19:41&lt;/sys_updated_on&gt;
+        &lt;typeahead_glyph&gt;empty&lt;/typeahead_glyph&gt;
+        &lt;typeahead_template&gt;&lt;![CDATA[&lt;i class="ta-img" ng-if="match.model.type=='sc'" style="background-image:url('{{match.model.picture}}')"&gt;&lt;/i&gt;
+&lt;i class="ta-img" ng-if="match.model.type=='sc_guide'" style="background-image:url('{{match.model.picture}}')"&gt;&lt;/i&gt;
+&lt;i class="ta-icon fa fa-file-text-o" ng-if="match.model.type=='sc_content' &amp;&amp; match.model.content_type == 'kb'"&gt;&lt;/i&gt;
+&lt;strong ng-if="match.model.type=='sc_content' &amp;&amp; match.model.content_type == 'external'"&gt;➚&lt;/strong&gt;
+&lt;span ng-bind-html="match.label | uibTypeaheadHighlight:query"&gt;&lt;/span&gt;
+]]&gt;&lt;/typeahead_template&gt;
+    &lt;/sp_search_source&gt;
+&lt;/record_update&gt;
+</payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>rob.tanner</sys_created_by>
+        <sys_created_on>2017-04-05 04:31:41</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>d09025bf4fb5ba0079047ab28110c7ea</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Service Catalog</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sys_metadata_link_d09025bf4fb5ba0079047ab28110c7ea</sys_update_name>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-05 06:26:45</sys_updated_on>
+        <tablename>sp_search_source</tablename>
+    </sys_metadata_link>
+</record_update>

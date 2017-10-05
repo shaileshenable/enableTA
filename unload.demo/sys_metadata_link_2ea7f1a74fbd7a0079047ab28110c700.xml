@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_metadata_link">
+    <sys_metadata_link action="INSERT_OR_UPDATE">
+        <directory>unload.demo</directory>
+        <documentkey>82321f934ff57a0079047ab28110c78e</documentkey>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_enps_talent_enab_talent_pool">
+    <x_enps_talent_enab_talent_pool action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <candidate_count>10</candidate_count>
+        <name>General</name>
+        <sys_created_by>rob.tanner</sys_created_by>
+        <sys_created_on>2017-04-03 23:31:29</sys_created_on>
+        <sys_id>82321f934ff57a0079047ab28110c78e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-03 23:31:29</sys_updated_on>
+    </x_enps_talent_enab_talent_pool>
+</record_update>
+]]></payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>rob.tanner</sys_created_by>
+        <sys_created_on>2017-04-04 11:34:07</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>2ea7f1a74fbd7a0079047ab28110c700</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>General</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sys_metadata_link_2ea7f1a74fbd7a0079047ab28110c700</sys_update_name>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-05 06:26:25</sys_updated_on>
+        <tablename>x_enps_talent_enab_talent_pool</tablename>
+    </sys_metadata_link>
+</record_update>

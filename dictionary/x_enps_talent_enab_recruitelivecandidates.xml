@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element extends="sys_import_set_row" label="recruiteLiveCandidates" max_length="40" name="x_enps_talent_enab_recruitelivecandidates" type="collection">
+        <element attributes="import_attribute_name=active,edge_encryption_enabled=true" label="active" max_length="40" name="u_active" type="string"/>
+        <element attributes="import_attribute_name=age,edge_encryption_enabled=true" label="age" max_length="40" name="u_age" type="string"/>
+        <element attributes="import_attribute_name=available" label="available" max_length="40" name="u_available" type="integer"/>
+        <element attributes="import_attribute_name=candidateID" label="candidateID" max_length="40" name="u_candidatei0" type="integer"/>
+        <element attributes="import_attribute_name=CandidateID" label="CandidateID" max_length="40" name="u_candidateid" type="integer"/>
+        <element attributes="import_attribute_name=ContractSalaryRate,edge_encryption_enabled=true" label="ContractSalaryRate" max_length="40" name="u_contractsalaryrate" type="string"/>
+        <element attributes="import_attribute_name=ContractSalRateCurrency,edge_encryption_enabled=true" label="ContractSalRateCurrency" max_length="40" name="u_contractsalratecurrency" type="string"/>
+        <element attributes="import_attribute_name=ContractSalRateType,edge_encryption_enabled=true" label="ContractSalRateType" max_length="40" name="u_contractsalratetype" type="string"/>
+        <element attributes="import_attribute_name=coreCompetency,edge_encryption_enabled=true" label="coreCompetency" max_length="342" name="u_corecompetency" type="string"/>
+        <element attributes="import_attribute_name=coreCompetencyUpd,edge_encryption_enabled=true" label="coreCompetencyUpd" max_length="114" name="u_corecompetencyupd" type="string"/>
+        <element attributes="import_attribute_name=coreProjects,edge_encryption_enabled=true" label="coreProjects" max_length="40" name="u_coreprojects" type="string"/>
+        <element attributes="import_attribute_name=coreRole,edge_encryption_enabled=true" label="coreRole" max_length="98" name="u_corerole" type="string"/>
+        <element attributes="import_attribute_name=coreRoleUpd,edge_encryption_enabled=true" label="coreRoleUpd" max_length="47" name="u_coreroleupd" type="string"/>
+        <element attributes="import_attribute_name=corporateStatus,edge_encryption_enabled=true" label="corporateStatus" max_length="40" name="u_corporatestatus" type="string"/>
+        <element attributes="import_attribute_name=CurrentSalaryRate,edge_encryption_enabled=true" label="CurrentSalaryRate" max_length="40" name="u_currentsalaryrate" type="string"/>
+        <element attributes="import_attribute_name=CurSalRateCurrency,edge_encryption_enabled=true" label="CurSalRateCurrency" max_length="40" name="u_cursalratecurrency" type="string"/>
+        <element attributes="import_attribute_name=CurSalRateType,edge_encryption_enabled=true" label="CurSalRateType" max_length="40" name="u_cursalratetype" type="string"/>
+        <element attributes="import_attribute_name=DateAdded" label="DateAdded" max_length="40" name="u_dateadded" type="glide_date_time"/>
+        <element attributes="import_attribute_name=dateAvailable,edge_encryption_enabled=true" label="dateAvailable" max_length="40" name="u_dateavailable" type="string"/>
+        <element attributes="import_attribute_name=dateOfBirth,edge_encryption_enabled=true" label="dateOfBirth" max_length="40" name="u_dateofbirth" type="string"/>
+        <element attributes="import_attribute_name=dateOfLastUpdate" label="dateOfLastUpdate" max_length="40" name="u_dateoflastupdate" type="glide_date_time"/>
+        <element attributes="import_attribute_name=dateResumeUpdated,edge_encryption_enabled=true" label="dateResumeUpdated" max_length="40" name="u_dateresumeupdated" type="string"/>
+        <element attributes="import_attribute_name=Education,edge_encryption_enabled=true" label="Education" max_length="40" name="u_education" type="string"/>
+        <element attributes="import_attribute_name=EmpType,edge_encryption_enabled=true" label="EmpType" max_length="40" name="u_emptype" type="string"/>
+        <element attributes="import_attribute_name=ExAppId,edge_encryption_enabled=true" label="ExAppId" max_length="40" name="u_exappid" type="string"/>
+        <element attributes="import_attribute_name=ExpectedRateFrom,edge_encryption_enabled=true" label="ExpectedRateFrom" max_length="40" name="u_expectedratefrom" type="string"/>
+        <element attributes="import_attribute_name=ExpectedRateTo,edge_encryption_enabled=true" label="ExpectedRateTo" max_length="40" name="u_expectedrateto" type="string"/>
+        <element attributes="import_attribute_name=ExpectedRateType,edge_encryption_enabled=true" label="ExpectedRateType" max_length="40" name="u_expectedratetype" type="string"/>
+        <element attributes="import_attribute_name=ExpectedSalaryFrom,edge_encryption_enabled=true" label="ExpectedSalaryFrom" max_length="40" name="u_expectedsalaryfrom" type="string"/>
+        <element attributes="import_attribute_name=ExpectedSalaryTo,edge_encryption_enabled=true" label="ExpectedSalaryTo" max_length="40" name="u_expectedsalaryto" type="string"/>
+        <element attributes="import_attribute_name=ExpectedSalaryType,edge_encryption_enabled=true" label="ExpectedSalaryType" max_length="40" name="u_expectedsalarytype" type="string"/>
+        <element attributes="import_attribute_name=ExpRateCurrency,edge_encryption_enabled=true" label="ExpRateCurrency" max_length="40" name="u_expratecurrency" type="string"/>
+        <element attributes="import_attribute_name=ExpSalCurrency,edge_encryption_enabled=true" label="ExpSalCurrency" max_length="40" name="u_expsalcurrency" type="string"/>
+        <element attributes="import_attribute_name=familyName,edge_encryption_enabled=true" label="familyName" max_length="40" name="u_familyname" type="string"/>
+        <element attributes="import_attribute_name=firstName,edge_encryption_enabled=true" label="firstName" max_length="40" name="u_firstname" type="string"/>
+        <element attributes="import_attribute_name=fullName,edge_encryption_enabled=true" label="fullName" max_length="40" name="u_fullname" type="string"/>
+        <element attributes="import_attribute_name=HourDescription,edge_encryption_enabled=true" label="HourDescription" max_length="40" name="u_hourdescription" type="string"/>
+        <element attributes="import_attribute_name=HourType,edge_encryption_enabled=true" label="HourType" max_length="40" name="u_hourtype" type="string"/>
+        <element attributes="import_attribute_name=howContacted,edge_encryption_enabled=true" label="howContacted" max_length="40" name="u_howcontacted" type="string"/>
+        <element attributes="import_attribute_name=IndustrySectors,edge_encryption_enabled=true" label="IndustrySectors" max_length="40" name="u_industrysectors" type="string"/>
+        <element attributes="import_attribute_name=InternalExternal,edge_encryption_enabled=true" label="InternalExternal" max_length="40" name="u_internalexternal" type="string"/>
+        <element attributes="import_attribute_name=IsTransferred" label="IsTransferred" max_length="40" name="u_istransferred" type="integer"/>
+        <element attributes="import_attribute_name=memo,edge_encryption_enabled=true" label="memo" max_length="40" name="u_memo" type="string"/>
+        <element attributes="import_attribute_name=notice,edge_encryption_enabled=true" label="notice" max_length="40" name="u_notice" type="string"/>
+        <element attributes="import_attribute_name=noticeRequired,edge_encryption_enabled=true" label="noticeRequired" max_length="40" name="u_noticerequired" type="string"/>
+        <element attributes="import_attribute_name=OwnerBranch,edge_encryption_enabled=true" label="OwnerBranch" max_length="40" name="u_ownerbranch" type="string"/>
+        <element attributes="import_attribute_name=placed" label="placed" max_length="40" name="u_placed" type="integer"/>
+        <element attributes="import_attribute_name=SecondCitizenship,edge_encryption_enabled=true" label="SecondCitizenship" max_length="40" name="u_secondcitizenship" type="string"/>
+        <element attributes="import_attribute_name=skillgroupcode,edge_encryption_enabled=true" label="skillgroupcode" max_length="40" name="u_skillgroupcode" type="string"/>
+        <element attributes="import_attribute_name=title,edge_encryption_enabled=true" label="title" max_length="40" name="u_title" type="string"/>
+        <element attributes="import_attribute_name=WorkStatus,edge_encryption_enabled=true" label="WorkStatus" max_length="40" name="u_workstatus" type="string"/>
+        <element attributes="import_attribute_name=WorkType,edge_encryption_enabled=true" label="WorkType" max_length="158" name="u_worktype" type="string"/>
+    </element>
+</database>

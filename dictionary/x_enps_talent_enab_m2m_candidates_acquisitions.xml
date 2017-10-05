@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Talent Enab M2m Candidates Acquisitions" max_length="40" name="x_enps_talent_enab_m2m_candidates_acquisitions" type="collection">
+        <element label="Acquisition" max_length="32" name="acquisition" reference="x_enps_talent_enab_acquisition" type="reference"/>
+        <element label="Candidate" max_length="32" name="candidate" reference="x_enps_talent_enab_candidate" type="reference"/>
+        <index name="index">
+            <element name="candidate"/>
+        </index>
+        <index name="index2">
+            <element name="acquisition"/>
+        </index>
+    </element>
+</database>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Reference" max_length="40" name="x_enps_talent_enab_reference" type="collection">
+        <element label="Candidate" max_length="32" name="candidate" reference="x_enps_talent_enab_candidate" type="reference"/>
+        <element label="Name" max_length="150" name="name" type="string"/>
+        <element label="Score" max_length="40" name="score" type="integer"/>
+        <index name="index">
+            <element name="candidate"/>
+        </index>
+    </element>
+</database>

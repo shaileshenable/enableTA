@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function($scope, $timeout) {
+	var c = this;
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	// All of this notification handling should be moved to a service and refactor spPage controller too.
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	$scope.$on("$$uiNotification", function(evt, $$uiNotification) {
+		evt.preventDefault();
+		if (evt.stopPropagation)
+			evt.stopPropagation();
+		addUiNotification($$uiNotification);
+	});
+	
+	var notificationAutoDismissTimeout;
+	function addUiNotification($$uiNotification) {
+		if (angular.isArray($$uiNotification) && !$$uiNotification.length)
+			return;
+
+		if (angular.isArray($$uiNotification) && $$uiNotification.length > 0)
+			c.$$uiNotification = $$uiNotification;
+		else {
+			if (!angular.isArray($scope.$$uiNotification))
+				c.$$uiNotification = [];
+
+			c.$$uiNotification.push($$uiNotification);
+		}
+
+		$timeout.cancel(notificationAutoDismissTimeout);
+		var seconds = 5;
+		if (c.$$uiNotification.length == 1 && c.$$uiNotification[0].type == 'trivial')
+			seconds = 2;
+
+		notificationAutoDismissTimeout = $timeout(function(){
+			c.dismissNotifications();
+		}, seconds * 1000);
+	}
+	
+	c.dismissNotifications = function() {
+		angular.forEach(c.$$uiNotification, function(notification){
+			notification.visible = false;
+		});
+		$timeout(function(){
+			c.$$uiNotification = {};
+		}, 20);
+	}
+
+	c.revealNotification = function($$uiNotification){
+		$timeout(function(){
+			$$uiNotification.visible = true;
+		}, 20);
+	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	// End notification handling
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description>Wrap any widget in a modal</description>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function(scope, element, attrs, ctrl){
+	if (!scope.data)
+		return;
+
+	var $rootScope = $injector.get('$rootScope');
+	var $uibModal = $injector.get('$uibModal');
+	$rootScope.userPrefsModalopts = {
+		size : 'lg',
+		scope: $rootScope.$new(false, scope),
+		template : element,
+		controller : function($scope, $uibModalInstance){
+			$scope.instance = scope.data.instance;
+		}
+	};
+
+	if (scope.options.modalBodyClass)
+		element.addClass(scope.options.modalBodyClass);
+	
+	if (scope.options.beforeRender)
+		scope.options.beforeRender.call(null, scope.data.instance.data);
+
+	// Dont open on load
+	//$rootScope.modalInstance = $uibModal.open($rootScope.opts);
+
+// 	if (scope.options.afterOpen)
+// 		scope.options.afterOpen.call(null, modalController($rootScope.modalInstance));
+	
+// 	if (scope.options.afterClose)
+// 		$rootScope.modalInstance.closed.then(scope.options.afterClose);
+
+// 	$rootScope.modalInstance.closed.then(function(){
+// 		scope.$emit('sp.widget-modal.closed');
+// 	});		
+	
+// 	function modalController(instance){
+// 		return {
+// 			close: function(){
+// 				instance.close();
+// 			}
+// 		}
+// 	}
+
+}]]></link>
+        <name>search prefs modal TA</name>
+        <option_schema>[{"name":"embeddedWidgetId","label":"Embedded Widget Id","type":"string"},{"name":"embeddedWidgetOptions","default_value":"","label":"Embedded Widget Options","type":"string"},{"name":"modalBodyClass","label":"Optional Class name for modal body","type":"string"},{"name":"beforeRender","label":"Before modal render Callback called with embedded widget data object","type":"string"},{"name":"afterClose","label":"After modal close Callback","type":"string"},{"name":"afterOpen","label":"After modal open Callback called with modal controller","type":"string"}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[// populate the 'data' object
+// e.g., data.table = $sp.getValue('table');
+(function(){
+	//var id = options.embeddedWidgetId || input.embeddedWidgetId;
+	//var opt = options.embeddedWidgetOptions || input.embeddedWidgetOptions;	
+  //data.instance = $sp.getWidget(id, opt);
+	data.instance = $sp.getWidget('search-weight-selection');
+})()]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-03-16 00:48:51</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>70cda9510fe1b20075a506ace1050e50</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>search prefs modal TA</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sp_widget_70cda9510fe1b20075a506ace1050e50</sys_update_name>
+        <sys_updated_by>astha.c@enableps.com.au</sys_updated_by>
+        <sys_updated_on>2017-06-09 06:55:39</sys_updated_on>
+        <template><![CDATA[<div class="modal-body" style="padding: 0">
+	<div ng-repeat="m in c.$$uiNotification" class="alert"
+			 ng-class="{'alert-danger' : m.type == 'error', 'alert-success' : m.type != 'error', 'visible' : m.visible}"
+			 ng-init="c.revealNotification(m)">
+		<span ng-bind-html="m.message"></span>
+		<a class="fa fa-close dismiss-notifications" ng-click="c.dismissNotifications()" ng-show="$first"></a>
+	</div>
+	<sp-widget widget="instance"></sp-widget>
+</div>]]></template>
+    </sp_widget>
+</record_update>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-03-24 04:47:23</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>99117bb30fad320075a506ace1050e75</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>x_enps_talent_enab_recruiter_preference.x_enps_talent_enab.recruiter_preference_user</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_security_acl display_value="x_enps_talent_enab_recruiter_preference">d9117bb30fad320075a506ace1050e71</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_99117bb30fad320075a506ace1050e75</sys_update_name>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-05 06:26:39</sys_updated_on>
+        <sys_user_role display_value="x_enps_talent_enab.recruiter_preference_user" name="x_enps_talent_enab.recruiter_preference_user">8911f3b30fad320075a506ace1050ed2</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+</record_update>

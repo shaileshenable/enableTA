@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Industry" max_length="40" name="x_enps_talent_enab_industry" type="collection">
+        <element label="Name" max_length="150" name="name" type="string"/>
+        <element label="Parent" max_length="32" name="parent" reference="x_enps_talent_enab_industry" type="reference"/>
+        <index name="index">
+            <element name="parent"/>
+        </index>
+    </element>
+</database>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_section caption="" section_id="470317160f9d320075a506ace1050e37" sys_domain="global" table="x_enps_talent_enab_certification" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>name</element>
+            <position>0</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2017-03-07 00:29:35</sys_created_on>
+            <sys_id>c70317160f9d320075a506ace1050e3c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_enps_talent_enab_certification" sys_domain="global" view="Default view">470317160f9d320075a506ace1050e37</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2017-03-07 00:29:35</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>score</element>
+            <position>1</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2017-03-07 00:29:35</sys_created_on>
+            <sys_id>4b0317160f9d320075a506ace1050e3c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_enps_talent_enab_certification" sys_domain="global" view="Default view">470317160f9d320075a506ace1050e37</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2017-03-07 00:29:35</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>alias</element>
+            <position>2</position>
+            <sys_created_by>rob.tanner</sys_created_by>
+            <sys_created_on>2017-04-20 02:09:40</sys_created_on>
+            <sys_id>4aefc2a00f5a3200429009bce1050e5c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_enps_talent_enab_certification" sys_domain="global" view="Default view">470317160f9d320075a506ace1050e37</sys_ui_section>
+            <sys_updated_by>rob.tanner</sys_updated_by>
+            <sys_updated_on>2017-04-20 02:09:40</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption/>
+            <header>false</header>
+            <name>x_enps_talent_enab_certification</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2017-03-07 00:29:35</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>470317160f9d320075a506ace1050e37</sys_id>
+            <sys_mod_count>10</sys_mod_count>
+            <sys_name>x_enps_talent_enab_certification</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+            <sys_update_name>sys_ui_section_470317160f9d320075a506ace1050e37</sys_update_name>
+            <sys_updated_by>astha.c@enableps.com.au</sys_updated_by>
+            <sys_updated_on>2017-07-31 06:30:56</sys_updated_on>
+            <sys_user/>
+            <title>true</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

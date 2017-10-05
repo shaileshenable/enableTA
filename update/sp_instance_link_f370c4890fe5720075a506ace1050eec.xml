@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_instance_link">
+    <sp_instance_link action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>danger</color>
+        <css/>
+        <glyph>group</glyph>
+        <id/>
+        <kb_article/>
+        <kb_category/>
+        <kb_topic/>
+        <order>1</order>
+        <roles/>
+        <sc_cat_item/>
+        <sc_category/>
+        <short_description>Manage candidates and your specific talent pools</short_description>
+        <size>md</size>
+        <sp_column display_value="4">2ff6f3340fe5720075a506ace1050e3e</sp_column>
+        <sp_page/>
+        <sp_widget display_value="Icon Link TA">b59737340fe5720075a506ace1050e5c</sp_widget>
+        <sys_class_name>sp_instance_link</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-03-14 22:13:58</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>f370c4890fe5720075a506ace1050eec</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>Talent Pooling</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sp_instance_link_f370c4890fe5720075a506ace1050eec</sys_update_name>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-05 06:26:49</sys_updated_on>
+        <title>Talent Pooling</title>
+        <type>url</type>
+        <url>?id=lf&amp;table=x_enps_talent_enab_talent_pool</url>
+        <widget_parameters><![CDATA[{
+	"link_template": {
+		"value": "Circle Icon",
+		"displayValue": "Circle Icon"
+	}
+}]]></widget_parameters>
+    </sp_instance_link>
+</record_update>

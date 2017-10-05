@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_relationship">
+    <sys_relationship action="INSERT_OR_UPDATE">
+        <advanced>false</advanced>
+        <apply_to/>
+        <basic_apply_to>x_enps_talent_enab_acquisition</basic_apply_to>
+        <basic_query_from>x_enps_talent_enab_candidate</basic_query_from>
+        <insert_callback/>
+        <name>buinsess </name>
+        <query_from/>
+        <query_with><![CDATA[(function refineQuery(current, parent) {
+	var query = '';
+	var result = [];
+	var cands = '';
+	
+	
+	query = parent.job_specification.name + ' ' + parent.job_specification.job_roles.getDisplayValue() + ' ' + parent.job_specification.industry.getDisplayValue() + ' ' + parent.job_specification.salary.getDisplayValue() + ' ' + parent.job_specification.location.getDisplayValue();
+		
+	var candidateSource = new taCandidateSearch();
+	candidateSource.initialize();
+	candidateSource.setPrefs('');
+	result = candidateSource.getCandidatesByAll(query, parent.number);
+	for(var i = 0; i < result.length; i++){
+		cands = cands + ',' +result[i];
+		
+		var newCandidateSysId = result[i].candidateId;
+	}
+	
+	//current.addQuery('sys_id','IN',cands);
+	//gs.info('hello '+cands.substring(1));
+})(current, parent);]]></query_with>
+        <reference_field>current_role</reference_field>
+        <related_list/>
+        <simple_reference>false</simple_reference>
+        <sys_class_name>sys_relationship</sys_class_name>
+        <sys_created_by>Rajat.enable</sys_created_by>
+        <sys_created_on>2017-04-27 11:32:25</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>94a11c830f967600429009bce1050e72</sys_id>
+        <sys_mod_count>22</sys_mod_count>
+        <sys_name>buinsess </sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sys_relationship_94a11c830f967600429009bce1050e72</sys_update_name>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-28 06:33:07</sys_updated_on>
+    </sys_relationship>
+    <sys_translated_text action="delete_multiple" query="documentkey=94a11c830f967600429009bce1050e72"/>
+</record_update>

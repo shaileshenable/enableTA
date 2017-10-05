@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_metadata_link">
+    <sys_metadata_link action="INSERT_OR_UPDATE">
+        <directory>update</directory>
+        <documentkey>eb9567034fbd3a0079047ab28110c74b</documentkey>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_attachment">
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color>#0</average_image_color>
+        <compressed>true</compressed>
+        <content_type>image/png</content_type>
+        <encryption_context/>
+        <file_name>enable-logo.png</file_name>
+        <image_height>50</image_height>
+        <image_width>240</image_width>
+        <size_bytes>6152</size_bytes>
+        <size_compressed>5913</size_compressed>
+        <sys_created_by>rob.tanner</sys_created_by>
+        <sys_created_on>2017-04-03 06:17:34</sys_created_on>
+        <sys_id>eb9567034fbd3a0079047ab28110c74b</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-03 06:17:34</sys_updated_on>
+        <table_name>sys_properties_category</table_name>
+        <table_sys_id>70c659c20f11320075a506ace1050e22</table_sys_id>
+    </sys_attachment>
+</record_update>
+]]></payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>rob.tanner</sys_created_by>
+        <sys_created_on>2017-04-18 05:32:08</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>5c1be80c0fdefa00429009bce1050ee8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>enable-logo.png</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sys_metadata_link_5c1be80c0fdefa00429009bce1050ee8</sys_update_name>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-18 05:32:08</sys_updated_on>
+        <tablename>sys_attachment</tablename>
+    </sys_metadata_link>
+</record_update>

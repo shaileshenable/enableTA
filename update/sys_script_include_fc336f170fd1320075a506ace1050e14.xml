@@ -1,0 +1,877 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_enps_talent_enab.taCandidateSearch</api_name>
+        <client_callable>false</client_callable>
+        <description>Candidate Search Utility Functions and Logic</description>
+        <name>taCandidateSearch</name>
+        <script><![CDATA[gs.include('underscorejs.min');
+
+var taCandidateSearch = Class.create();
+taCandidateSearch.prototype = {
+
+    initialize: function () {
+        try {
+            this.origin = gs.getProperty('x_enps_talent_enab.TAI Origin');
+            this.displayProfileImage = gs.getProperty('x_enps_talent_enab.search.display.image');
+
+            // Absolutes (Include / Exclude)
+            this.jobRoleWeight = false;
+            this.industryWeight = false;
+            this.rightToWorkWeight = false;
+            this.appStageWeight = false;
+            this.salaryWeight = false;
+
+            // User defined rejections list
+            this.rejections = [];
+
+            // Exclusion List Arrays
+            this.absoluteCandidateListJR = [];
+            this.absoluteCandidateListJI = [];
+            this.absoluteCandidateListRW = [];
+            this.absoluteCandidateListAS = [];
+            this.absoluteCandidateListSA = [];
+
+            // Weights (Sort / Rank)
+            this.historicWeight = -1;
+            this.skillWeight = -1;
+            this.experienceWeight = -1;
+            this.wordWeight = -1;
+            this.certificationWeight = -1;
+            this.resumeWeight = -1;
+            this.referenceWeight = -1;
+            this.linkedInWeight = -1;
+            this.seekWeight = -1;
+
+            // Created from the user prefs json object
+            this.prefs = [];
+
+            //** Used as the MASTER SEARCH RESULTS LIST **
+            //** JSON array format to be consumed by the sp_search_result template **
+            this.results = [];
+
+        } catch (a) {
+            // Initialize error
+			var msg = 'taCandidateSearch Initialize Error: ' + a.toString();			
+			gs.info(msg);
+			gs.addInfoMessage(msg);
+        }
+
+        return;
+    },
+
+    setPrefs: function (usr) {
+        // Deafult to system prefs should no user prefs be defined
+        try {
+            switch (this.origin) {
+                case 'User Defined':
+                    this.setUserPrefs(usr);
+                    break;
+                case 'System Defined':
+                    this.setSystemPrefs();
+                    break;
+                default:
+                    this.setSystemPrefs();
+                    break;
+            }
+        } catch (a) {
+            // setPrefs error
+			var msg = 'taCandidateSearch Set Prefs Error: ' + a.toString();			
+			gs.info(msg);
+			gs.addInfoMessage(msg);
+        }
+
+        return;
+    },
+
+    setUserPrefs: function (usr) {
+        // Define the users preferences and obtain defined structure
+        try {
+            var gr = new GlideRecord('x_enps_talent_enab_recruiter_preference');
+            gr.addQuery('user', usr);
+            gr.addQuery('name', 'TA Search Weightings');
+            gr.query();
+            if (gr.hasNext()) {
+                gr.next();
+
+                this.prefs = gr.value.split(',');
+
+                for (var i = 0; i < this.prefs.length; i++) {
+                    var keyVal = this.prefs[i].split(':');
+
+                    var key = keyVal[0].replace(/"|{|}|-/g, "");
+
+                    switch (key) {
+                        case 'jobRole':
+                            this.jobRoleWeight = keyVal[1];
+                            break;
+                        case 'industry':
+                            this.industryWeight = keyVal[1];
+                            break;
+                        case 'rightToWork':
+                            this.rightToWorkWeight = keyVal[1];
+                            break;
+                        case 'appStage':
+                            this.appStageWeight = keyVal[1];
+                            break;
+                        case 'salary':
+                            this.salaryWeight = keyVal[1];
+                            break;
+                        // ----------------- //
+                        case 'history':
+                            this.historicWeight = keyVal[1];
+                            break;
+                        case 'skillWeight':
+                            this.skillWeight = keyVal[1];
+                            break;
+                        case 'expWeight':
+                            this.experienceWeight = keyVal[1];
+                            break;
+                        case 'word':
+                            this.wordWeight = keyVal[1];
+                            break;
+                        case 'certWeight':
+                            this.certificationWeight = keyVal[1];
+                            break;
+                        case 'resWeight':
+                            this.resumeWeight = keyVal[1];
+                            break;
+                        case 'refWeight':
+                            this.referenceWeight = keyVal[1];
+                            break;
+                        case 'linkedIn':
+                            this.linkedInWeight = keyVal[1];
+                            break;
+                        case 'seek':
+                            this.seekWeight = keyVal[1];
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            } else {
+                // User prefs are not present so we will default to the system prefs
+                this.setSystemPrefs();
+            }
+        } catch (a) {
+            // Set user prefs error
+			var msg = 'taCandidateSearch Set User Prefs Error: ' + a.toString();			
+			gs.info(msg);
+			gs.addInfoMessage(msg);
+        }
+
+        return;
+    },
+
+    setSystemPrefs: function () {
+        // Get the system properties
+        try {
+            this.historicWeight = gs.getProperty('x_enps_talent_enab.TAI Weight - Historic');
+            this.skillWeight = gs.getProperty('x_enps_talent_enab.TAI Weight - Skills');
+            this.experienceWeight = gs.getProperty('x_enps_talent_enab.TAI Weight - Experiences');
+            this.wordWeight = gs.getProperty('x_enps_talent_enab.TAI Weight - Word Search');
+            this.certificationWeight = gs.getProperty('x_enps_talent_enab.TAI Weight - Certification');
+            this.resumeWeight = gs.getProperty('x_enps_talent_enab.TAI Weight - References');
+            this.referenceWeight = gs.getProperty('x_enps_talent_enab.TAI Weight - Resume');
+            this.linkedInWeight = gs.getProperty('x_enps_talent_enab.TAI Weight - LinkedIn');
+            this.seekWeight = gs.getProperty('x_enps_talent_enab.TAI Weight - Seek');
+        } catch (a) {
+            // Set system prefs error
+			var msg = 'taCandidateSearch Set System Prefs Error: ' + a.toString();			
+			gs.info(msg);
+			gs.addInfoMessage(msg);
+        }
+
+        return;
+    },
+
+    // Called by the main search source fetch script
+    getCandidatesByAll: function (searchString, acquisition) {
+        // Create acquisition exclusions list
+        this.getCandidatesByRejections(acquisition);
+
+        // Filter on absolutes defined in the user search preferences
+        this.getCandidatesByAbsolutes(acquisition);
+
+        // Get all users by skill match
+        this.getCandidatesBySkills(searchString);
+
+        // Get all users by experience match
+        this.getCandidatesByExperience(searchString);
+
+        // Get all users by certification match
+        this.getCandidatesByCertification(searchString);
+
+        // Get all users by resume match
+        this.getCandidatesByResume(searchString);
+
+        // Get all users by reference match
+        this.getCandidatesByReference(searchString);
+
+		//gs.info('RST >>> Results before sort ' + JSON.stringify(this.results));
+		
+        //Order by user preference weights
+        var weights = _.sortBy([
+            { name: 'skill', weight: this.skillWeight, scoreRef: 'skillScore', relRef: 'skillRel' },
+            { name: 'experience', weight: this.experienceWeight, scoreRef: 'expScore', relRef: 'expRel' },
+            { name: 'certification', weight: this.certificationWeight, scoreRef: 'certScore', relRef: 'certRel' },
+            { name: 'resume', weight: this.resumeWeight, scoreRef: 'resScore', relRef: 'resRel' },
+            { name: 'reference', weight: this.referenceWeight, scoreRef: 'refScore', relRef: 'refRel' },
+        ], 'weight');
+
+        // most significant last. due to weight list being asc this works fine.
+        this.results = _.chain(this.results)
+            .sortBy(weights[0].scoreRef)
+            .sortBy(weights[0].relRef)
+            .sortBy(weights[1].scoreRef)
+            .sortBy(weights[1].relRef)
+            .sortBy(weights[2].scoreRef)
+            .sortBy(weights[2].relRef)
+            .sortBy(weights[3].scoreRef)
+            .sortBy(weights[3].relRef)
+            .sortBy(weights[4].scoreRef)
+            .sortBy(weights[4].relRef)
+            //.sortBy("primary") // name
+            .value();
+
+		//gs.info('RST >>> Results after sort ' + JSON.stringify(this.results));
+		
+        return this.results;
+    },
+
+    getCandidatesByRejections: function (acquisition) {
+        this.rejections = [];
+
+
+        return;
+    },
+
+    // Get candidiates based on skill relevance and score
+    getCandidatesByAbsolutes: function (acquisition) {
+        // There are several absolutes set by the user. Such as candidate industry relationship to the job spec industry.
+
+        // Input: job spec prefs - acquisition.job_spec
+        // Input: user prefs
+        // Output: update results array with users
+
+        // Get job spec absolutes
+        try {
+            var grA = new GlideRecord('x_enps_talent_enab_acquisition');
+            grA.addQuery('number', acquisition);
+            grA.query();
+            if (grA.hasNext()) {
+                grA.next();
+
+                var grJc = new GlideRecord('x_enps_talent_enab_candidate');
+
+                if (this.jobRoleWeight == 'true') {
+                    var jR = grA.job_specification.job_roles;
+                    grJc = new GlideRecord('x_enps_talent_enab_candidate');
+                    grJc.addQuery('current_role', jR);
+                    grJc.query();
+                    while (grJc.next()) {
+                        this.absoluteCandidateListJR.push(grJc.sys_id.toString());
+                    }
+                }
+
+                if (this.industryWeight == 'true') {
+                    var jI = grA.job_specification.industry.name;
+                    grJc = new GlideRecord('x_enps_talent_enab_candidate');
+                    grJc.addQuery('industries', 'CONTAINS', jI);
+                    grJc.query();
+                    while (grJc.next()) {
+                        this.absoluteCandidateListJI.push(grJc.sys_id.toString());
+                    }
+                }
+
+                if (this.rightToWorkWeight == 'true') {
+                    grJc = new GlideRecord('x_enps_talent_enab_candidate');
+                    grJc.addQuery('citizen', true);
+                    //grJc.addOrCondition('visa', true); causes error - unknown
+                    grJc.query();
+                    while (grJc.next()) {
+                        this.absoluteCandidateListRW.push(grJc.sys_id.toString());
+                    }
+
+                    grJc = new GlideRecord('x_enps_talent_enab_candidate');
+                    grJc.addQuery('visa', true);
+                    grJc.query();
+                    while (grJc.next()) {
+                        this.absoluteCandidateListRW.push(grJc.sys_id.toString());
+                    }
+                }
+
+                if (this.appStageWeight == 'true') {
+                    // 				var jS = grA.job_specification.salary;
+                    // 				var grJc = new GlideRecord('x_enps_talent_enab_candidate');
+                    // 					//grJc.addQuery('annual_salary_expectation', '<=', jS);
+                    // 					grJc.query();
+                    // 				while(grJc.next()){
+                    // 					this.absoluteCandidateListSA.push(grJc.sys_id.toString());
+                    // 				}
+                }
+
+                if (this.salaryWeight == 'true') {
+                    var jS = grA.job_specification.salary;
+                    grJc = new GlideRecord('x_enps_talent_enab_candidate');
+                    grJc.addQuery('annual_salary_expectation', '<=', jS);
+                    grJc.query();
+                    while (grJc.next()) {
+                        this.absoluteCandidateListSA.push(grJc.sys_id.toString());
+                    }
+                }
+            }
+        } catch (a) {
+            // Absolutes error
+			var msg = 'taCandidateSearch Absolutes Error: ' + a.toString();			
+			gs.info(msg);
+			gs.addInfoMessage(msg);
+        }
+    },
+
+    // Get candidiates based on skill relevance and score
+    getCandidatesBySkills: function (searchString) {
+        try {
+            var aggType = 'sum'; // sum - min - max
+            var agg = new GlideAggregate('x_enps_talent_enab_m2m_skills_candidates');
+            agg.addAggregate(aggType, 'skill.score');
+            agg.addAggregate('count', 'skill.name');
+            agg.orderByAggregate('count', 'skill.name');
+
+            var searchStringArray = searchString.split(' ');
+
+            agg.addQuery('skill.name', 'IN', searchStringArray);
+
+            if (this.jobRoleWeight == 'true') {
+                agg.addQuery('candidate.sys_id', 'IN', this.absoluteCandidateListJR);
+            }
+            if (this.industryWeight == 'true') {
+                agg.addQuery('candidate.sys_id', 'IN', this.absoluteCandidateListJI);
+            }
+            if (this.rightToWorkWeight == 'true') {
+                agg.addQuery('candidate.sys_id', 'IN', this.absoluteCandidateListRW);
+            }
+            // 		if(this.appStageWeight == 'true') {
+            // 				agg.addQuery('candidate.sys_id', 'IN', this.absoluteCandidateListAS);
+            // 		}
+            if (this.salaryWeight == 'true') {
+                agg.addQuery('candidate.sys_id', 'IN', this.absoluteCandidateListSA);
+            }
+
+            //agg.groupBy('skill');
+            agg.groupBy('candidate'); // this means only the candidate values will be avaiable in the agg object
+            //agg.setLimit(25);
+            agg.query();
+            while (agg.next()) {
+
+                var skillScore = this.calculateScore(agg.getAggregate('count', 'skill.name'),
+                    agg.getAggregate('sum', 'skill.score'),
+                    gs.getProperty('x_enps_talent_enab.TAI Weight - Instance Maximum')
+                );
+
+                var skillRelevance = parseInt(agg.getAggregate('count', 'skill.name'));
+
+                var canIdx = _.findLastIndex(this.results, { candidateId: agg.candidate.sys_id.toString() });
+
+
+                if (canIdx != -1) {
+                    this.results[canIdx].skills =
+                        {
+                            score: parseInt(skillScore),
+                            url: '?id=lf&table=x_enps_talent_enab_m2m_skills_candidates&filter=candidate=' + agg.candidate.sys_id,
+                            relevance: skillRelevance
+                        };
+
+                    this.results[canIdx].skillScore = parseInt(skillScore);
+                    this.results[canIdx].skillRel = parseInt(skillRelevance);
+                } else {
+					//gs.info('RST >>> Skill Creating new record for ' + agg.candidate.name);
+                    // Get Public Profiles
+                    var publicProfiles = this.getPublicProfiles(agg.candidate.sys_id);
+
+                    // Get brand new aspect object
+                    var result = this.createNewAspectResultObject('skill', agg, publicProfiles, skillScore, skillRelevance);
+
+                    // Push object to array
+                    this.results.push(result);
+                }
+            }
+        } catch (a) {
+            // Skills error
+			var msg = 'taCandidateSearch Skills Error: ' + a.toString();			
+			gs.info(msg);
+			gs.addInfoMessage(msg);
+        }
+        return this.results;
+    },
+
+    // Get candidiates based on experience relevance and score
+    getCandidatesByExperience: function (searchString) {
+        try {
+            var aggType = 'sum'; // sum - min - max
+            var agg = new GlideAggregate('x_enps_talent_enab_m2m_experiences_candidates');
+            agg.addAggregate(aggType, 'experience.score');
+            agg.addAggregate('count', 'experience.score');
+            agg.orderByAggregate('count', 'experience.score');
+            agg.addQuery('experience.name', 'IN', searchString.replace(' ', ','));
+
+            if (this.jobRoleWeight == 'true') {
+                agg.addQuery('candidate.sys_id', 'IN', this.absoluteCandidateListJR);
+            }
+            if (this.industryWeight == 'true') {
+                agg.addQuery('candidate.sys_id', 'IN', this.absoluteCandidateListJI);
+            }
+            if (this.rightToWorkWeight == 'true') {
+                agg.addQuery('candidate.sys_id', 'IN', this.absoluteCandidateListRW);
+            }
+            // 		if(this.appStageWeight == 'true') {
+            // 				agg.addQuery('candidate.sys_id', 'IN', this.absoluteCandidateListAS);
+            // 		}
+            if (this.salaryWeight == 'true') {
+                agg.addQuery('candidate.sys_id', 'IN', this.absoluteCandidateListSA);
+            }
+
+            agg.groupBy('candidate');
+            agg.query();
+            while (agg.next()) {
+
+                var expScore = this.calculateScore(agg.getAggregate('count', 'experience.score'),
+                    agg.getAggregate('sum', 'experience.score'),
+                    gs.getProperty('x_enps_talent_enab.TAI Weight - Instance Maximum')
+                );
+
+                var expRelevance = parseInt(agg.getAggregate('count', 'experience.score'));
+
+                var expIdx = _.findLastIndex(this.results, { candidateId: agg.candidate.sys_id.toString() });
+
+                if (expIdx != -1) {
+                    this.results[expIdx].experience =
+                        {
+                            score: parseInt(expScore),
+                            url: '?id=lf&table=x_enps_talent_enab_m2m_experiences_candidates&filter=candidate=' + agg.candidate.sys_id,
+                            relevance: expRelevance
+                        };
+                    this.results[expIdx].expScore = parseInt(expScore);
+                    this.results[expIdx].expRel = parseInt(expRelevance);
+                } else {
+					//gs.info('RST >>> Exp Creating new record for ' + agg.candidate.name);
+                    // Get Public Profiles
+                    var publicProfiles = this.getPublicProfiles(agg.candidate.sys_id);
+
+                    // Get brand new aspect object
+                    var result = this.createNewAspectResultObject('experience', agg, publicProfiles, expScore, expRelevance);
+
+                    // Push object to array
+                    this.results.push(result);
+                }
+            }
+        } catch (a) {
+            // Experience error
+			var msg = 'taCandidateSearch Experience Error: ' + a.toString();			
+			gs.info(msg);
+			gs.addInfoMessage(msg);
+        }
+        return this.results;
+    },
+
+    // Get candidiates based on certification relevance and score
+    getCandidatesByCertification: function (searchString) {
+        try {
+            var aggType = 'sum'; // sum - min - max
+            var agg = new GlideAggregate('x_enps_talent_enab_m2m_certifications_candidates');
+            agg.addAggregate(aggType, 'certification.score');
+            agg.addAggregate('count', 'certification.score');
+            agg.orderByAggregate('count', 'certification.score');
+            agg.addQuery('certification.name', 'IN', searchString.replace(' ', ','));
+
+            if (this.jobRoleWeight == 'true') {
+                agg.addQuery('candidate.sys_id', 'IN', this.absoluteCandidateListJR);
+            }
+            if (this.industryWeight == 'true') {
+                agg.addQuery('candidate.sys_id', 'IN', this.absoluteCandidateListJI);
+            }
+            if (this.rightToWorkWeight == 'true') {
+                agg.addQuery('candidate.sys_id', 'IN', this.absoluteCandidateListRW);
+            }
+            // 		if(this.appStageWeight == 'true') {
+            // 				agg.addQuery('candidate.sys_id', 'IN', this.absoluteCandidateListAS);
+            // 		}
+            if (this.salaryWeight == 'true') {
+                agg.addQuery('candidate.sys_id', 'IN', this.absoluteCandidateListSA);
+            }
+
+            agg.groupBy('candidate');
+            agg.query();
+            while (agg.next()) {
+
+                var certScore = this.calculateScore(agg.getAggregate('count', 'certification.score'),
+                    agg.getAggregate('sum', 'certification.score'),
+                    gs.getProperty('x_enps_talent_enab.TAI Weight - Instance Maximum')
+                );
+
+                var certRelevance = parseInt(agg.getAggregate('count', 'certification.score'));
+
+                var certIdx = _.findLastIndex(this.results, { candidateId: agg.candidate.sys_id.toString() });
+
+                if (certIdx != -1) {					
+                    this.results[certIdx].certification =
+                        {
+                            score: parseInt(certScore),
+                            url: '?id=lf&table=x_enps_talent_enab_m2m_certifications_candidates&filter=candidate=' + agg.candidate.sys_id,
+                            relevance: certRelevance
+                        };
+
+                    this.results[certIdx].certScore = parseInt(certScore);
+                    this.results[certIdx].certRel = parseInt(certRelevance);
+                } else {
+					//gs.info('RST >>> Cert Creating new record for ' + agg.candidate.name);
+                    // Get Public Profiles
+                    var publicProfiles = this.getPublicProfiles(agg.candidate.sys_id);
+
+                    // Get brand new aspect object
+                    var result = this.createNewAspectResultObject('certification', agg, publicProfiles, certScore, certRelevance);
+
+                    // Push object to array
+                    this.results.push(result);
+                }
+            }
+        } catch (a) {
+            // Certification error
+			var msg = 'taCandidateSearch Initialize Error: ' + a.toString();			
+			gs.info(msg);
+			gs.addInfoMessage(msg);
+        }
+        return this.results;
+    },
+
+    // Get candidiates based on resume relevance and score
+    getCandidatesByResume: function (searchString) {
+        try {
+            var aggType = 'sum'; // sum - min - max
+            var agg = new GlideAggregate('x_enps_talent_enab_resume');
+            agg.addAggregate(aggType, 'score');
+            agg.addAggregate('count', 'score');
+            agg.orderByAggregate('count', 'score');
+            agg.addQuery('name', 'IN', searchString.replace(' ', ','));
+
+            if (this.jobRoleWeight == 'true') {
+                agg.addQuery('candidate.sys_id', 'IN', this.absoluteCandidateListJR);
+            }
+            if (this.industryWeight == 'true') {
+                agg.addQuery('candidate.sys_id', 'IN', this.absoluteCandidateListJI);
+            }
+            if (this.rightToWorkWeight == 'true') {
+                agg.addQuery('candidate.sys_id', 'IN', this.absoluteCandidateListRW);
+            }
+            // 		if(this.appStageWeight == 'true') {
+            // 				agg.addQuery('candidate.sys_id', 'IN', this.absoluteCandidateListAS);
+            // 		}
+            if (this.salaryWeight == 'true') {
+                // must use items that exist in the list only ie must not add new items from the aspect
+                // var inList = this.absoluteCandidateList.replace(/"/g, "");
+                agg.addQuery('candidate.sys_id', 'IN', this.absoluteCandidateListSA);
+            }
+
+            agg.groupBy('candidate');
+            agg.query();
+            while (agg.next()) {
+
+                var resScore = this.calculateScore(agg.getAggregate('count', 'score'),
+                    agg.getAggregate('sum', 'score'),
+                    gs.getProperty('x_enps_talent_enab.TAI Weight - Instance Maximum')
+                );
+
+                var resRelevance = parseInt(agg.getAggregate('count', 'score'));
+
+                var resIdx = _.findLastIndex(this.results, { candidateId: agg.candidate.sys_id.toString() });
+
+                if (resIdx != -1) {
+                    this.results[resIdx].resume =
+                        {
+                            score: parseInt(resScore),
+                            url: '?id=lf&table=x_enps_talent_enab_resume&filter=candidate=' + agg.candidate.sys_id,
+                            relevance: resRelevance
+                        };
+
+                    this.results[resIdx].resScore = parseInt(resScore);
+                    this.results[resIdx].resRel = parseInt(resRelevance);
+                } else {
+                    // Get Public Profiles
+                    var publicProfiles = this.getPublicProfiles(agg.candidate.sys_id);
+
+                    // Get brand new aspect object
+                    var result = this.createNewAspectResultObject('resume', agg, publicProfiles, resScore, resRelevance);
+
+                    // Push object to array
+                    this.results.push(result);
+                }
+            }
+        } catch (a) {
+            // Resume error
+			var msg = 'taCandidateSearch Resume Error: ' + a.toString();			
+			gs.info(msg);
+			gs.addInfoMessage(msg);
+        }
+        return this.results;
+    },
+
+    // Get candidiates based on reference relevance and score
+    //x_enps_talent_enab_reference
+    getCandidatesByReference: function (searchString) {
+        try {
+            var aggType = 'sum'; // sum - min - max
+            var agg = new GlideAggregate('x_enps_talent_enab_reference');
+            agg.addAggregate(aggType, 'score');
+            agg.addAggregate('count', 'score');
+            agg.orderByAggregate('count', 'score');
+            agg.addQuery('name', 'IN', searchString.replace(' ', ','));
+
+            if (this.jobRoleWeight == 'true') {
+                agg.addQuery('candidate.sys_id', 'IN', this.absoluteCandidateListJR);
+            }
+            if (this.industryWeight == 'true') {
+                agg.addQuery('candidate.sys_id', 'IN', this.absoluteCandidateListJI);
+            }
+            if (this.rightToWorkWeight == 'true') {
+                agg.addQuery('candidate.sys_id', 'IN', this.absoluteCandidateListRW);
+            }
+            // 		if(this.appStageWeight == 'true') {
+            // 				agg.addQuery('candidate.sys_id', 'IN', this.absoluteCandidateListAS);
+            // 		}
+            if (this.salaryWeight == 'true') {
+                agg.addQuery('candidate.sys_id', 'IN', this.absoluteCandidateListSA);
+            }
+
+            agg.groupBy('candidate');
+            agg.query();
+            while (agg.next()) {
+
+                var refScore = this.calculateScore(agg.getAggregate('count', 'score'),
+                    agg.getAggregate('sum', 'score'),
+                    gs.getProperty('x_enps_talent_enab.TAI Weight - Instance Maximum')
+                );
+
+                var refRelevance = parseInt(agg.getAggregate('count', 'score'));
+
+                var refIdx = _.findLastIndex(this.results, { candidateId: agg.candidate.sys_id.toString() });
+
+                if (refIdx != -1) {
+                    this.results[refIdx].reference =
+                        {
+                            score: parseInt(refScore),
+                            url: '?id=lf&table=x_enps_talent_enab_reference&filter=candidate=' + agg.candidate.sys_id,
+                            relevance: refRelevance
+                        };
+
+                    this.results[refIdx].refScore = parseInt(refScore);
+                    this.results[refIdx].refRel = parseInt(refRelevance);
+                } else {
+                    // Get Public Profiles
+                    var publicProfiles = this.getPublicProfiles(agg.candidate.sys_id);
+
+                    // Get brand new aspect object
+                    var result = this.createNewAspectResultObject('reference', agg, publicProfiles, refScore, refRelevance);
+
+                    // Push object to array
+                    this.results.push(result);
+                }
+            }
+        } catch (a) {
+            // Reference error
+			var msg = 'taCandidateSearch Reference Error: ' + a.toString();			
+			gs.info(msg);
+			gs.addInfoMessage(msg);
+        }
+        return this.results;
+    },
+
+    calculateScore: function (count, score, max) {
+        //var avg = parseInt(score/count);
+        //var finalScore = ((score * count) / ((max * count) * (count - 1))) * 100;
+
+        return parseInt(score / count);
+    },
+
+    getPublicProfiles: function (candidateSysId) {
+        var pps = [];
+        try {
+            var grPp = new GlideRecord('x_enps_talent_enab_m2m_public_profi_candidates');
+            grPp.addQuery('candidate', candidateSysId);
+            grPp.orderBy('order');
+            grPp.query();
+            while (grPp.next()) {
+                pps.push({
+                    label: grPp.public_profile.name.toString(),
+                    url: grPp.profile_url ? grPp.profile_url.toString() : '',
+                    icon: grPp.public_profile.icon_class.toString()
+                });
+            }
+
+
+        } catch (a) {
+            // Public Profile error
+			var msg = 'taCandidateSearch Public Profiles Error: ' + a.toString();			
+			gs.info(msg);
+			gs.addInfoMessage(msg);
+        }
+        return pps;
+    },
+
+    createNewAspectResultObject: function (aspect, agg, publicProfiles, score, relevance) {
+        var result = {};
+        try {
+            // Get Image - removed on feedback
+            var photoUrl = '';
+            //var grA = new GlideRecord('sys_attachment');
+            //	grA.addQuery('table_sys_id', agg.candidate.profile.sys_id);
+            //	grA.query();
+            //   if(grA.hasNext()) {
+            //		grA.next();
+            //		photoUrl = grA.sys_id + '.iix';
+            //	}
+
+            result = {
+                source: aspect,
+                highestEducation: agg.candidate.highest_education.toString(),
+                location: agg.candidate.location.name.toString(),
+                availability: agg.candidate.availability.toString(),
+                currentRole: agg.candidate.current_role.name.toString(),
+                industries: agg.candidate.industries.toString(),
+                rtwLocations: agg.candidate.right_to_work_locations.toString(),
+                highestAcqStage: agg.candidate.highest_acquisition_stage.toString(),
+                salaryExpPa: agg.candidate.annual_salary_expectation.toString(),
+                salaryExpDaily: agg.candidate.daily_salary_expectation.toString(),
+                nativeLanguages: agg.candidate.native_languages.toString(),
+				phoneNumber: agg.candidate.phone_number.toString(),
+				email: agg.candidate.email.toString(),
+                publicProfiles: publicProfiles,
+                skillRel: 0,
+                skillScore: 0,
+                expRel: 0,
+                expScore: 0,
+                certRel: 0,
+                certScore: 0,
+                resRel: 0,
+                resScore: 0,
+                refRel: 0,
+                refScore: 0,
+                candidateId: agg.candidate.sys_id.toString(),
+                url: '?id=form&sys_id=' + agg.candidate.sys_id + '&table=x_enps_talent_enab_candidate',
+                photo: photoUrl,
+                fields: [{ label: 'Updated', display_value: agg.candidate.sys_updated_on.toString() }],
+                primary: agg.candidate.name.toString(),
+                skills: {
+                    score: 0,
+                    url: 'talent?id=lf&table=x_enps_talent_enab_m2m_skills_candidates&filter=candidate=' + agg.candidate.sys_id,
+                    relevance: 0
+                },
+                experience: {
+                    score: 0,
+                    url: 'talent?id=lf&table=x_enps_talent_enab_m2m_experiences_candidates&filter=candidate=' + agg.candidate.sys_id,
+                    relevance: 0
+                },
+                certification: {
+                    score: 0,
+                    url: 'talent?id=lf&table=x_enps_talent_enab_m2m_certification_candidates&filter=candidate=' + agg.candidate.sys_id,
+                    relevance: 0
+                },
+                resume: {
+                    score: 0,
+                    url: 'talent?id=lf&table=x_enps_talent_enab_resume&filter=candidate=' + agg.candidate.sys_id,
+                    relevance: 0
+                },
+                reference: {
+                    score: 0,
+                    url: 'talent?id=lf&table=x_enps_talent_enab_reference&filter=candidate=' + agg.candidate.sys_id,
+                    relevance: 0
+                }
+            };
+
+            if (aspect == 'skill') {
+                result.skillRel = parseInt(relevance);
+                result.skillScore = parseInt(score);
+                result.skills = {
+                    score: parseInt(score),
+                    url: 'talent?id=lf&table=x_enps_talent_enab_m2m_skills_candidates&filter=candidate=' + agg.candidate.sys_id,
+                    relevance: parseInt(relevance)
+                };
+            }
+
+            if (aspect == 'experience') {
+                result.expRel = parseInt(relevance);
+                result.expScore = parseInt(score);
+                result.experience = {
+                    score: parseInt(score),
+                    url: 'talent?id=lf&table=x_enps_talent_enab_m2m_experiences_candidates&filter=candidate=' + agg.candidate.sys_id,
+                    relevance: parseInt(relevance)
+                };
+            }
+
+            if (aspect == 'certification') {
+                result.certRel = parseInt(relevance);
+                result.certScore = parseInt(score);
+                result.certification = {
+                    score: parseInt(score),
+                    url: 'talent?id=lf&table=x_enps_talent_enab_m2m_certifications_candidates&filter=candidate=' + agg.candidate.sys_id,
+                    relevance: parseInt(relevance)
+                };
+            }
+
+            if (aspect == 'resume') {
+                result.resRel = parseInt(relevance);
+                result.resScore = parseInt(score);
+                result.resume = {
+                    score: parseInt(score),
+                    url: 'talent?id=lf&table=x_enps_talent_enab_resume&filter=candidate=' + agg.candidate.sys_id,
+                    relevance: parseInt(relevance)
+                };
+            }
+
+            if (aspect == 'reference') {
+                result.refRel = parseInt(relevance);
+                result.refScore = parseInt(score);
+                result.reference = {
+                    score: parseInt(score),
+                    url: 'talent?id=lf&table=x_enps_talent_enab_reference&filter=candidate=' + agg.candidate.sys_id,
+                    relevance: parseInt(relevance)
+                };
+            }
+
+        } catch (a) {
+            // Result Object error
+			var msg = 'taCandidateSearch Aspect Result Object Error: ' + a.toString();			
+			gs.info(msg);
+			gs.addInfoMessage(msg);
+        }
+
+        return result;
+    },
+
+    translateTemplate: function (inString) {
+        // This is a work around function for $sp.translateTemplate not being available in a scoped application
+        // On inspection it appears this function just escapes the input sting which is the sp_search_source template
+        //gs.info('RST >> Running escape');
+
+        return _.escape(inString);
+    },
+
+    type: 'taCandidateSearch'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-03-10 04:14:45</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>fc336f170fd1320075a506ace1050e14</sys_id>
+        <sys_mod_count>377</sys_mod_count>
+        <sys_name>taCandidateSearch</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sys_script_include_fc336f170fd1320075a506ace1050e14</sys_update_name>
+        <sys_updated_by>astha.c@enableps.com.au</sys_updated_by>
+        <sys_updated_on>2017-07-31 06:28:02</sys_updated_on>
+    </sys_script_include>
+</record_update>

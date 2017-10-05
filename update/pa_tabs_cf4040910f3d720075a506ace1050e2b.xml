@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="pa_tabs">
+    <pa_tabs action="INSERT_OR_UPDATE">
+        <canvas_page display_value="PA New Tab">4f4008510f3d720075a506ace1050e9c</canvas_page>
+        <name>New Tab</name>
+        <page display_value="PA New Tab">8f4008510f3d720075a506ace1050e9b</page>
+        <sys_class_name>pa_tabs</sys_class_name>
+        <sys_created_by>enable.jesi</sys_created_by>
+        <sys_created_on>2017-03-28 03:06:17</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>cf4040910f3d720075a506ace1050e2b</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>New Tab</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>pa_tabs_cf4040910f3d720075a506ace1050e2b</sys_update_name>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-05 06:26:45</sys_updated_on>
+    </pa_tabs>
+</record_update>

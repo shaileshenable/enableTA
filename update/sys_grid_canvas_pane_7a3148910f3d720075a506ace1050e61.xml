@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_grid_canvas_pane">
+    <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
+        <grid_canvas display_value="PA New Tab">4f4008510f3d720075a506ace1050e9c</grid_canvas>
+        <height>18</height>
+        <portal_widget display_value="Created 2017-04-20 15:43:10">b23aa6f00f927200429009bce1050e34</portal_widget>
+        <posx>0</posx>
+        <posy>18</posy>
+        <sys_class_name>sys_grid_canvas_pane</sys_class_name>
+        <sys_created_by>enable.jesi</sys_created_by>
+        <sys_created_on>2017-03-28 03:10:21</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>7a3148910f3d720075a506ace1050e61</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name>4f4008510f3d720075a506ace1050e9c</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sys_grid_canvas_pane_7a3148910f3d720075a506ace1050e61</sys_update_name>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-20 22:43:10</sys_updated_on>
+        <width>6</width>
+    </sys_grid_canvas_pane>
+</record_update>

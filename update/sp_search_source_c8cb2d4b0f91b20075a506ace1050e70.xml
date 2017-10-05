@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_search_source">
+    <sp_search_source action="INSERT_OR_UPDATE">
+        <advanced_typeahead_config>false</advanced_typeahead_config>
+        <condition table="sys_user">active=true^active=false^EQ<item endquery="false" field="active" goto="false" newquery="false" operator="=" or="false" value="true"/>
+            <item endquery="false" field="active" goto="false" newquery="false" operator="=" or="false" value="false"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </condition>
+        <data_fetch_script><![CDATA[(function(query) {
+  var results = [];
+  /* Calculate your results here. */
+  
+  return results;
+})(query);]]></data_fetch_script>
+        <display_fields>sys_created_on,sys_updated_on</display_fields>
+        <enable_typeahead>false</enable_typeahead>
+        <id>monster</id>
+        <is_scripted_source>false</is_scripted_source>
+        <name>Monster</name>
+        <page/>
+        <primary_display_field>name</primary_display_field>
+        <roles/>
+        <search_page_template><![CDATA[<div>
+
+</div>]]></search_page_template>
+        <source_table>sys_user</source_table>
+        <sys_class_name>sp_search_source</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-03-09 00:54:16</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>c8cb2d4b0f91b20075a506ace1050e70</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Monster</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sp_search_source_c8cb2d4b0f91b20075a506ace1050e70</sys_update_name>
+        <sys_updated_by>rob.tanner</sys_updated_by>
+        <sys_updated_on>2017-04-03 13:46:45</sys_updated_on>
+        <typeahead_glyph/>
+        <typeahead_template/>
+    </sp_search_source>
+</record_update>
