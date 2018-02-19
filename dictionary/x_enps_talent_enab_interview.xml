@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <element audit="true" extends="task" label="Interview" max_length="40" name="x_enps_talent_enab_interview" sizeclass="9" type="collection">
+    <element audit="true" extends="task" label="Interview" max_length="40" name="x_enps_talent_enab_interview" sizeclass="20" text_index="true" type="collection">
         <element label="Interview Date" mandatory="true" max_length="40" name="u_glide_date_time_1" type="glide_date_time"/>
+        <element label="Interview Date Time" max_length="40" name="u_interview_date_time" type="glide_date_time"/>
     </element>
 </database>

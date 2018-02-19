@@ -4,7 +4,7 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>acquisition</element>
-            <list_id display_value="x_enps_talent_enab_m2m_acquisitions_candidates" element="NULL" name="x_enps_talent_enab_m2m_acquisitions_candidates" parent="NULL" relationship="NULL" sys_domain="global" view="fa3a17000f130200429009bce1050e56">67a600a74f797a0079047ab28110c749</list_id>
+            <list_id display_value="x_enps_talent_enab_m2m_acquisitions_candidates" element="NULL" name="x_enps_talent_enab_m2m_acquisitions_candidates" parent="NULL" relationship="NULL" sys_domain="global" view="89c21433a8033200a21c40382c84b8a6">67a600a74f797a0079047ab28110c749</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>0</position>
@@ -19,7 +19,7 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>active</element>
-            <list_id display_value="x_enps_talent_enab_m2m_acquisitions_candidates" element="NULL" name="x_enps_talent_enab_m2m_acquisitions_candidates" parent="NULL" relationship="NULL" sys_domain="global" view="fa3a17000f130200429009bce1050e56">67a600a74f797a0079047ab28110c749</list_id>
+            <list_id display_value="x_enps_talent_enab_m2m_acquisitions_candidates" element="NULL" name="x_enps_talent_enab_m2m_acquisitions_candidates" parent="NULL" relationship="NULL" sys_domain="global" view="89c21433a8033200a21c40382c84b8a6">67a600a74f797a0079047ab28110c749</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>1</position>
@@ -34,7 +34,7 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>candidate</element>
-            <list_id display_value="x_enps_talent_enab_m2m_acquisitions_candidates" element="NULL" name="x_enps_talent_enab_m2m_acquisitions_candidates" parent="NULL" relationship="NULL" sys_domain="global" view="fa3a17000f130200429009bce1050e56">67a600a74f797a0079047ab28110c749</list_id>
+            <list_id display_value="x_enps_talent_enab_m2m_acquisitions_candidates" element="NULL" name="x_enps_talent_enab_m2m_acquisitions_candidates" parent="NULL" relationship="NULL" sys_domain="global" view="89c21433a8033200a21c40382c84b8a6">67a600a74f797a0079047ab28110c749</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>2</position>
@@ -49,7 +49,7 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>state</element>
-            <list_id display_value="x_enps_talent_enab_m2m_acquisitions_candidates" element="NULL" name="x_enps_talent_enab_m2m_acquisitions_candidates" parent="NULL" relationship="NULL" sys_domain="global" view="fa3a17000f130200429009bce1050e56">67a600a74f797a0079047ab28110c749</list_id>
+            <list_id display_value="x_enps_talent_enab_m2m_acquisitions_candidates" element="NULL" name="x_enps_talent_enab_m2m_acquisitions_candidates" parent="NULL" relationship="NULL" sys_domain="global" view="89c21433a8033200a21c40382c84b8a6">67a600a74f797a0079047ab28110c749</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>3</position>
@@ -64,7 +64,7 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>work_notes</element>
-            <list_id display_value="x_enps_talent_enab_m2m_acquisitions_candidates" element="NULL" name="x_enps_talent_enab_m2m_acquisitions_candidates" parent="NULL" relationship="NULL" sys_domain="global" view="fa3a17000f130200429009bce1050e56">67a600a74f797a0079047ab28110c749</list_id>
+            <list_id display_value="x_enps_talent_enab_m2m_acquisitions_candidates" element="NULL" name="x_enps_talent_enab_m2m_acquisitions_candidates" parent="NULL" relationship="NULL" sys_domain="global" view="89c21433a8033200a21c40382c84b8a6">67a600a74f797a0079047ab28110c749</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>4</position>
@@ -103,7 +103,7 @@
             <sys_updated_by>astha.c@enableps.com.au</sys_updated_by>
             <sys_updated_on>2017-07-31 06:31:00</sys_updated_on>
             <sys_user/>
-            <view display_value="Mobile" name="Mobile">fa3a17000f130200429009bce1050e56</view>
+            <view display_value="Mobile" name="Mobile">89c21433a8033200a21c40382c84b8a6</view>
             <view_name/>
         </sys_ui_list>
     </sys_ui_list>

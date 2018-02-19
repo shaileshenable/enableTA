@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <element label="Experience" max_length="40" name="x_enps_talent_enab_experience" sizeclass="5693" type="collection">
+    <element label="Experience" max_length="40" name="x_enps_talent_enab_experience" type="collection">
         <element label="Alias" max_length="150" name="alias" type="string"/>
         <element label="Name" max_length="150" name="name" type="string"/>
         <element label="Score" max_length="40" name="score" type="integer"/>

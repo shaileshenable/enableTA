@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_enps_talent_enab.TalentEnabler_JobPosting</api_name>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>TalentEnabler_JobPosting</name>
+        <script><![CDATA[var TalentEnabler_JobPosting = Class.create();
+TalentEnabler_JobPosting.prototype = {
+	initialize: function() {
+	},
+	
+	talentEnabler_restCall: function() {
+		var JobSpecName;
+		var JobRole;
+		var Industry;
+		var sal;
+		var lnc;
+		var subClID;
+		var slType;
+		var wrkType;
+		var addType;
+		var jbSummary;
+		var jbDetails;
+		var fullName;
+		var emailID;
+		var lnUsr = gs.getUserID();
+		var usr=new GlideRecord('sys_user');
+		usr.addQuery();
+		usr.query();
+		if(usr.get(lnUsr))
+			{
+			fullName=usr.first_name+' '+usr.last_name;
+			emailID=usr.email;
+		}
+		
+		var lcnID;
+		var lcnArea;		
+		JobSpecName=current.name.getDisplayValue() ? current.name.getDisplayValue() : "";
+		JobRole=current.job_roles.getDisplayValue() ? current.job_roles.getDisplayValue() : "";
+		Industry=current.industry.getDisplayValue();
+		sal=current.salary.getDisplayValue();
+		lcnID=current.location.location_id.toString();
+		lcnArea=current.u_location_area.location_id.toString();
+		subClID=current.u_sub_classification.u_id;
+		slType=current.u_salary_type;
+		wrkType=current.u_work_type;
+		addType=current.u_advertisement_type.getDisplayValue();
+		jbSummary=current.knowledge_article.short_description;
+		jbDetails=current.knowledge_article.text;		
+		jbDetails = jbDetails.replace(/(\r\n|\n|\r)/gm,""); 			
+		var aqcSysID;
+		var acqNum;
+		var aqcObj=new GlideRecord('x_enps_talent_enab_acquisition');
+		aqcObj.addQuery('job_specification',current.sys_id);
+		aqcObj.query();
+		while(aqcObj.next())
+			{
+			aqcSysID=aqcObj.sys_id;
+			acqNum=aqcObj.number;
+			}
+		
+		var accessTokenEndPoint=gs.getProperty('x_enps_talent_enab.seek_rest_end_point');
+		var jobPostEndPoint=gs.getProperty('x_enps_talent_enab.seek_job_req_end_point');
+		var advrID=gs.getProperty('x_enps_talent_enab.seek_advertiser_ID');
+		var hostID=gs.getProperty('x_enps_talent_enab.seek_host_id');
+		var clientID=gs.getProperty('x_enps_talent_enab.seek_client_id');
+		var secretID=gs.getProperty('x_enps_talent_enab.seek_client_secret');
+		var sourceURL=gs.getProperty('x_enps_talent_enab.seek_job_req_end_point');
+		//Rest Call for access token			
+		var body = "client_id="+clientID+"&client_secret="+secretID+"&grant_type=client_credentials";
+		var remoteRequest = new sn_ws.RESTMessageV2();
+		remoteRequest.setEndpoint(accessTokenEndPoint);
+		remoteRequest.setHttpMethod('post');
+		remoteRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
+		remoteRequest.setRequestBody(body);
+		remoteRequest.setHttpTimeout(3000);
+		var tokenObject = JSON.parse(remoteRequest.execute().getBody());
+		var body1 = {			
+			"thirdParties": {
+				"advertiserId": advrID
+			},
+			"creationId": tokenObject.access_token,
+			"advertisementType": addType,
+			"jobTitle": JobSpecName,
+			"searchJobTitle": JobRole,
+			"location": {
+				"id": lcnID,
+				"areaId": lcnArea
+			},
+			"subclassificationId": subClID.toString(),
+			"workType": wrkType.toString(),
+			"jobSummary": jbSummary.toString(),
+			"advertisementDetails": jbDetails,					
+			"expiryDate":"2017-10-17T10:00:52:41Z",
+			
+			"salary": {
+				"type": slType.toString(),
+				"minimum": 20.0,
+				"maximum": 24.0
+			},
+			
+			
+			"template":{"Id":164935,"Items":[{"Name":"SubHeading","Value":""},
+{"Name":"Reference","Value":""},
+{"Name":"Bullet1","Value":""},
+{"Name":"Bullet2","Value":""},
+{"Name":"Bullet3","Value":""},
+{"Name":"ContactName","Value":""}]},
+			
+			"recruiter": {
+				"fullName": fullName.toString(),
+				"email": emailID.toString()
+			}
+		};		
+		
+		//Rest call for Job Posting.
+		gs.info("Token ID-->>>>" +tokenObject.access_token);
+		remoteRequest = new sn_ws.RESTMessageV2();
+		remoteRequest.setEndpoint(jobPostEndPoint);
+		remoteRequest.setHttpMethod('post');
+		
+		remoteRequest.setRequestHeader("Accept","application/vnd.seek.advertisement+json; version=1; charset=utf-8, application/vnd.seek.advertisement-error+json; version=1; charset=utf-8");
+		remoteRequest.setRequestHeader("User-Agent","SEEK.AdPostingApi.Client/0.15.630.1108");
+		remoteRequest.setRequestHeader("Authorization", "Bearer " + tokenObject.access_token);
+		remoteRequest.setRequestHeader("Content-Type", "application/vnd.seek.advertisement+json; version=1; charset=utf-8");
+		remoteRequest.setRequestHeader("Host", hostID);
+		
+		remoteRequest.setRequestBody(JSON.stringify(body1));
+		remoteRequest.setHttpTimeout(3000);
+		
+		gs.info("Job Posting--->>>"+JSON.stringify(body1));
+	var ID;
+	var response = remoteRequest.execute();
+	var responseBody = response.getBody();
+	responseBody = responseBody.toString();   
+		gs.info("Seek Job Post Response --->"+responseBody);
+        var json=JSON.parse(responseBody);
+		ID=json.id;	
+		
+		if(response.getStatusCode() == '200' && ID!='')	
+	{		
+		//Creating log in the acquisition record.
+		var seekObj=new GlideRecord('x_enps_talent_enab_seek_job_post');
+		seekObj.u_seek_request_id=ID;
+		seekObj.u_seek_source_url=sourceURL;
+		seekObj.u_parent_acquisition_request=aqcSysID;
+		seekObj.job_specification=current.sys_id;
+		seekObj.insert();
+		current.update();
+		return acqNum;		
+		
+	}
+	else
+	{ 
+	gs.addErrorMessage("Job Posting request has been failed due to incorrect values");
+	}
+		
+	},
+	
+	
+	type: 'TalentEnabler_JobPosting'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>shailesh.k</sys_created_by>
+        <sys_created_on>2017-08-21 02:07:25</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>48bae70813f4c3000a165aff3244b0a4</sys_id>
+        <sys_mod_count>136</sys_mod_count>
+        <sys_name>TalentEnabler_JobPosting</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sys_script_include_48bae70813f4c3000a165aff3244b0a4</sys_update_name>
+        <sys_updated_by>shailesh.k</sys_updated_by>
+        <sys_updated_on>2017-12-05 11:29:44</sys_updated_on>
+    </sys_script_include>
+</record_update>

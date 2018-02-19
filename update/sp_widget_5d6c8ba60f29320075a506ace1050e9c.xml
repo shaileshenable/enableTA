@@ -19,7 +19,7 @@
         <name>Acquisition Selector TA</name>
         <option_schema/>
         <public>false</public>
-        <roles/>
+        <roles>x_enps_talent_enab.Talent Enabler</roles>
         <script><![CDATA[(function() {
   /* populate the 'data' object */
   /* e.g., data.table = $sp.getValue('table'); */
@@ -31,15 +31,15 @@
         <sys_created_on>2017-03-20 04:57:00</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>5d6c8ba60f29320075a506ace1050e9c</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>Acquisition Selector TA</sys_name>
         <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
         <sys_update_name>sp_widget_5d6c8ba60f29320075a506ace1050e9c</sys_update_name>
-        <sys_updated_by>rob.tanner</sys_updated_by>
-        <sys_updated_on>2017-04-05 06:26:31</sys_updated_on>
+        <sys_updated_by>shailesh.k</sys_updated_by>
+        <sys_updated_on>2017-11-20 07:47:56</sys_updated_on>
         <template><![CDATA[<div>
 <!-- your widget template -->
   <input type="text" id="acqSelector" name="acqSelector" placeholder="Select acquisition" />

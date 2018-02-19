@@ -17,7 +17,7 @@
         <number_ref display_value="ACQ">d95a40190f51720075a506ace1050e46</number_ref>
         <provider_class/>
         <read_access>true</read_access>
-        <super_class display_value="Task" name="task">df2b13400f130200429009bce1050ec6</super_class>
+        <super_class display_value="Task" name="task">df635873a8033200a21c40382c84b886</super_class>
         <sys_class_code/>
         <sys_class_name>sys_db_object</sys_class_name>
         <sys_class_path/>

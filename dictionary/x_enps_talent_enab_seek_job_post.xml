@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Seek Job Post" max_length="40" name="x_enps_talent_enab_seek_job_post" type="collection">
+        <element label="Job Specification" max_length="32" name="job_specification" read_only="true" reference="x_enps_talent_enab_job_specification" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="open" label="Status" max_length="40" name="status" read_only="true" type="string">
+            <choice>
+                <element label="Open" sequence="1" value="open"/>
+                <element label="Expired" sequence="2" value="expired"/>
+            </choice>
+        </element>
+        <element label="Parent Acquisition Request" max_length="32" name="u_parent_acquisition_request" read_only="true" reference="x_enps_talent_enab_acquisition" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Seek Request ID" max_length="40" name="u_seek_request_id" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Seek Source URL" max_length="100" name="u_seek_source_url" read_only="true" type="string"/>
+        <index name="index">
+            <element name="job_specification"/>
+        </index>
+        <index name="index2">
+            <element name="u_parent_acquisition_request"/>
+        </index>
+    </element>
+</database>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_embedded_help_content">
+    <sys_embedded_help_content action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>mid-server</category>
+        <content><![CDATA[ <h1 class="title topictitle1">MID Server list</h1>  <div class="body conbody">  <p class="p">The MID Server list view shows all the MID Servers associated with the instance, their status,   version, and whether or not they are valid. <span class="ph">The version of the MID Server must be compatible with the      version of the instance. Otherwise, the MID Server cannot process commands or communicate with      the instance.</span></p>  <p class="p">If the version is not compatible, the MID Server status is not        changed to <span class="ph uicontrol">Down</span> in the MID Server dashboard. So it might still appear        to be processing commands when it actually is not doing so. You must check the MID Server          <span class="ph uicontrol">Version</span> on the dashboard, which is available starting with the        Istanbul release.</p>  <div class="p"><span class="ph">The icons in the <span class="ph uicontrol">Version</span> column          indicates the following:</span><ul class="ul" id="ecc_agent_list-normal__ul_ehw_qzn_2z"><li class="li"><span class="ph uicontrol">Red</span>: The MID Server does not belong to the same release as the     instance and is incompatible. You must upgrade the MID Server and verify that it is not pinned     to an older version, by using the <span class="ph uicontrol">mid.version.override</span> property. The MID     Server will not be upgraded until the parameter is cleared.</li><li class="li"><span class="ph uicontrol">Yellow</span>: This indicates that the MID Server version belongs to the     same family as the instance, but not the same version. This version is compatible, but upgrade     is recommended.</li><li class="li"><span class="ph uicontrol">Green</span>: This MID Server is compatible, and no upgrade is     necessary.</li><li class="li"><span class="ph uicontrol">Gray</span>: The instance cannot detect the version. This MID Server is     considered incompatible.</li></ul></div> </div> <div class="related-links"><div class="relinfo"><div class="reltitle">Related information<br /><div><a class="link" href="https://docs.servicenow.com/?context&#61;CSHelp:MIDServerUpgrades&amp;version&#61;jakarta" target="_blank" rel="nofollow">MID Server upgrades</a></div><div><a class="link" href="https://docs.servicenow.com/?context&#61;CSHelp:ValidateMIDServer&amp;version&#61;jakarta" target="_blank" rel="nofollow">Validate the MID Server</a></div></div></div></div>]]></content>
+        <last_sync>2018-02-08 04:42:06</last_sync>
+        <modifier>normal</modifier>
+        <name>ecc_agent_list-normal</name>
+        <page>ecc_agent_list</page>
+        <product>1</product>
+        <qualifier/>
+        <role/>
+        <role_order>1000</role_order>
+        <snc_created>true</snc_created>
+        <sys_class_name>sys_embedded_help_content</sys_class_name>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2017-10-11 04:38:07</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>4586fea813f94b400a165aff3244b0a2</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>ecc_agent_list-normal</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sys_embedded_help_content_4586fea813f94b400a165aff3244b0a2</sys_update_name>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2018-02-08 04:42:06</sys_updated_on>
+        <version>j</version>
+    </sys_embedded_help_content>
+    <sys_translated_text action="delete_multiple" query="documentkey=4586fea813f94b400a165aff3244b0a2"/>
+</record_update>

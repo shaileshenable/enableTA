@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_macro">
+    <sys_ui_macro action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>general</category>
+        <description/>
+        <media_type/>
+        <name>Job_Spec_Seperator</name>
+        <scoped_name>x_enps_talent_enab_Job_Spec_Seperator</scoped_name>
+        <sys_class_name>sys_ui_macro</sys_class_name>
+        <sys_created_by>shailesh.k</sys_created_by>
+        <sys_created_on>2017-09-13 06:09:52</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>7e0e7eef13054f0051f4529f3244b020</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Job_Spec_Seperator</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sys_ui_macro_7e0e7eef13054f0051f4529f3244b020</sys_update_name>
+        <sys_updated_by>shailesh.k</sys_updated_by>
+        <sys_updated_on>2017-09-14 04:24:12</sys_updated_on>
+        <xml><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+<table width='100%'>
+   <tr>
+   <td bgcolor="#428ff4" width='100%'><font size='3' color='white'>$[SP]Job Specification Information</font></td>
+  </tr>
+</table>
+</j:jelly>]]></xml>
+    </sys_ui_macro>
+</record_update>

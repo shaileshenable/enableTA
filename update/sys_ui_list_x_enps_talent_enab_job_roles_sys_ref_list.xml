@@ -4,7 +4,7 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>name</element>
-            <list_id display_value="x_enps_talent_enab_job_roles" element="NULL" name="x_enps_talent_enab_job_roles" parent="NULL" relationship="NULL" sys_domain="global" view="a93a17000f130200429009bce1050e30">a859ff4d0ff9720075a506ace1050edf</list_id>
+            <list_id display_value="x_enps_talent_enab_job_roles" element="NULL" name="x_enps_talent_enab_job_roles" parent="NULL" relationship="NULL" sys_domain="global" view="d8c21433a8033200a21c40382c84b880">a859ff4d0ff9720075a506ace1050edf</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>0</position>
@@ -43,7 +43,7 @@
             <sys_updated_by>astha.c@enableps.com.au</sys_updated_by>
             <sys_updated_on>2017-07-31 06:31:06</sys_updated_on>
             <sys_user/>
-            <view display_value="Reference List" name="sys_ref_list">a93a17000f130200429009bce1050e30</view>
+            <view display_value="Reference List" name="sys_ref_list">d8c21433a8033200a21c40382c84b880</view>
             <view_name/>
         </sys_ui_list>
     </sys_ui_list>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="u_advertisement_type" table="x_enps_talent_enab_job_specification" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>u_advertisement_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Classic</label>
+            <language>en</language>
+            <name>x_enps_talent_enab_job_specification</name>
+            <sequence>1</sequence>
+            <sys_created_by>shailesh.k</sys_created_by>
+            <sys_created_on>2017-08-24 09:49:57</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>08613c9913b4830051f4529f3244b02f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>shailesh.k</sys_updated_by>
+            <sys_updated_on>2017-08-24 09:49:57</sys_updated_on>
+            <value>Classic</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>u_advertisement_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Standout</label>
+            <language>en</language>
+            <name>x_enps_talent_enab_job_specification</name>
+            <sequence>2</sequence>
+            <sys_created_by>shailesh.k</sys_created_by>
+            <sys_created_on>2017-08-24 09:50:20</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>eaa1bc9913b4830051f4529f3244b0c0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>shailesh.k</sys_updated_by>
+            <sys_updated_on>2017-08-24 09:50:20</sys_updated_on>
+            <value>Standout</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>u_advertisement_type</element>
+            <name>x_enps_talent_enab_job_specification</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>shailesh.k</sys_created_by>
+            <sys_created_on>2017-08-24 09:49:57</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>5049f9c813bd0f4051f4529f3244b073</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>u_advertisement_type</sys_name>
+            <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+            <sys_update_name>sys_choice_x_enps_talent_enab_job_specification_u_advertisement_type</sys_update_name>
+            <sys_updated_by>shailesh.k</sys_updated_by>
+            <sys_updated_on>2017-08-24 09:49:57</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

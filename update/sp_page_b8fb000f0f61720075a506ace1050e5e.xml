@@ -6,22 +6,22 @@
         <id>search_ta</id>
         <internal>false</internal>
         <public>false</public>
-        <roles/>
+        <roles>x_enps_talent_enab.Talent Enabler</roles>
         <short_description/>
         <sys_class_name>sp_page</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2017-03-21 04:11:05</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>b8fb000f0f61720075a506ace1050e5e</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>search_ta</sys_name>
         <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
         <sys_update_name>sp_page_b8fb000f0f61720075a506ace1050e5e</sys_update_name>
-        <sys_updated_by>rob.tanner</sys_updated_by>
-        <sys_updated_on>2017-04-05 06:26:42</sys_updated_on>
+        <sys_updated_by>shailesh.k</sys_updated_by>
+        <sys_updated_on>2017-11-28 09:11:11</sys_updated_on>
         <title>Search</title>
     </sp_page>
 </record_update>

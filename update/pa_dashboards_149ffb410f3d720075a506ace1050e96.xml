@@ -11,15 +11,15 @@
         <name>Talent Enabler - Report Dashboard</name>
         <no_tabs>false</no_tabs>
         <order/>
-        <owner display_value="">aaffe6ee0fa5320075a506ace1050ea8</owner>
+        <owner display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</owner>
         <restrict_to_roles/>
         <role_override>true</role_override>
-        <roles/>
-        <should_migrate_permissions>true</should_migrate_permissions>
+        <roles>x_enps_talent_enab.Talent Enabler</roles>
+        <should_migrate_permissions>false</should_migrate_permissions>
         <sys_class_name>pa_dashboards</sys_class_name>
         <sys_created_by>enable.jesi</sys_created_by>
         <sys_created_on>2017-03-28 03:06:16</sys_created_on>
-        <sys_customer_update>false</sys_customer_update>
+        <sys_customer_update>true</sys_customer_update>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>149ffb410f3d720075a506ace1050e96</sys_id>
@@ -31,8 +31,8 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
         <sys_update_name>pa_dashboards_149ffb410f3d720075a506ace1050e96</sys_update_name>
-        <sys_updated_by>system</sys_updated_by>
-        <sys_updated_on>2017-07-19 07:35:12</sys_updated_on>
+        <sys_updated_by>shailesh.k</sys_updated_by>
+        <sys_updated_on>2017-12-05 06:35:36</sys_updated_on>
         <users/>
         <visible_to>2</visible_to>
     </pa_dashboards>

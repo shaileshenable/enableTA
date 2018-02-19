@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_section caption="" section_id="c728dc9d1374830051f4529f3244b043" sys_domain="global" table="x_enps_talent_enab_seek_job_classification" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.begin_split</element>
+            <position>0</position>
+            <sys_created_by>shailesh.k</sys_created_by>
+            <sys_created_on>2017-10-10 06:57:20</sys_created_on>
+            <sys_id>6accc29013354b400a165aff3244b058</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_enps_talent_enab_seek_job_classification" sys_domain="global" view="Default view">c728dc9d1374830051f4529f3244b043</sys_ui_section>
+            <sys_updated_by>shailesh.k</sys_updated_by>
+            <sys_updated_on>2017-10-10 06:57:20</sys_updated_on>
+            <sys_user/>
+            <type>.begin_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>u_name</element>
+            <position>1</position>
+            <sys_created_by>shailesh.k</sys_created_by>
+            <sys_created_on>2017-10-10 06:57:20</sys_created_on>
+            <sys_id>eaccc29013354b400a165aff3244b058</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_enps_talent_enab_seek_job_classification" sys_domain="global" view="Default view">c728dc9d1374830051f4529f3244b043</sys_ui_section>
+            <sys_updated_by>shailesh.k</sys_updated_by>
+            <sys_updated_on>2017-10-10 06:57:20</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>u_type</element>
+            <position>2</position>
+            <sys_created_by>shailesh.k</sys_created_by>
+            <sys_created_on>2017-10-10 06:57:20</sys_created_on>
+            <sys_id>6eccc29013354b400a165aff3244b058</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_enps_talent_enab_seek_job_classification" sys_domain="global" view="Default view">c728dc9d1374830051f4529f3244b043</sys_ui_section>
+            <sys_updated_by>shailesh.k</sys_updated_by>
+            <sys_updated_on>2017-10-10 06:57:20</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>3</position>
+            <sys_created_by>shailesh.k</sys_created_by>
+            <sys_created_on>2017-10-10 06:57:20</sys_created_on>
+            <sys_id>eeccc29013354b400a165aff3244b058</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_enps_talent_enab_seek_job_classification" sys_domain="global" view="Default view">c728dc9d1374830051f4529f3244b043</sys_ui_section>
+            <sys_updated_by>shailesh.k</sys_updated_by>
+            <sys_updated_on>2017-10-10 06:57:20</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>u_id</element>
+            <position>4</position>
+            <sys_created_by>shailesh.k</sys_created_by>
+            <sys_created_on>2017-10-10 06:57:20</sys_created_on>
+            <sys_id>62ccc29013354b400a165aff3244b059</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_enps_talent_enab_seek_job_classification" sys_domain="global" view="Default view">c728dc9d1374830051f4529f3244b043</sys_ui_section>
+            <sys_updated_by>shailesh.k</sys_updated_by>
+            <sys_updated_on>2017-10-10 06:57:20</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>parent</element>
+            <position>5</position>
+            <sys_created_by>shailesh.k</sys_created_by>
+            <sys_created_on>2017-10-10 06:57:20</sys_created_on>
+            <sys_id>e2ccc29013354b400a165aff3244b059</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_enps_talent_enab_seek_job_classification" sys_domain="global" view="Default view">c728dc9d1374830051f4529f3244b043</sys_ui_section>
+            <sys_updated_by>shailesh.k</sys_updated_by>
+            <sys_updated_on>2017-10-10 06:57:20</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>6</position>
+            <sys_created_by>shailesh.k</sys_created_by>
+            <sys_created_on>2017-10-10 06:57:20</sys_created_on>
+            <sys_id>66ccc29013354b400a165aff3244b059</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_enps_talent_enab_seek_job_classification" sys_domain="global" view="Default view">c728dc9d1374830051f4529f3244b043</sys_ui_section>
+            <sys_updated_by>shailesh.k</sys_updated_by>
+            <sys_updated_on>2017-10-10 06:57:20</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption/>
+            <header>false</header>
+            <name>x_enps_talent_enab_seek_job_classification</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>shailesh.k</sys_created_by>
+            <sys_created_on>2017-08-24 07:58:57</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>c728dc9d1374830051f4529f3244b043</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_enps_talent_enab_seek_job_classification</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+            <sys_update_name>sys_ui_section_c728dc9d1374830051f4529f3244b043</sys_update_name>
+            <sys_updated_by>shailesh.k</sys_updated_by>
+            <sys_updated_on>2017-08-24 07:58:57</sys_updated_on>
+            <sys_user/>
+            <title>true</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element extends="cmn_location" label="Seek Job Posting Location" max_length="40" name="x_enps_talent_enab_seek_job_posting_location" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="Location ID" max_length="40" name="location_id" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Location Type" max_length="40" name="location_type" type="string">
+            <choice>
+                <element label="Area" sequence="1" value="area"/>
+                <element label="Location" sequence="2" value="lcn"/>
+            </choice>
+        </element>
+    </element>
+</database>

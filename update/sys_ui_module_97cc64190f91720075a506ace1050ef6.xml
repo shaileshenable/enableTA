@@ -8,7 +8,7 @@
         <order/>
         <path/>
         <path_relative_to_root>false</path_relative_to_root>
-        <roles>x_enps_talent_enab.talent_pool_user</roles>
+        <roles>x_enps_talent_enab.Talent Enabler</roles>
         <sys_class_name>sys_ui_module</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2017-03-03 09:49:19</sys_created_on>
@@ -16,15 +16,15 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>97cc64190f91720075a506ace1050ef6</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>Talent Pools</sys_name>
         <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
         <sys_update_name>sys_ui_module_97cc64190f91720075a506ace1050ef6</sys_update_name>
-        <sys_updated_by>rob.tanner</sys_updated_by>
-        <sys_updated_on>2017-04-20 07:27:04</sys_updated_on>
+        <sys_updated_by>shailesh.k</sys_updated_by>
+        <sys_updated_on>2017-11-20 06:29:01</sys_updated_on>
         <table>x_enps_talent_enab_talent_pool</table>
         <uncancelable>false</uncancelable>
         <view_name/>

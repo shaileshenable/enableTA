@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description>Job Posting Host ID</description>
+        <ignore_cache>false</ignore_cache>
+        <is_private>false</is_private>
+        <name>x_enps_talent_enab.seek_host_id</name>
+        <read_roles/>
+        <suffix>seek_host_id</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>shailesh.k</sys_created_by>
+        <sys_created_on>2017-10-13 07:29:51</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>d401b9591375cf4051f4529f3244b023</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>x_enps_talent_enab.seek_host_id</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sys_properties_d401b9591375cf4051f4529f3244b023</sys_update_name>
+        <sys_updated_by>shailesh.k</sys_updated_by>
+        <sys_updated_on>2017-10-13 07:31:21</sys_updated_on>
+        <type>string</type>
+        <value>adposting-integration.cloud.seek.com.au</value>
+        <write_roles/>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=d401b9591375cf4051f4529f3244b023"/>
+</record_update>

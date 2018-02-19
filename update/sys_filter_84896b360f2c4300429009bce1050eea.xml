@@ -17,16 +17,16 @@
         <sys_domain_path>/</sys_domain_path>
         <sys_id>84896b360f2c4300429009bce1050eea</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
-        <sys_package/>
+        <sys_name>mobile</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
-        <sys_update_name/>
+        <sys_update_name>sys_filter_84896b360f2c4300429009bce1050eea</sys_update_name>
         <sys_updated_by>sam.b@enableps.com.au</sys_updated_by>
         <sys_updated_on>2017-08-17 04:48:43</sys_updated_on>
         <table>sys_user</table>
         <title>mobile</title>
-        <user display_value="Sam Bhogal">4d62aa374fad320079047ab28110c7c5</user>
+        <user display_value="">4d62aa374fad320079047ab28110c7c5</user>
     </sys_filter>
 </record_update>

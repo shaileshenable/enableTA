@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_metadata_link">
+    <sys_metadata_link action="INSERT_OR_UPDATE">
+        <directory>update</directory>
+        <documentkey>b2f7072013fd4f4051f4529f3244b06d</documentkey>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_enps_talent_enab_seek_job_posting_location">
+    <x_enps_talent_enab_seek_job_posting_location action="INSERT_OR_UPDATE">
+        <city/>
+        <company/>
+        <contact/>
+        <country/>
+        <fax_phone/>
+        <full_name>Perth/CBD, Inner &amp; Western Suburbs</full_name>
+        <lat_long_error/>
+        <latitude/>
+        <location_id>CBDInnerWesternSuburbs</location_id>
+        <location_type>area</location_type>
+        <longitude/>
+        <name>CBD, Inner &amp; Western Suburbs</name>
+        <parent display_value="Perth">2af7832013fd4f4051f4529f3244b0b1</parent>
+        <phone/>
+        <phone_territory/>
+        <state/>
+        <stock_room>false</stock_room>
+        <street/>
+        <sys_class_name>x_enps_talent_enab_seek_job_posting_location</sys_class_name>
+        <sys_created_by>shailesh.k</sys_created_by>
+        <sys_created_on>2017-10-11 05:54:25</sys_created_on>
+        <sys_id>b2f7072013fd4f4051f4529f3244b06d</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_updated_by>shailesh.k</sys_updated_by>
+        <sys_updated_on>2017-10-31 10:30:40</sys_updated_on>
+        <time_zone/>
+        <zip/>
+    </x_enps_talent_enab_seek_job_posting_location>
+</record_update>
+]]></payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>shailesh.k</sys_created_by>
+        <sys_created_on>2017-12-01 10:49:57</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>49b47a0513be43400a165aff3244b0d6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sys_metadata_link_49b47a0513be43400a165aff3244b0d6</sys_update_name>
+        <sys_updated_by>shailesh.k</sys_updated_by>
+        <sys_updated_on>2017-12-01 10:49:57</sys_updated_on>
+        <tablename>x_enps_talent_enab_seek_job_posting_loca</tablename>
+    </sys_metadata_link>
+</record_update>

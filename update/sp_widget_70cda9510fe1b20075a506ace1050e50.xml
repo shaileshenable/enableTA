@@ -112,7 +112,7 @@
         <name>search prefs modal TA</name>
         <option_schema>[{"name":"embeddedWidgetId","label":"Embedded Widget Id","type":"string"},{"name":"embeddedWidgetOptions","default_value":"","label":"Embedded Widget Options","type":"string"},{"name":"modalBodyClass","label":"Optional Class name for modal body","type":"string"},{"name":"beforeRender","label":"Before modal render Callback called with embedded widget data object","type":"string"},{"name":"afterClose","label":"After modal close Callback","type":"string"},{"name":"afterOpen","label":"After modal open Callback called with modal controller","type":"string"}]</option_schema>
         <public>false</public>
-        <roles/>
+        <roles>x_enps_talent_enab.Talent Enabler</roles>
         <script><![CDATA[// populate the 'data' object
 // e.g., data.table = $sp.getValue('table');
 (function(){
@@ -127,15 +127,15 @@
         <sys_created_on>2017-03-16 00:48:51</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>70cda9510fe1b20075a506ace1050e50</sys_id>
-        <sys_mod_count>12</sys_mod_count>
+        <sys_mod_count>13</sys_mod_count>
         <sys_name>search prefs modal TA</sys_name>
         <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
         <sys_update_name>sp_widget_70cda9510fe1b20075a506ace1050e50</sys_update_name>
-        <sys_updated_by>astha.c@enableps.com.au</sys_updated_by>
-        <sys_updated_on>2017-06-09 06:55:39</sys_updated_on>
+        <sys_updated_by>shailesh.k</sys_updated_by>
+        <sys_updated_on>2017-11-20 07:43:28</sys_updated_on>
         <template><![CDATA[<div class="modal-body" style="padding: 0">
 	<div ng-repeat="m in c.$$uiNotification" class="alert"
 			 ng-class="{'alert-danger' : m.type == 'error', 'alert-success' : m.type != 'error', 'visible' : m.visible}"

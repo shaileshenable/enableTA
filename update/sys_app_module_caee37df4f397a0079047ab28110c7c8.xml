@@ -12,14 +12,14 @@
         <hint>Create a new acquisition through the knowledge base</hint>
         <homepage/>
         <image/>
-        <link_type>NEW</link_type>
+        <link_type>DIRECT</link_type>
         <map_page/>
         <mobile_title>Create New Acquisition</mobile_title>
         <mobile_view_name>Mobile</mobile_view_name>
         <name>kb_knowledge</name>
         <order>100</order>
         <override_menu_roles>false</override_menu_roles>
-        <query/>
+        <query>../com.glideapp.servicecatalog_cat_item_view.do?v=1&amp;sysparm_id=e29bd6e713c14f0051f4529f3244b061</query>
         <report/>
         <roles>x_enps_talent_enab.Talent Enabler</roles>
         <survey/>
@@ -27,11 +27,11 @@
         <sys_class_name>sys_app_module</sys_class_name>
         <sys_created_by>rob.tanner</sys_created_by>
         <sys_created_on>2017-04-04 02:48:43</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>caee37df4f397a0079047ab28110c7c8</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>Create New Acquisition</sys_name>
         <sys_overrides/>
         <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
@@ -39,8 +39,8 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
         <sys_update_name>sys_app_module_caee37df4f397a0079047ab28110c7c8</sys_update_name>
-        <sys_updated_by>rob.tanner</sys_updated_by>
-        <sys_updated_on>2017-04-05 10:50:48</sys_updated_on>
+        <sys_updated_by>shailesh.k</sys_updated_by>
+        <sys_updated_on>2017-09-14 08:44:54</sys_updated_on>
         <timeline_page/>
         <title>Create New Acquisition</title>
         <uncancelable>false</uncancelable>

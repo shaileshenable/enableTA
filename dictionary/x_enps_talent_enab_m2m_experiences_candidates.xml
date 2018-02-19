@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <element label="Experiences Candidates" max_length="40" name="x_enps_talent_enab_m2m_experiences_candidates" sizeclass="6248" type="collection">
+    <element label="Experiences Candidates" max_length="40" name="x_enps_talent_enab_m2m_experiences_candidates" type="collection">
         <element label="Candidate" max_length="32" name="candidate" reference="x_enps_talent_enab_candidate" type="reference"/>
         <element label="Experience" max_length="32" name="experience" reference="x_enps_talent_enab_experience" type="reference"/>
         <index name="index">

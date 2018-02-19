@@ -17,7 +17,7 @@
         <number_ref/>
         <provider_class/>
         <read_access>true</read_access>
-        <super_class display_value="Company" name="core_company">241a93000f130200429009bce1050e72</super_class>
+        <super_class display_value="Company" name="core_company">aea29033a8033200a21c40382c84b888</super_class>
         <sys_class_code/>
         <sys_class_name>sys_db_object</sys_class_name>
         <sys_class_path/>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_properties_category_m2m">
+    <sys_properties_category_m2m action="INSERT_OR_UPDATE">
+        <category display_value="Talent Acquisition">70c659c20f11320075a506ace1050e22</category>
+        <order>100</order>
+        <property display_value="x_enps_talent_enab.seek_client_secret" name="x_enps_talent_enab.seek_client_secret">54cdd157132083000a165aff3244b01f</property>
+        <sys_class_name>sys_properties_category_m2m</sys_class_name>
+        <sys_created_by>shailesh.k</sys_created_by>
+        <sys_created_on>2017-08-18 07:55:29</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>7ddd9957132083000a165aff3244b0c6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_enps_talent_enab.seek_client_secret.Talent Acquisition</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sys_properties_category_m2m_7ddd9957132083000a165aff3244b0c6</sys_update_name>
+        <sys_updated_by>shailesh.k</sys_updated_by>
+        <sys_updated_on>2017-08-18 07:55:29</sys_updated_on>
+    </sys_properties_category_m2m>
+</record_update>

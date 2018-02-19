@@ -4,20 +4,54 @@
         <element label="Industry" max_length="32" name="industry" reference="x_enps_talent_enab_industry" type="reference"/>
         <element label="Job Role" max_length="32" name="job_roles" reference="x_enps_talent_enab_job_roles" type="reference"/>
         <element label="Knowledge Article" max_length="32" name="knowledge_article" reference="kb_knowledge" reference_qual="retiredISEMPTY^EQ" reference_qual_condition="retiredISEMPTY^EQ" type="reference"/>
-        <element label="Location" max_length="32" name="location" reference="cmn_location" type="reference"/>
+        <element label="Location" max_length="32" name="location" reference="x_enps_talent_enab_seek_job_posting_location" reference_qual="location_type=lcn^EQ" reference_qual_condition="location_type=lcn^EQ" type="reference"/>
         <element display="true" label="Name" max_length="250" name="name" type="string"/>
         <element label="Salary" max_length="20" name="salary" type="currency"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Advertisement Type" max_length="40" name="u_advertisement_type" type="string">
+            <choice>
+                <element label="Classic" sequence="1" value="Classic"/>
+                <element label="Standout" sequence="2" value="Standout"/>
+            </choice>
+        </element>
+        <element label="Classification" max_length="32" name="u_classification" reference="x_enps_talent_enab_seek_job_classification" reference_qual="u_type=Classification^EQ" reference_qual_condition="u_type=Classification^EQ" type="reference"/>
+        <element dependent="location" dependent_on_field="location" dynamic_creation="true" label="Location Area" max_length="32" name="u_location_area" reference="x_enps_talent_enab_seek_job_posting_location" reference_qual="javascript:'parent='+current.location;" type="reference" use_dependent_field="true" use_reference_qualifier="advanced"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Salary Type" max_length="40" name="u_salary_type" type="string">
+            <choice>
+                <element label="Annual Package" sequence="1" value="AnnualPackage"/>
+                <element label="Annual Commission" sequence="2" value="AnnualCommission"/>
+                <element label="Commission Only" sequence="3" value="CommissionOnly"/>
+                <element label="Hourly Rate" sequence="4" value="HourlyRate"/>
+            </choice>
+        </element>
+        <element label="Sub Classification" max_length="32" name="u_sub_classification" reference="x_enps_talent_enab_seek_job_classification" reference_qual="javascript:'parent='+current.u_classification;" type="reference" use_reference_qualifier="advanced"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Work Type" max_length="40" name="u_work_type" type="string">
+            <choice>
+                <element label="Casual/Vacation" sequence="1" value="Casual"/>
+                <element label="Contract/Temp" sequence="2" value="ContractTemp"/>
+                <element label="Full Time" sequence="3" value="FullTime"/>
+                <element label="Part Time" sequence="4" value="PartTime"/>
+            </choice>
+        </element>
         <index name="index">
-            <element name="knowledge_article"/>
+            <element name="u_classification"/>
         </index>
         <index name="index2">
-            <element name="job_roles"/>
+            <element name="knowledge_article"/>
         </index>
         <index name="index3">
-            <element name="industry"/>
+            <element name="u_location_area"/>
         </index>
         <index name="index4">
+            <element name="job_roles"/>
+        </index>
+        <index name="index5">
+            <element name="industry"/>
+        </index>
+        <index name="index6">
             <element name="location"/>
+        </index>
+        <index name="index7">
+            <element name="u_sub_classification"/>
         </index>
     </element>
 </database>

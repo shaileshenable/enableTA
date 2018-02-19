@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="INSERT_OR_UPDATE">
+        <action_name>creatordoc_oneclickzBwugb</action_name>
+        <active>false</active>
+        <client>true</client>
+        <comments/>
+        <condition>(gs.hasRole('x_enps_doc_exp.creatordoc_user'))&amp;&amp;(!current.isNewRecord())</condition>
+        <form_action>true</form_action>
+        <form_button>true</form_button>
+        <form_context_menu>false</form_context_menu>
+        <form_link>false</form_link>
+        <form_style/>
+        <hint/>
+        <list_action>false</list_action>
+        <list_banner_button>false</list_banner_button>
+        <list_button>false</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>false</list_context_menu>
+        <list_link>false</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <list_style/>
+        <name>OneClick</name>
+        <onclick>runWord(this.id)</onclick>
+        <order>100</order>
+        <script><![CDATA[function runWord(clicked_id){  if(g_form.modified){var a = confirm('Values on the form have changed. Press Ok to save this form and continue. Press Cancel to generate document with old values');if(a == true){g_form.save();return;}}var ga = new GlideAjax('x_enps_doc_exp.GetDocumentFormat');ga.addParam('sysparm_name','getData');ga.addParam('sysparm_id',g_form.getUniqueValue());ga.addParam('sysparm_buttonID',clicked_id);ga.addParam('sysparm_table',g_form.getTableName());ga.getXML(processData);}function processData(response){var answer = response.responseXML.documentElement.getAttribute('answer');window.open(answer, '_blank', 'resizable=yes, scrollbars=yes, titlebar=no, toolbar=no,width=1000, height=900,top=10, left=10');}]]></script>
+        <show_insert>true</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>astha.c@enableps.com.au</sys_created_by>
+        <sys_created_on>2017-08-04 04:46:59</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>087ca8be13d047000a165aff3244b062</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>OneClick</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sys_ui_action_087ca8be13d047000a165aff3244b062</sys_update_name>
+        <sys_updated_by>astha.c@enableps.com.au</sys_updated_by>
+        <sys_updated_on>2017-08-04 05:17:41</sys_updated_on>
+        <table>incident</table>
+        <ui11_compatible>true</ui11_compatible>
+        <ui16_compatible>false</ui16_compatible>
+    </sys_ui_action>
+</record_update>

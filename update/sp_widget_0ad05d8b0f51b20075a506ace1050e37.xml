@@ -126,7 +126,7 @@ IMG.img-sm {
         <name>Simple Acquisition List TA</name>
         <option_schema>[{"name":"always_show","label":"Show even when empty","type":"boolean"},{"name":"panel_body_height","label":"List body height","type":"string"},{"name":"image_field","label":"Image field","type":"field_name"},{"name":"secondary_fields","label":"Secondary fields","type":"field_list"},{"name":"rounded_images","label":"Rounded images","type":"boolean"},{"displayValue":"Page","name":"list_page","label":"List page","type":"reference","value":"sp_page","ed":{"reference":"sp_page"}},{"name":"hide_footer","label":"Hide Footer","type":"boolean"},{"displayValue":"UI View","hint":"View to use when target page is a form","name":"view","label":"View","type":"reference","value":"sys_ui_view","ed":{"reference":"sys_ui_view"}}]</option_schema>
         <public>false</public>
-        <roles/>
+        <roles>x_enps_talent_enab.Talent Enabler</roles>
         <script><![CDATA[(function () {
 	data.filterMsg = gs.getMessage("Filter...");
 	
@@ -135,7 +135,7 @@ IMG.img-sm {
 	if (!options.table)
 		return;
 
-	var gr = new GlideRecord(options.table); // does ACL checking for us
+	var gr = new GlideRecordSecure(options.table); // does ACL checking for us
 	if(!gr.isValid()) {
 		data.isValid = false;
 		return;
@@ -159,7 +159,7 @@ IMG.img-sm {
 
 	// Set ID of sp_page from option schema
 	if (options.list_page) {
-		var sp_page = GlideRecord('sp_page');
+		var sp_page = GlideRecordSecure('sp_page');
 		if (sp_page.get(options.list_page))
 			options.list_page_dv = sp_page.getDisplayValue('id');
 	}
@@ -258,15 +258,15 @@ IMG.img-sm {
         <sys_created_on>2017-03-08 22:56:10</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>0ad05d8b0f51b20075a506ace1050e37</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>12</sys_mod_count>
         <sys_name>Simple Acquisition List TA</sys_name>
         <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
         <sys_update_name>sp_widget_0ad05d8b0f51b20075a506ace1050e37</sys_update_name>
-        <sys_updated_by>astha.c@enableps.com.au</sys_updated_by>
-        <sys_updated_on>2017-06-09 06:55:39</sys_updated_on>
+        <sys_updated_by>shailesh.k</sys_updated_by>
+        <sys_updated_on>2017-11-29 06:48:38</sys_updated_on>
         <template><![CDATA[<div class="panel panel-{{::c.options.color}} b" ng-if="c.data.isValid && (c.options.always_show || c.data.filterText || c.data.list.length)">
   <div class="panel-heading" ng-if="::!c.options.hide_header">
     <h4 class="panel-title">      

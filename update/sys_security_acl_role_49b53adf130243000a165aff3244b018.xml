@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>shailesh.k</sys_created_by>
+        <sys_created_on>2017-11-01 03:53:45</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>49b53adf130243000a165aff3244b018</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_enps_talent_enab_incident_task.*.x_enps_talent_enab.Talent Enabler</sys_name>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_security_acl display_value="x_enps_talent_enab_incident_task">7544ba9f130243000a165aff3244b01b</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_49b53adf130243000a165aff3244b018</sys_update_name>
+        <sys_updated_by>shailesh.k</sys_updated_by>
+        <sys_updated_on>2017-11-01 03:53:45</sys_updated_on>
+        <sys_user_role display_value="x_enps_talent_enab.Talent Enabler" name="x_enps_talent_enab.Talent Enabler">f31836390fb1f20075a506ace1050ee0</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+</record_update>

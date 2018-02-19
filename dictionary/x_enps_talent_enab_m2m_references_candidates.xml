@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Talent Enab M2m References Candidates" max_length="40" name="x_enps_talent_enab_m2m_references_candidates" type="collection">
+        <element label="Candidate" max_length="32" name="u_candidate" reference="x_enps_talent_enab_candidate" type="reference"/>
+        <element label="Reference" max_length="32" name="u_reference" reference="x_enps_talent_enab_reference" type="reference"/>
+        <index name="index">
+            <element name="u_reference"/>
+        </index>
+        <index name="index2">
+            <element name="u_candidate"/>
+        </index>
+    </element>
+</database>

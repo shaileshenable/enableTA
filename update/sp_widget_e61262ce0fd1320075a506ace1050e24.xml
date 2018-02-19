@@ -104,7 +104,7 @@ margin: 0px;
         <docs/>
         <field_list/>
         <has_preview>true</has_preview>
-        <id>ta_header</id>
+        <id>ta-header</id>
         <internal>false</internal>
         <link><![CDATA[function(scope, element) {	
 	$(element).on('click.nav','.navbar-collapse.in',function(e) {	
@@ -127,7 +127,7 @@ margin: 0px;
         <name>Header TA</name>
         <option_schema/>
         <public>false</public>
-        <roles/>
+        <roles>x_enps_talent_enab.Talent Enabler</roles>
         <script><![CDATA[// Defines the support queue ID that will be linked to by the Live Chat link in header
 data.connect_support_queue_id = $sp.getValue('sp_chat_queue');
 data.login_page = $sp.getValue('login_page');
@@ -154,15 +154,15 @@ data.typeahead = $sp.getWidgetFromInstance('typeahead-search');]]></script>
         <sys_created_on>2017-03-06 02:17:15</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>e61262ce0fd1320075a506ace1050e24</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>Header TA</sys_name>
         <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
         <sys_update_name>sp_widget_e61262ce0fd1320075a506ace1050e24</sys_update_name>
-        <sys_updated_by>astha.c@enableps.com.au</sys_updated_by>
-        <sys_updated_on>2017-06-09 06:55:39</sys_updated_on>
+        <sys_updated_by>shailesh.k</sys_updated_by>
+        <sys_updated_on>2017-11-20 07:41:54</sys_updated_on>
         <template><![CDATA[<div>
   <nav class="navbar" ng-class="::{'navbar':!isViewNative, 'is-native': isViewNative}"
        role="navigation">

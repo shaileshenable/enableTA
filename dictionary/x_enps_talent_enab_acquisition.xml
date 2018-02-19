@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <element audit="true" extends="task" label="Acquisition" max_length="40" name="x_enps_talent_enab_acquisition" sizeclass="14" type="collection">
+    <element audit="true" extends="task" label="Acquisition" max_length="40" name="x_enps_talent_enab_acquisition" sizeclass="39" text_index="true" type="collection">
         <element label="Job Specification" max_length="32" name="job_specification" reference="x_enps_talent_enab_job_specification" type="reference"/>
     </element>
 </database>

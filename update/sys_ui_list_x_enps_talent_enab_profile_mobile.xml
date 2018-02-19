@@ -4,7 +4,7 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>candidate</element>
-            <list_id display_value="x_enps_talent_enab_profile" element="NULL" name="x_enps_talent_enab_profile" parent="NULL" relationship="NULL" sys_domain="global" view="fa3a17000f130200429009bce1050e56">b9808f820f55320075a506ace1050ed6</list_id>
+            <list_id display_value="x_enps_talent_enab_profile" element="NULL" name="x_enps_talent_enab_profile" parent="NULL" relationship="NULL" sys_domain="global" view="89c21433a8033200a21c40382c84b8a6">b9808f820f55320075a506ace1050ed6</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>0</position>
@@ -43,7 +43,7 @@
             <sys_updated_by>astha.c@enableps.com.au</sys_updated_by>
             <sys_updated_on>2017-07-31 06:31:08</sys_updated_on>
             <sys_user/>
-            <view display_value="Mobile" name="Mobile">fa3a17000f130200429009bce1050e56</view>
+            <view display_value="Mobile" name="Mobile">89c21433a8033200a21c40382c84b8a6</view>
             <view_name/>
         </sys_ui_list>
     </sys_ui_list>

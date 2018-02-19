@@ -84,7 +84,7 @@
         <name>Homepage Search TA</name>
         <option_schema>[{"name":"typeahead_search","default_value":"{title: 'How can we help?', size: 'lg', color: 'default'}","label":"Typeahead Search","type":"string"},{"hint":"Balance your search results","name":"skill_weighting_for_search","default_value":"50","label":"Skill Weighting for Search","type":"integer"}]</option_schema>
         <public>false</public>
-        <roles/>
+        <roles>x_enps_talent_enab.Talent Enabler</roles>
         <script><![CDATA[data.typeAheadSearch = $sp.getWidget('typeahead-search-ta', options.typeahead_search);]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
@@ -92,15 +92,15 @@
         <sys_created_on>2017-03-06 20:39:02</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>754e52d20f1d320075a506ace1050ea6</sys_id>
-        <sys_mod_count>57</sys_mod_count>
+        <sys_mod_count>58</sys_mod_count>
         <sys_name>Homepage Search TA</sys_name>
         <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
         <sys_update_name>sp_widget_754e52d20f1d320075a506ace1050ea6</sys_update_name>
-        <sys_updated_by>astha.c@enableps.com.au</sys_updated_by>
-        <sys_updated_on>2017-06-09 06:55:39</sys_updated_on>
+        <sys_updated_by>shailesh.k</sys_updated_by>
+        <sys_updated_on>2017-11-20 07:43:06</sys_updated_on>
         <template><![CDATA[<div id="homepage-search" class="hidden-xs wrapper-xl">  
   <div class="wrapper-xl">
   	<h1 class="text-center text-4x m-b-lg sp-tagline-color" ng-bind="options.title"></h1>

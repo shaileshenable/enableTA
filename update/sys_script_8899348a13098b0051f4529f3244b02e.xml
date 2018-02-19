@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>false</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_enps_talent_enab_m2m_interviews_candidates</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>TA_Update Parent Acq Short List</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+	
+	// Add your code here	
+	var cdtSysID=current.candidate;
+	var prntAcqID=current.interview.parent;
+	var shrtLstCdt=new GlideRecord('x_enps_talent_enab_m2m_acquisitions_candidates');
+	shrtLstCdt.addQuery('acquisition',prntAcqID);
+	shrtLstCdt.addQuery('candidate',cdtSysID);
+	shrtLstCdt.query();
+	if(shrtLstCdt.next())
+		{
+		shrtLstCdt.state='Interviewing';
+		shrtLstCdt.update();
+	}
+	else{	
+		shrtLstCdt.acquisition=prntAcqID;
+		shrtLstCdt.candidate=cdtSysID;
+		shrtLstCdt.state='Interviewing';
+		shrtLstCdt.active=true;
+		shrtLstCdt.insert();
+		}	
+	
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>shailesh.k</sys_created_by>
+        <sys_created_on>2017-09-08 04:36:51</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>8899348a13098b0051f4529f3244b02e</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>TA_Update Parent Acq Short List</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
+        <sys_update_name>sys_script_8899348a13098b0051f4529f3244b02e</sys_update_name>
+        <sys_updated_by>shailesh.k</sys_updated_by>
+        <sys_updated_on>2017-10-31 16:41:24</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=8899348a13098b0051f4529f3244b02e"/>
+</record_update>

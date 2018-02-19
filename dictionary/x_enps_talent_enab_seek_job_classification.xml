@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Seek Job Classification" max_length="40" name="x_enps_talent_enab_seek_job_classification" type="collection">
+        <element label="Parent" max_length="32" name="parent" reference="x_enps_talent_enab_seek_job_classification" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="ID" max_length="40" name="u_id" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Name" max_length="40" name="u_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Type" max_length="40" name="u_type" type="string">
+            <choice>
+                <element label="Classification" sequence="1" value="Classification"/>
+                <element label="Sub Classification" sequence="1" value="SubClassification"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="u_name"/>
+        </index>
+        <index name="index2">
+            <element name="parent"/>
+        </index>
+        <index name="index3">
+            <element name="u_id"/>
+        </index>
+    </element>
+</database>

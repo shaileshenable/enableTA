@@ -73,7 +73,7 @@ input[name="a"] {&#13;
         <name>Typeahead Search TA</name>
         <option_schema>[{"name":"title","label":"Title","type":"string"},{"name":"color","label":"Color","type":"string"},{"name":"glyph","label":"glyph","type":"string"},{"name":"size","label":"Size","type":"string"},{"hint":"Number of typeahead search results returned (default 15)","name":"limit","label":"Limit","type":"integer"}]</option_schema>
         <public>false</public>
-        <roles/>
+        <roles>x_enps_talent_enab.Talent Enabler</roles>
         <script><![CDATA[(function() {
 	data.searchType = $sp.getParameter("t");
 
@@ -85,7 +85,7 @@ input[name="a"] {&#13;
 	if (!input) {
 		data.typeaheadTemplates = {};
 
-		var searchGroupTemplatesGR = new GlideRecord("sp_search_source");
+		var searchGroupTemplatesGR = new GlideRecordSecure("sp_search_source");
 		searchGroupTemplatesGR.query();
 		while(searchGroupTemplatesGR.next()) {
 			//if (searchGroupTemplatesGR.getElement("advanced_typeahead_config").getDisplayValue() == "true")
@@ -103,14 +103,14 @@ input[name="a"] {&#13;
 	if (!$sp.getPortalRecord()) {
 		useDefaultPortals = true;
 	} else {
-		var searchSourcesForPortalGR = new GlideRecord("m2m_sp_portal_search_source");
+		var searchSourcesForPortalGR = new GlideRecordSecure("m2m_sp_portal_search_source");
 		searchSourcesForPortalGR.addQuery("sp_portal", $sp.getPortalRecord().getUniqueValue());
 		searchSourcesForPortalGR.query();
 		useDefaultPortals = searchSourcesForPortalGR.getRowCount() == 0;
 	}
 
 	if (useDefaultPortals) {
-		var defaultSearchSourceGR = new GlideRecord("sp_search_source");
+		var defaultSearchSourceGR = new GlideRecordSecure("sp_search_source");
 		var defaultSearchSourceIDList = gs.getProperty("glide.service_portal.default_search_sources", "");
 		defaultSearchSourceGR.addQuery("sys_id", "IN", defaultSearchSourceIDList);
 		defaultSearchSourceGR.addQuery("enable_typeahead", true);
@@ -119,7 +119,7 @@ input[name="a"] {&#13;
 			getResults(defaultSearchSourceGR);
 		}
 	} else {
-		var m2mSearchSourceGR = new GlideRecord("m2m_sp_portal_search_source");
+		var m2mSearchSourceGR = new GlideRecordSecure("m2m_sp_portal_search_source");
 		m2mSearchSourceGR.addQuery("sp_search_source.enable_typeahead", true);
 		m2mSearchSourceGR.addQuery("sp_portal", $sp.getPortalRecord().getUniqueValue());
 		m2mSearchSourceGR.query();
@@ -229,15 +229,15 @@ input[name="a"] {&#13;
         <sys_created_on>2017-03-14 22:33:57</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>4345444d0fe5720075a506ace1050eb6</sys_id>
-        <sys_mod_count>50</sys_mod_count>
+        <sys_mod_count>54</sys_mod_count>
         <sys_name>Typeahead Search TA</sys_name>
         <sys_package display_value="Talent Enabler" source="x_enps_talent_enab">aa97f9bb4f39ba0079047ab28110c7f3</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Talent Enabler">aa97f9bb4f39ba0079047ab28110c7f3</sys_scope>
         <sys_update_name>sp_widget_4345444d0fe5720075a506ace1050eb6</sys_update_name>
-        <sys_updated_by>astha.c@enableps.com.au</sys_updated_by>
-        <sys_updated_on>2017-06-09 06:55:39</sys_updated_on>
+        <sys_updated_by>shailesh.k</sys_updated_by>
+        <sys_updated_on>2017-11-29 06:55:30</sys_updated_on>
         <template><![CDATA[<form method="get" action="?"> 
   <input type="hidden" name="id" value="search_ta"/>
   <input type="hidden" name="t" value="{{data.searchType}}"/>   
